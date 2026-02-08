@@ -2,9 +2,9 @@
   <section id="how-it-works" class="bg-brand-light py-24 sm:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl lg:text-center">
-        <h2 class="text-base font-semibold leading-7 text-brand-primary">How It Works</h2>
+        <h2 class="text-base font-semibold leading-7 text-brand-primary">Workflow</h2>
         <p class="mt-2 text-3xl font-bold tracking-tight text-brand-dark sm:text-4xl">
-          Three steps to your new identity
+          Secure sharing in three steps
         </p>
       </div>
       <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -25,16 +25,16 @@
 <script setup lang="ts">
 const steps = [
   {
-    title: 'Enter Your Info',
-    description: 'Paste your LinkedIn URL or upload your current resume. Our AI analyzes your experience instantly.'
+    title: 'Upload Document',
+    description: 'Securely upload your contracts, proposals, or financial reports to our encrypted vault.'
   },
   {
-    title: 'Generate Assets',
-    description: 'Watch as our AI crafts a tailored resume and builds a stunning personal portfolio website.'
+    title: 'Set Controls',
+    description: 'Add watermarks, disable downloading, and set expiration times or password protection.'
   },
   {
-    title: 'Launch & Share',
-    description: 'Connect your custom domain and share your professional link with recruiters and the world.'
+    title: 'Send & Track',
+    description: 'Share a secure link and watch in real-time as recipients interact with your document.'
   }
 ]
 </script>

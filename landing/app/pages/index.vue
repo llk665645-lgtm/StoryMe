@@ -18,9 +18,9 @@ import CTASection from '~/components/CTASection.vue'
 import AppFooter from '~/components/AppFooter.vue'
 
 useHead({
-  title: 'AI Resume & Portfolio Builder',
+  title: 'Secure Document Sharing & Control',
   meta: [
-    { name: 'description', content: 'Create your professional identity in minutes with AI-generated resumes and portfolios.' }
+    { name: 'description', content: 'Securely share, track, and manage your sensitive documents. Revoke access instantly and get detailed analytics.' }
   ]
 })
 </script>
