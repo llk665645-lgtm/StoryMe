@@ -1,16 +1,39 @@
 @import "tailwindcss";
 
+:root {
+    --color-claret-50: #fdf4f3;
+    --color-claret-100: #faebe9;
+    --color-claret-200: #f5d8d6;
+    --color-claret-300: #edb6b4;
+    --color-claret-400: #e38a89;
+    --color-claret-500: #d45f61;
+    --color-claret-600: #bf3f47;
+    --color-claret-700: #a0303a;
+    --color-claret-800: #862b36;
+    --color-claret-900: #782935;
+    --color-claret-950: #401117;
+}
+
 @theme {
-    --color-brand-primary: #4f46e5;
-    /* Indigo 600 */
-    --color-brand-primary-hover: #4338ca;
-    /* Indigo 700 */
-    --color-brand-dark: #0f172a;
-    /* Slate 900 */
-    --color-brand-light: #f8fafc;
-    /* Slate 50 */
-    --color-brand-gray: #64748b;
-    /* Slate 500 */
+    /* Expose the raw palette */
+    --color-claret-50: var(--color-claret-50);
+    --color-claret-100: var(--color-claret-100);
+    --color-claret-200: var(--color-claret-200);
+    --color-claret-300: var(--color-claret-300);
+    --color-claret-400: var(--color-claret-400);
+    --color-claret-500: var(--color-claret-500);
+    --color-claret-600: var(--color-claret-600);
+    --color-claret-700: var(--color-claret-700);
+    --color-claret-800: var(--color-claret-800);
+    --color-claret-900: var(--color-claret-900);
+    --color-claret-950: var(--color-claret-950);
+
+    /* Semantic mappings */
+    --color-brand-primary: var(--color-claret-600);
+    --color-brand-primary-hover: var(--color-claret-700);
+    --color-brand-dark: var(--color-claret-950);
+    --color-brand-light: var(--color-claret-50);
+    --color-brand-gray: var(--color-claret-800);
 
     --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
