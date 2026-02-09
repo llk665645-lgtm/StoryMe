@@ -15,16 +15,6 @@ export default defineNuxtConfig({
     '@nuxt/a11y',
     '@nuxt/eslint',
     '@nuxt/fonts',
-    '@nuxt/image',
-    '@nuxtjs/i18n'
-  ],
-  i18n: {
-    locales: [
-      { code: 'en', file: 'en.json', name: 'English' },
-      { code: 'ru', file: 'ru.json', name: 'Русский' }
-    ],
-    defaultLocale: 'ru',
-    strategy: 'prefix_except_default',
-    langDir: 'locales',
-  }
+    '@nuxt/image'
+  ]
 });
