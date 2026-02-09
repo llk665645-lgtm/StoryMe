@@ -3,9 +3,15 @@
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl lg:text-center">
         <h2 class="text-base font-semibold leading-7 text-brand-primary">Uncompromised Security</h2>
-        <p class="mt-2 text-3xl font-bold tracking-tight text-brand-dark sm:text-4xl">
-          Protect what matters most
-        </p>
+        <div class="flex justify-center mt-2">
+            <BlurText
+              text="Protect what matters most"
+              class-name="text-3xl font-bold tracking-tight text-brand-dark sm:text-4xl text-center justify-center"
+              :delay="200"
+              animate-by="words"
+              direction="bottom"
+            />
+        </div>
         <p class="mt-6 text-lg leading-8 text-brand-gray">
           Maintain full ownership of your data with our advanced protection suite.
         </p>
@@ -32,6 +38,7 @@
 </template>
 
 <script setup lang="ts">
+import BlurText from './BlurText.vue'
 const features = [
   {
     name: 'Granular Access Control',
