@@ -3,16 +3,12 @@
     <div class="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <div class="flex flex-col items-center justify-center gap-2">
-          <BlurText
-            text="Stop wondering where your data is."
-            class-name="text-3xl font-bold tracking-tight text-white sm:text-4xl text-center justify-center"
-            :delay="200"
-          />
-          <BlurText
-            text="Take control today."
-            class-name="text-3xl font-bold tracking-tight text-white sm:text-4xl text-center justify-center"
-            :delay="400"
-          />
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl text-center justify-center">
+            Stop wondering where your data is.
+          </h2>
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl text-center justify-center">
+            Take control today.
+          </h2>
         </div>
         <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-brand-light/90">
           Join 10,000+ organizations securing their critical documents with our platform.
@@ -31,7 +27,5 @@
 </template>
 
 <script setup lang="ts">
-
-import BlurText from './BlurText.vue'
 // CTA Section
 </script>

@@ -4,13 +4,9 @@
       <div class="mx-auto max-w-2xl lg:text-center">
         <h2 class="text-base font-semibold leading-7 text-brand-primary">Workflow</h2>
         <div class="flex justify-center mt-2">
-            <BlurText
-              text="Secure sharing in three steps"
-              class-name="text-3xl font-bold tracking-tight text-brand-dark sm:text-4xl text-center justify-center"
-              :delay="200"
-              animate-by="words"
-              direction="bottom"
-            />
+            <p class="text-3xl font-bold tracking-tight text-brand-dark sm:text-4xl text-center justify-center">
+              Secure sharing in three steps
+            </p>
         </div>
       </div>
       <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -29,7 +25,6 @@
 </template>
 
 <script setup lang="ts">
-import BlurText from './BlurText.vue'
 const steps = [
   {
     title: 'Upload Document',

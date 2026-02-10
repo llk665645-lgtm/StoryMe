@@ -4,7 +4,7 @@
       v-for="item in trail"
       :key="item.id"
       class="text-cursor-item absolute select-none will-change-transform text-3xl"
-      :ref="(el) => animateItem(el as HTMLElement, item)"
+      :ref="(el) => animateItem(el, item)"
     >
       {{ text }}
     </div>
@@ -17,7 +17,7 @@ import gsap from 'gsap';
 
 interface TextCursorProps {
   text?: string;
-  delay?: number; // Not used directly in GSAP here, but kept for API compatibility
+  delay?: number;
   spacing?: number;
   followMouseDirection?: boolean;
   randomFloat?: boolean;
@@ -39,7 +39,7 @@ const props = withDefaults(defineProps<TextCursorProps>(), {
   followMouseDirection: true,
   randomFloat: true,
   exitDuration: 0.8,
-  maxPoints: 50 // Increased safety limit
+  maxPoints: 50
 });
 
 const trail = ref<TrailItem[]>([]);
@@ -68,8 +68,6 @@ const handleMouseMove = (e: MouseEvent) => {
     const angle = Math.atan2(dy, dx) * (180 / Math.PI);
     const steps = Math.floor(dist / props.spacing);
     
-    // Limit steps to prevent massive generation on drag
-    // Also respect maxPoints implicitly by safety check in addItem
     for (let i = 1; i <= steps; i++) {
         const t = (props.spacing * i) / dist;
         const newX = lastX + dx * t;
@@ -83,9 +81,6 @@ const handleMouseMove = (e: MouseEvent) => {
 };
 
 const addItem = (x: number, y: number, angle: number) => {
-  // Only shift if we exceed a safe upper bound (e.g., 50),
-  // regardless of requested maxPoints, to prevent visual cut-off.
-  // The 'maxPoints' prop is treated as a suggestion or safety cap.
   const SAFETY_LIMIT = Math.max(props.maxPoints, 50);
 
   if (trail.value.length > SAFETY_LIMIT) {
@@ -100,13 +95,14 @@ const addItem = (x: number, y: number, angle: number) => {
   });
 };
 
-const animateItem = (el: HTMLElement, item: TrailItem) => {
-  // Guard against null elements (unmounting) or re-animation
-  if (!el || el.dataset.animated) return;
-  el.dataset.animated = 'true';
+const animateItem = (el: Element | ComponentPublicInstance | null, item: TrailItem) => {
+  if (!el) return;
+  const element = el as HTMLElement;
+  
+  if (element.dataset?.animated) return;
+  element.dataset.animated = 'true';
 
-  // Initial state
-  gsap.set(el, {
+  gsap.set(element, {
     x: item.x,
     y: item.y,
     rotation: item.angle,
@@ -114,22 +110,17 @@ const animateItem = (el: HTMLElement, item: TrailItem) => {
     opacity: 0
   });
 
-  // Timeline for entrance and exit
-  // Note: We use a simple timeline or chained tweens.
-  // Using explicit tweens gives better control over onComplete.
-  
-  gsap.to(el, {
+  gsap.to(element, {
     scale: 1,
     opacity: 1,
     duration: 0.1,
     ease: "power2.out",
     onComplete: () => {
-        // Exit animation
-        gsap.to(el, {
+        gsap.to(element, {
             x: item.x + (props.randomFloat ? (Math.random() * 60 - 30) : 0),
             y: item.y + (props.randomFloat ? (Math.random() * 60 - 30) : 0),
             opacity: 0,
-            scale: 0.2, // Shrink instead of disappear
+            scale: 0.2,
             rotation: item.angle + (props.randomFloat ? (Math.random() * 180 - 90) : 0),
             duration: props.exitDuration,
             ease: "power2.in",
@@ -154,6 +145,6 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('mousemove', handleMouseMove);
-  trail.value = []; // Clear trail
+  trail.value = [];
 });
 </script>
