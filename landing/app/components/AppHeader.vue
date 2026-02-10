@@ -24,10 +24,16 @@
 
         <!-- CTA Action -->
         <div class="flex items-center gap-4">
-          <button class="hidden sm:block text-sm font-semibold text-brand-dark hover:text-[#ba445b] transition-colors">
+          <button 
+            class="hidden sm:block text-sm font-semibold text-brand-dark hover:text-[#ba445b] transition-colors"
+            @click="openAuth('register')"
+          >
             Log in
           </button>
-          <button class="rounded-full bg-[#ba445b] px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:scale-105 active:scale-95">
+          <button 
+            class="rounded-full bg-[#ba445b] px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:scale-105 active:scale-95"
+            @click="openAuth('register')"
+          >
             Get Started
           </button>
           
@@ -51,12 +57,23 @@
         >
           {{ link.label }}
         </a>
+
         <hr class="border-border/50" />
-        <button class="w-full rounded-xl bg-[#ba445b] py-3 text-center font-bold text-white shadow-md">
+        <button 
+          class="w-full rounded-xl bg-[#ba445b] py-3 text-center font-bold text-white shadow-md"
+          @click="openAuth('register')"
+        >
           Get Started
         </button>
       </nav>
     </div>
+
+    <!-- Auth Modal -->
+    <AuthModal 
+      :is-open="isAuthOpen" 
+      :initial-mode="authMode" 
+      @close="isAuthOpen = false" 
+    />
   </header>
 </template>
 
@@ -65,12 +82,21 @@ import { ref, onMounted, onUnmounted } from 'vue';
 
 const scrolled = ref(false);
 const isMenuOpen = ref(false);
+const isAuthOpen = ref(false);
+const authMode = ref<'login' | 'register'>('register');
 
 const navLinks = [
   { label: 'Features', href: '#features' },
   { label: 'How it works', href: '#how-it-works' },
   { label: 'Pricing', href: '#pricing' },
 ];
+
+const openAuth = (mode: 'login' | 'register') => {
+  authMode.value = mode;
+  isAuthOpen.value = true;
+  isMenuOpen.value = false;
+};
+
 
 const handleScroll = () => {
   scrolled.value = window.scrollY > 20;
