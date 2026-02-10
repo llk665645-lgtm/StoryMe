@@ -119,7 +119,7 @@ onUnmounted(() => {
             class="w-full"
           >
             <div
-              class="text-2xl font-bold text-zinc-900 before:content-['\201C'] after:content-['\201D'] dark:text-zinc-100"
+              class="text-2xl font-bold text-[#ba445b] before:content-['\201C'] after:content-['\201D']"
             >
               {{ testimonial.quote }}
             </div>
@@ -129,7 +129,7 @@ onUnmounted(() => {
     </div>
     <div class="mt-4 flex w-full items-center justify-between gap-4 pt-12 md:pt-0">
       <button
-        class="group/button flex size-9 items-center justify-center rounded-full bg-[#ba445b] shadow-md transition-all hover:scale-110 active:scale-95"
+        class="group/button flex size-9 items-center justify-center rounded-full bg-[#ba445b] transition-all hover:scale-110 active:scale-95"
         @click="handlePrev"
       >
         <Icon
@@ -140,12 +140,12 @@ onUnmounted(() => {
 
       <!-- Name and Org -->
       <div class="flex flex-col items-center gap-1">
-        <span class="text-base font-semibold text-zinc-900 dark:text-zinc-100">{{ testimonials.at(active)?.name }}</span>
-        <span class="text-sm text-zinc-500 dark:text-zinc-400 font-medium">{{ testimonials.at(active)?.role }}</span>
+        <span class="text-base font-semibold text-[#ba445b]">{{ testimonials.at(active)?.name }}</span>
+        <span class="text-sm font-medium text-[#ba445b]/80">{{ testimonials.at(active)?.role }}</span>
       </div>
 
       <button
-        class="group/button flex size-9 items-center justify-center rounded-full bg-[#ba445b] shadow-md transition-all hover:scale-110 active:scale-95"
+        class="group/button flex size-9 items-center justify-center rounded-full bg-[#ba445b] transition-all hover:scale-110 active:scale-95"
         @click="handleNext"
       >
         <Icon

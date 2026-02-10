@@ -6,13 +6,14 @@
 
     <section class="py-24 bg-white">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="bg-background relative h-[500px] w-full overflow-hidden rounded-lg border">
+        <div class="bg-background relative h-[500px] w-full overflow-hidden">
           <div class="mt-[64px] flex justify-center px-12">
             <TestimonialSlider :testimonials="testimonials" />
           </div>
         </div>
       </div>
     </section>
+
 
     <CTASection />
     <AppFooter />
