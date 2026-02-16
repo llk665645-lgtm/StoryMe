@@ -1,6 +1,7 @@
 <template>
   <div class="bg-brand-light min-h-screen">
     <HeroSection />
+    <UniquenessSection />
     <FeaturesSection />
     <StepsSection />
 
@@ -28,6 +29,7 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { rand } from "@vueuse/core"
 import HeroSection from '~/components/HeroSection.vue'
+import UniquenessSection from '~/components/UniquenessSection.vue'
 import FeaturesSection from '~/components/FeaturesSection.vue'
 import StepsSection from '~/components/StepsSection.vue'
 

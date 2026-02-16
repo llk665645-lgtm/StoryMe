@@ -22,6 +22,7 @@
         "findingWisdom": "Creating post...",
         "findingVisual": "Designing visual...",
         "revealQuote": "Generate Post",
+        "generateVisualBtn": "Generate Visual",
         "wisdomOfGreats": "Wisdom & Humor",
         "saveAsImage": "Download Post",
         "share": "To Telegram",
@@ -85,6 +86,32 @@
             },
             {
                 "name": "Template Reusability",
+                "description": "Generate multiple posts in the same style quickly and easily."
+            }
+        ]
+    },
+    "uniqueness": {
+        "title": "Why QuoteShot?",
+        "subtitle": "The uniqueness of our AI-post generator",
+        "list": [
+            {
+                "name": "Ready-to-post in 1 Click",
+                "description": "Enter a topic → get a meme + quote + visual, ready for publication."
+            },
+            {
+                "name": "Targeted Trends",
+                "description": "Humor and motivation for teens, students, and youth; current trends and local culture."
+            },
+            {
+                "name": "Smart Combination",
+                "description": "AI selects text, jokes, and backgrounds; no manual editing needed."
+            },
+            {
+                "name": "Instant Mobility",
+                "description": "Get posts in Telegram, Instagram, or download in seconds."
+            },
+            {
+                "name": "Dynamic Templates",
                 "description": "Generate multiple posts in the same style quickly and easily."
             }
         ]

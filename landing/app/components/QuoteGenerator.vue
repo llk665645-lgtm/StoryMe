@@ -58,66 +58,52 @@
           leave-from-class="opacity-100 scale-100"
           leave-to-class="opacity-0 scale-95"
         >
-          <div v-if="generatedQuote" class="relative mt-8 group">
-            <!-- Visual Container -->
-            <div 
-              class="relative rounded-4xl bg-brand-dark shadow-2xl overflow-hidden min-h-[500px] flex flex-col items-center justify-center p-12 text-center transition-all duration-700"
-            >
-              <!-- Background Image -->
-              <div v-if="generatedQuote.visual" class="absolute inset-0 z-0">
-                <img 
-                  :src="generatedQuote.visual" 
-                  class="w-full h-full object-cover opacity-60 transition-transform duration-1000 group-hover:scale-110"
-                  alt="Post visual"
-                />
-                <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/40 via-brand-dark/60 to-brand-dark/80" />
-              </div>
+          <div v-if="generatedQuote" class="relative mt-8 p-12 rounded-4xl bg-white shadow-inner overflow-hidden min-h-[300px] flex flex-col items-center justify-center text-center">
+            <Icon name="lucide:quote" class="absolute top-8 left-8 size-12 opacity-10" :style="{ color: currentMoodColor }" />
+            
+            <blockquote class="relative z-10">
+              <p class="text-3xl md:text-4xl font-serif italic text-brand-dark leading-snug">
+                {{ generatedQuote.text }}
+              </p>
+              <footer class="mt-8 flex flex-col items-center gap-2">
+                <span class="text-xl font-bold text-brand-dark">— {{ generatedQuote.author }} —</span>
+                <span class="text-brand-gray font-medium tracking-wide uppercase text-[10px] opacity-60">
+                  {{ $t('generator.wisdomOfGreats') }}
+                </span>
+              </footer>
+            </blockquote>
 
-              <!-- Loading Visual Overlay -->
-              <div v-if="isGeneratingVisual" class="absolute inset-0 z-10 flex flex-col items-center justify-center bg-brand-dark/80 backdrop-blur-sm transition-all">
-                <Icon name="svg-spinners:ring-resize" class="size-12 text-primary mb-4" />
-                <span class="text-white font-medium animate-pulse">{{ $t('generator.findingVisual') || 'Generating visual...' }}</span>
-              </div>
-
-              <!-- Content -->
-              <div class="relative z-10">
-                <Icon name="lucide:quote" class="mx-auto mb-8 size-12 text-primary opacity-50" />
-                
-                <blockquote class="px-4">
-                  <p class="text-3xl md:text-5xl font-serif italic text-white leading-tight drop-shadow-lg">
-                    {{ generatedQuote.text }}
-                  </p>
-                  <footer class="mt-10 flex flex-col items-center gap-2">
-                    <span class="text-2xl font-bold text-white tracking-wide">— {{ generatedQuote.author }} —</span>
-                    <span class="text-primary/80 font-medium tracking-widest uppercase text-xs">
-                      {{ $t('generator.wisdomOfGreats') }}
-                    </span>
-                  </footer>
-                </blockquote>
-              </div>
-
-              <!-- Design Action (Floating) -->
-              <button 
-                @click="generateVisual"
-                class="absolute top-6 right-6 z-20 p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-primary transition-all shadow-lg"
-                title="Regenerate Design"
-              >
-                <Icon name="lucide:brush" class="size-6" />
-              </button>
+            <!-- Image visual if generated -->
+            <div v-if="generatedQuote.visual" class="mt-10 w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl border-4 border-white animate-in zoom-in slide-in-from-bottom-4 duration-700">
+               <img :src="generatedQuote.visual" class="w-full h-auto" />
             </div>
 
             <!-- Card Actions -->
-            <div class="mt-8 flex flex-wrap justify-center gap-4">
-              <button class="flex items-center gap-3 px-6 py-3 rounded-2xl bg-white hover:bg-brand-light border border-brand-dark/5 transition-all text-sm font-bold shadow-sm hover:shadow-md hover:-translate-y-0.5">
-                <Icon name="lucide:download" class="size-5 text-primary" />
+            <div class="mt-12 flex flex-wrap justify-center gap-4 relative z-10">
+              <button 
+                v-if="!generatedQuote.visual && !isGeneratingVisual"
+                @click="generateVisual"
+                class="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-white hover:bg-primary/90 transition-all text-sm font-semibold shadow-md"
+              >
+                <Icon name="lucide:brush" class="size-4" />
+                {{ $t('generator.generateVisualBtn') || 'Generate Design' }}
+              </button>
+
+              <div v-if="isGeneratingVisual" class="flex items-center gap-2 px-4 py-2 text-sm text-brand-gray italic bg-brand-light rounded-xl">
+                <Icon name="svg-spinners:90-ring-with-bg" class="size-4" />
+                {{ $t('generator.findingVisual') }}
+              </div>
+
+              <button class="flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-light hover:bg-white border border-brand-dark/5 transition-colors text-sm font-semibold">
+                <Icon name="lucide:download" class="size-4" />
                 {{ $t('generator.saveAsImage') }}
               </button>
-              <button class="flex items-center gap-3 px-6 py-3 rounded-2xl bg-primary text-white hover:bg-primary/90 transition-all text-sm font-bold shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5">
-                <Icon name="lucide:send" class="size-5" />
+              <button class="flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-light hover:bg-white border border-brand-dark/5 transition-colors text-sm font-semibold">
+                <Icon name="lucide:share-2" class="size-4" />
                 {{ $t('generator.share') }}
               </button>
-              <button class="flex items-center gap-3 px-6 py-3 rounded-2xl bg-white hover:bg-brand-light border border-brand-dark/5 transition-all text-sm font-bold shadow-sm hover:shadow-md hover:-translate-y-0.5">
-                <Icon name="lucide:copy" class="size-5 text-brand-gray" />
+              <button class="flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-light hover:bg-white border border-brand-dark/5 transition-colors text-sm font-semibold">
+                <Icon name="lucide:copy" class="size-4" />
                 {{ $t('generator.copyText') }}
               </button>
             </div>
@@ -176,12 +162,11 @@
     isGeneratingVisual.value = true
     
     // Simulate AI thinking time for design
-    await new Promise(resolve => setTimeout(resolve, 1200))
+    await new Promise(resolve => setTimeout(resolve, 1500))
     
     const keywords = moodKeywords[selectedMood.value] || 'abstract'
     const randomId = Math.floor(Math.random() * 1000)
-    // Using a reliable high-quality image placeholder that supports keywords
-    generatedQuote.value.visual = `https://loremflickr.com/1200/800/${keywords.split(',')[0]}?lock=${randomId}`
+    generatedQuote.value.visual = `https://loremflickr.com/800/800/${keywords.split(',')[0]}?lock=${randomId}`
     
     isGeneratingVisual.value = false
   }
@@ -190,10 +175,8 @@
     isGenerating.value = true
     generatedQuote.value = null
     
-    // Fast generation
     await new Promise(resolve => setTimeout(resolve, 800))
     
-    // In Nuxt i18n v9+, tm returns the actual array from the JSON if it exists
     const moodQuotes = tm(`generator.quotes.${selectedMood.value}`) as Quote[]
     
     if (moodQuotes && moodQuotes.length > 0) {
@@ -203,15 +186,11 @@
         text: quote.text, 
         author: quote.author 
       }
-      
-      // Automatically generate visual after quote is ready
-      generateVisual()
     } else {
       generatedQuote.value = { 
         text: "Stay positive and keep moving forward.", 
         author: "Unknown" 
       }
-      generateVisual()
     }
     
     isGenerating.value = false
