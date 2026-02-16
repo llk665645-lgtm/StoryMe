@@ -160,11 +160,11 @@
   const generatedQuote = ref<Quote | null>(null)
 
   const moodKeywords:Record<string, string> = {
-    motivation: 'gym-aesthetic,minimalist-workout,dark-academia,corporate-aesthetic',
-    inspiration: 'dreamy-aesthetic,ethereal-landscape,nebula-core,sunset-minimalist',
-    calm: 'scandi-interior,soft-minimalism,neutral-palette,zen-aesthetic',
-    confidence: 'streetwear-aesthetic,bold-fashion,urban-minimalist,architecture-minimal',
-    love: 'soft-aesthetic,vintage-romance,pastel-moodboard,aesthetic-cafe-vibe',
+    motivation: 'mountain-peak,climbing,adventure,running-trail,wilderness',
+    inspiration: 'forest-path,misty-mountains,sunrise-landscape,pine-trees,waterfall',
+    calm: 'serene-lake,nature-minimalism,green-forest,morning-dew,field-flowers',
+    confidence: 'ocean-cliff,desert-dunes,stormy-sky,wildlife-eagle,survival',
+    love: 'sunset-cliffs,wild-flowers,nature-romance,spring-bloom,scenery-aesthetic',
   }
 
   const currentMoodColor = computed(() => {
@@ -176,17 +176,20 @@
     if (!generatedQuote.value) return
     isGeneratingVisual.value = true
     
-    // Simulate AI searching Pinterest for aesthetic shots
-    await new Promise(resolve => setTimeout(resolve, 1800))
+    // Simulate searching for the perfect nature/motivation shot
+    await new Promise(resolve => setTimeout(resolve, 1500))
     
-    // Using aesthetic-specific keywords to mimic Pinterest's high-quality look
-    const moodTags = moodKeywords[selectedMood.value] || 'aesthetic'
+    // Using nature and motivation as core tags for all categories
+    const moodTags = moodKeywords[selectedMood.value] || 'nature'
     const tagArray = moodTags.split(',')
     const randomTag = tagArray[Math.floor(Math.random() * tagArray.length)]
-    const randomId = Math.floor(Math.random() * 10000)
     
-    // Using Unsplash source via LoremFlickr with 'pinterest' keyword added
-    generatedQuote.value.visual = `https://loremflickr.com/1000/1250/pinterest,${randomTag},aesthetic?lock=${randomId}`
+    // Using a much larger random range and adding multiple keywords to ensure variety
+    const randomId = Math.floor(Math.random() * 1000000)
+    const timestamp = Date.now()
+    
+    // Target Pinterest-style nature and motivation photography
+    generatedQuote.value.visual = `https://loremflickr.com/1000/1250/nature,motivation,${randomTag}?lock=${randomId}&t=${timestamp}`
     
     isGeneratingVisual.value = false
   }
