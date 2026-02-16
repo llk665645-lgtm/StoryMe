@@ -182,25 +182,11 @@
     image: ''
   })
 
-  const themeIcons: Record<string, string> = {
-    forest: 'lucide:tree-pine',
-    space: 'lucide:rocket',
-    ocean: 'lucide:waves',
-    dino: 'lucide:bone',
-    magic: 'lucide:sparkles',
-    super: 'lucide:zap'
-  }
+  const themeIcons: Record<string, string> = {}
 
   const themes = computed(() => (tm('generator.themes') || {}) as Record<string, string>)
 
-  const moodKeywords: Record<string, string> = {
-    forest: 'magical-forest,glowing-mushrooms,fairy-tale-woods,watercolor-illustration',
-    space: 'cosmic-adventure,astronaut-child,stars-and-planets,outer-space-watercolor',
-    ocean: 'underwater-kingdom,sea-creatures,magical-ocean,coral-reef-illustration',
-    dino: 'friendly-dinosaurs,prehistoric-jungle,ancient-world,dinosaur-watercolor',
-    magic: 'fairytale-castle,magic-wand,enchanted-garden,storybook-watercolor',
-    super: 'child-superhero,comic-book-style,heroic-city,superpower-illustration'
-  }
+
 
   const isFormValid = computed(() => {
     return form.name.length > 1 && form.favorites.length > 5
