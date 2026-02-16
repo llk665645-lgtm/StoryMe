@@ -168,12 +168,12 @@
   const themes = computed(() => (tm('generator.themes') || {}) as Record<string, string>)
 
   const moodKeywords: Record<string, string> = {
-    forest: 'enchanted-forest,moss,fairytale-light',
-    space: 'cosmic,stars,pastel-planets',
-    ocean: 'underwater,coral,magical-fish',
-    dino: 'prehistoric,friendly-dinosaurs,jungle',
-    magic: 'castle,fairies,sparkles,watercolor',
-    super: 'hero-city,comic-watercolor,capes'
+    forest: 'magical-forest,glowing-mushrooms,fairy-tale-woods,watercolor-illustration',
+    space: 'cosmic-adventure,astronaut-child,stars-and-planets,outer-space-watercolor',
+    ocean: 'underwater-kingdom,sea-creatures,magical-ocean,coral-reef-illustration',
+    dino: 'friendly-dinosaurs,prehistoric-jungle,ancient-world,dinosaur-watercolor',
+    magic: 'fairytale-castle,magic-wand,enchanted-garden,storybook-watercolor',
+    super: 'child-superhero,comic-book-style,heroic-city,superpower-illustration'
   }
 
   const isFormValid = computed(() => {
@@ -202,10 +202,8 @@
       .replace(/\[FAVOURITES\]/g, form.favorites)
       .replace(/\[THEME\]/g, (themes.value as any)[form.theme])
 
-    // 3. Generate Visual
-    const keywords = moodKeywords[form.theme] || 'watercolor'
-    const randomId = Math.floor(Math.random() * 1000000)
-    result.image = `https://loremflickr.com/1024/1024/children-illustration,${keywords}?lock=${randomId}`
+    // 3. Set Visual (Using local theme images)
+    result.image = `/images/themes/${form.theme}.webp`
 
     // 4. Final Processing Time
     await new Promise(resolve => setTimeout(resolve, 2000))
