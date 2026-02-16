@@ -48,10 +48,10 @@ interface UniquenessItem {
 
 const uniquenessList = computed(() => tm('uniqueness.list') as UniquenessItem[])
 const icons = [
-  'lucide:mouse-pointer-click',
-  'lucide:trending-up',
-  'lucide:cpu',
-  'lucide:smartphone',
-  'lucide:layers'
+  'lucide:target',
+  'lucide:mail',
+  'lucide:message-square',
+  'lucide:refresh-cw',
+  'lucide:maximize'
 ]
 </script>
