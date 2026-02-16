@@ -188,8 +188,16 @@
     
     // 2. Generate Content
     const demo = tm('generator.demo') as any
+    const themeStarters = demo.starters?.[form.theme]
+    const rawStarter = Array.isArray(themeStarters) 
+      ? themeStarters[Math.floor(Math.random() * themeStarters.length)]
+      : (themeStarters || '')
+    
+    const starterText = rawStarter.replace(/\[NAME\]/g, form.name)
+
     result.title = demo.title.replace('[NAME]', form.name)
     result.storyContent = demo.story
+      .replace('[STARTER]', starterText)
       .replace(/\[NAME\]/g, form.name)
       .replace(/\[FAVOURITES\]/g, form.favorites)
       .replace(/\[THEME\]/g, (themes.value as any)[form.theme])

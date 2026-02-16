@@ -36,8 +36,40 @@
             "super": "Superheroes"
         },
         "demo": {
-            "title": "Brave [NAME] in Wonderland",
-            "story": "Once upon a time, there was a brave hero named [NAME]. More than anything in the world, [NAME] loved [FAVOURITES]. One day, while exploring the [THEME], our hero discovered something amazing...\n\n(Here will be your unique 400-word story by Claude AI, where every interest of the child becomes part of the plot. The DALL-E 3 illustration will be created specifically for this story.)"
+            "title": "The Amazing Adventure of [NAME]",
+            "starters": {
+                "forest": [
+                    "One sunny morning, [NAME] wandered into the magical forest near their home. The trees whispered secrets, and tiny sparkling lights danced around. Suddenly, an angel appeared, smiling warmly...",
+                    "Deep in the enchanted woods, [NAME] stumbled upon a trail of glowing stones. Following them, the child met an angel who was painting butterfly wings in vivid colors...",
+                    "Sitting on soft moss under an old oak, [NAME] heard the gentle ringing of bells. It was a tiny angel descending from the branches to show the way to the kindest adventure..."
+                ],
+                "space": [
+                    "High above the clouds, [NAME] floated in their shiny space suit. Stars twinkled like diamonds, and a friendly angel waved from a spaceship. 'Welcome to the Cosmic Playground!' the angel said...",
+                    "While cruising past the rings of Saturn, [NAME] saw a bright light. It was the guardian angel of the stars, who was just lighting up new celestial bodies with a golden brush...",
+                    "Looking through the porthole, [NAME] noticed a figure with wings made of pure light. The angel waved cheerily and invited [NAME] for a ride on the tail of a passing comet..."
+                ],
+                "ocean": [
+                    "[NAME] dipped their toes into the sparkling blue ocean. Suddenly, a golden light appeared under the waves, and an angel with shimmering wings invited them to explore a hidden underwater kingdom...",
+                    "Among the coral reefs, [NAME] found a giant shell with a tiny sea angel sitting inside. The angel held out a glowing pearl and whispered, 'Time for the magic to begin'...",
+                    "Traveling on the back of a friendly dolphin, [NAME] saw a shining palace underwater. At its gates stood an angel in a crown of seashells, inviting them for the deepest dive in history..."
+                ],
+                "dino": [
+                    "In a land long ago, [NAME] tiptoed past gigantic ferns and towering trees. They spotted a gentle dinosaur with sparkling wings — an angel-dinosaur! 'Hello, [NAME], come with me!' it roared softly.",
+                    "Exploring the valley of sleeping volcanoes, [NAME] heard the flapping of enormous wings. It was a pterodactyl angel who landed nearby and offered a flight over the green jungles...",
+                    "In the thick ferns, [NAME] found a glowing egg. When it cracked, a tiny dinosaur with white fluffy wings emerged — a real forest angel..."
+                ],
+                "magic": [
+                    "Once upon a time, in a village full of laughter, [NAME] discovered a golden key under their bed. The key sparkled, and an angel appeared, saying, 'This key will unlock your own fairytale adventure...'",
+                    "Reading an ancient book in the attic, [NAME] noticed the pictures coming to life. An angel in a golden dress flew out of the page and turned the room into a fairytale castle...",
+                    "At the very edge of the rainbow, [NAME] found a lost magical slipper. In that same second, an assistant angel appeared and promised that today three most cherished wishes would come true..."
+                ],
+                "super": [
+                    "[NAME] put on their magical cape and looked in the mirror. Suddenly, an angel landed on the windowsill. 'Time to save the world, [NAME]!' the angel said, handing them a glowing shield...",
+                    "As shadows gathered over the city, [NAME] pressed a secret button on their watch. An angel in shining armor descended from the sky in a beam of light and said, 'Today we will protect the good together!'",
+                    "In their secret laboratory, [NAME] invented an invisibility elixir. Suddenly, a mentor angel appeared nearby and presented a real superhero mark of distinction..."
+                ]
+            },
+            "story": "[STARTER]\n\nAnd then the real magic began! [NAME] and the angel set off on their journey, taking along their favorite thing — [FAVOURITES]. Every step revealed new secrets of the [THEME]. Evening crept up unnoticed, and when it was time to rest, our hero fell asleep with a smile, knowing that many more wonders lay ahead."
         }
     },
     "uniqueness": {
