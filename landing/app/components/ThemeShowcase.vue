@@ -65,7 +65,14 @@ const { tm } = useI18n()
 
 const themes = computed(() => (tm('generator.themes') || {}) as Record<string, string>)
 
-const themeIcons: Record<string, string> = {}
+const themeIcons: Record<string, string> = {
+  forest: 'lucide:tree-pine',
+  space: 'lucide:rocket',
+  ocean: 'lucide:waves',
+  dino: 'lucide:bone',
+  magic: 'lucide:sparkles',
+  super: 'lucide:zap'
+}
 
 function scrollToGenerator() {
   const element = document.getElementById('generator')
