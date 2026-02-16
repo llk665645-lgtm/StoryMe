@@ -159,12 +159,12 @@
   const isGeneratingVisual = ref(false)
   const generatedQuote = ref<Quote | null>(null)
 
-  const moodKeywords: Record<string, string> = {
-    motivation: 'fitness,sport,grind,luxury-car,neon',
-    inspiration: 'sunset,galaxy,mountains,dreamy,bokeh',
-    calm: 'ocean,forest,nature,abstract-soft,rain',
-    confidence: 'cityscape,skyline,eagle,minimalist-black,suit',
-    love: 'romantic,sunset-beach,couple-holding-hands,flowers,aesthetic-cafe',
+  const moodKeywords:Record<string, string> = {
+    motivation: 'gym-aesthetic,minimalist-workout,dark-academia,corporate-aesthetic',
+    inspiration: 'dreamy-aesthetic,ethereal-landscape,nebula-core,sunset-minimalist',
+    calm: 'scandi-interior,soft-minimalism,neutral-palette,zen-aesthetic',
+    confidence: 'streetwear-aesthetic,bold-fashion,urban-minimalist,architecture-minimal',
+    love: 'soft-aesthetic,vintage-romance,pastel-moodboard,aesthetic-cafe-vibe',
   }
 
   const currentMoodColor = computed(() => {
@@ -176,13 +176,17 @@
     if (!generatedQuote.value) return
     isGeneratingVisual.value = true
     
-    // Simulate AI thinking time for design
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    // Simulate AI searching Pinterest for aesthetic shots
+    await new Promise(resolve => setTimeout(resolve, 1800))
     
-    const keywords = moodKeywords[selectedMood.value] || 'aesthetic'
-    const randomId = Math.floor(Math.random() * 5000)
-    // High quality aesthetic visuals
-    generatedQuote.value.visual = `https://loremflickr.com/800/1000/${keywords.split(',')[Math.floor(Math.random() * keywords.split(',').length)]}?lock=${randomId}`
+    // Using aesthetic-specific keywords to mimic Pinterest's high-quality look
+    const moodTags = moodKeywords[selectedMood.value] || 'aesthetic'
+    const tagArray = moodTags.split(',')
+    const randomTag = tagArray[Math.floor(Math.random() * tagArray.length)]
+    const randomId = Math.floor(Math.random() * 10000)
+    
+    // Using Unsplash source via LoremFlickr with 'pinterest' keyword added
+    generatedQuote.value.visual = `https://loremflickr.com/1000/1250/pinterest,${randomTag},aesthetic?lock=${randomId}`
     
     isGeneratingVisual.value = false
   }
