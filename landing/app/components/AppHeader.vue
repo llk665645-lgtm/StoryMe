@@ -7,17 +7,17 @@
       <div class="grid h-20 grid-cols-2 md:grid-cols-[1fr_auto_1fr] items-center">
         <!-- Logo -->
         <div class="flex items-center gap-2">
-          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ba445b] text-white shadow-lg">
-            <Icon name="lucide:shield-check" class="size-6" />
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white shadow-lg">
+            <Icon name="lucide:sparkles" class="size-6" />
           </div>
           <span class="text-xl font-bold tracking-tight text-brand-dark">
-            Do<span class="text-[#ba445b]">Cafe</span>
+            Mood<span class="text-primary">Quotes</span> AI
           </span>
         </div>
 
         <!-- Desktop Navigation - Perfectly Centered -->
         <nav class="hidden md:flex items-center justify-center gap-8 px-4">
-          <a v-for="link in navLinks" :key="link.href" :href="link.href" class="text-sm font-medium text-brand-gray hover:text-[#ba445b] transition-colors whitespace-nowrap">
+          <a v-for="link in navLinks" :key="link.href" :href="link.href" class="text-sm font-medium text-brand-gray hover:text-primary transition-colors whitespace-nowrap">
             {{ link.label }}
           </a>
         </nav>
@@ -25,13 +25,13 @@
         <!-- CTA Action -->
         <div class="flex items-center justify-end gap-4">
           <button 
-            class="hidden sm:block text-sm font-semibold text-brand-dark hover:text-[#ba445b] transition-colors"
+            class="hidden sm:block text-sm font-semibold text-brand-dark hover:text-primary transition-colors"
             @click="openAuth('register')"
           >
             Log in
           </button>
           <button 
-            class="rounded-full bg-[#ba445b] px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:scale-105 active:scale-95"
+            class="rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:scale-105 active:scale-95"
             @click="openAuth('register')"
           >
             Get Started
@@ -52,14 +52,14 @@
           v-for="link in navLinks" 
           :key="link.href" 
           :href="link.href" 
-          class="text-base font-medium text-brand-gray hover:text-[#ba445b]"
+          class="text-base font-medium text-brand-gray hover:text-primary"
           @click="isMenuOpen = false"
         >
           {{ link.label }}
         </a>
         <hr class="border-border/50" />
         <button 
-          class="w-full rounded-xl bg-[#ba445b] py-3 text-center font-bold text-white shadow-md"
+          class="w-full rounded-xl bg-primary py-3 text-center font-bold text-white shadow-md"
           @click="openAuth('register')"
         >
           Get Started

@@ -40,38 +40,31 @@ const testimonials = [
   {
     img: `https://randomuser.me/api/portraits/men/${getRandomNumber()}.jpg`,
     quote:
-      "The level of control we now have over our legal documents is unprecedented. Revoking access instantly has saved us from several potential data leaks.",
-    name: "James Morrison",
-    role: "Corporate Attorney, Morrison & Associates",
+      "This app literally changed my morning routine. Starting the day with a quote tailored to my mood gives me so much clarity.",
+    name: "Alex Rivera",
+    role: "Daily User",
   },
   {
     img: `https://randomuser.me/api/portraits/women/${getRandomNumber()}.jpg`,
     quote:
-      "Knowing exactly when and where our pitch decks are being viewed gives us a huge advantage during fundraising. It's an essential tool for any startup.",
-    name: "Elena Rodriguez",
-    role: "Founder, FinTech Global",
+      "The 'Confidence' category helps me prep for big meetings. It's like having a life coach in my pocket.",
+    name: "Sarah Jenkins",
+    role: "Entrepreneur",
   },
   {
     img: `https://randomuser.me/api/portraits/men/${getRandomNumber()}.jpg`,
     quote:
-      "Security is non-negotiable in healthcare. This platform provides the encryption and tracking we need to stay compliant while remaining incredibly easy to use.",
-    name: "Dr. Sarah Chen",
-    role: "Chief of Medicine, Metro Health",
-  },
-  {
-    img: `https://randomuser.me/api/portraits/men/${getRandomNumber()}.jpg`,
-    quote:
-      "We share sensitive financial reports daily. The ability to set expiration dates and disable downloads ensures our data stays exactly where it belongs.",
-    name: "Marcus Thorne",
-    role: "CFO, Peak Capital",
+      "I love generating these for my team. The AI really captures the right sentiment for every situation.",
+    name: "Michael Chen",
+    role: "Team Lead",
   },
 ]
 
 
 useHead({
-  title: 'Secure Document Sharing & Control',
+  title: 'MoodQuotes AI - Your Daily Inspiration',
   meta: [
-    { name: 'description', content: 'Securely share, track, and manage your sensitive documents. Revoke access instantly and get detailed analytics.' }
+    { name: 'description', content: 'Generate unique, AI-powered quotes tailored to your mood. Motivation, calm, and wisdom at your fingertips.' }
   ]
 })
 </script>

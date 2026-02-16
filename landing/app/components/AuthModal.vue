@@ -22,15 +22,15 @@
         :transition="{ type: 'spring', damping: 25, stiffness: 300 }"
       >
         <!-- Top accent bar -->
-        <div class="h-2 bg-[#ba445b]" />
+        <div class="h-2 bg-primary" />
 
         <div class="px-8 py-10">
           <div class="mb-8 text-center">
             <h2 class="text-3xl font-bold tracking-tight text-brand-dark">
-              {{ isLogin ? 'Welcome Back' : 'Create Account' }}
+              {{ isLogin ? 'Welcome Back' : 'Join the Community' }}
             </h2>
             <p class="mt-2 text-sm text-brand-gray">
-              {{ isLogin ? 'Enter your details to access your secure documents' : 'Start securing your sensitive data in minutes' }}
+              {{ isLogin ? 'Sign in to access your personalized wisdom' : 'Start your journey to daily inspiration' }}
             </p>
           </div>
 
@@ -39,8 +39,8 @@
               <label class="text-xs font-bold uppercase tracking-wider text-brand-gray ml-1">Full Name</label>
               <input 
                 type="text" 
-                placeholder="John Doe"
-                class="w-full rounded-xl border border-border bg-brand-light/50 px-4 py-3 text-sm transition-all focus:border-[#ba445b] focus:ring-2 focus:ring-[#ba445b]/20 outline-none"
+                placeholder="Mindful Soul"
+                class="w-full rounded-xl border border-border bg-brand-light/50 px-4 py-3 text-sm transition-all focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
               />
             </div>
 
@@ -48,8 +48,8 @@
               <label class="text-xs font-bold uppercase tracking-wider text-brand-gray ml-1">Email Address</label>
               <input 
                 type="email" 
-                placeholder="name@company.com"
-                class="w-full rounded-xl border border-border bg-brand-light/50 px-4 py-3 text-sm transition-all focus:border-[#ba445b] focus:ring-2 focus:ring-[#ba445b]/20 outline-none"
+                placeholder="you@example.com"
+                class="w-full rounded-xl border border-border bg-brand-light/50 px-4 py-3 text-sm transition-all focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
               />
             </div>
 
@@ -58,13 +58,13 @@
               <input 
                 type="password" 
                 placeholder="••••••••"
-                class="w-full rounded-xl border border-border bg-brand-light/50 px-4 py-3 text-sm transition-all focus:border-[#ba445b] focus:ring-2 focus:ring-[#ba445b]/20 outline-none"
+                class="w-full rounded-xl border border-border bg-brand-light/50 px-4 py-3 text-sm transition-all focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
               />
             </div>
 
             <button 
               type="submit"
-              class="group relative w-full overflow-hidden rounded-xl bg-[#ba445b] py-4 text-sm font-bold text-white shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
+              class="group relative w-full overflow-hidden rounded-xl bg-primary py-4 text-sm font-bold text-white shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               <span class="relative z-10">{{ isLogin ? 'Sign In' : 'Create Account' }}</span>
               <div class="absolute inset-0 -z-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
@@ -76,7 +76,7 @@
               {{ isLogin ? "Don't have an account?" : "Already have an account?" }}
             </span>
             <button 
-              class="font-bold text-[#ba445b] hover:underline"
+              class="font-bold text-primary hover:underline"
               @click="isLogin = !isLogin"
             >
               {{ isLogin ? 'Sign up' : 'Log in' }}

@@ -7,7 +7,7 @@
         </div>
       </nav>
       <p class="mt-10 text-center text-xs leading-5 text-gray-400">
-        &copy; 2026 AI Resume Builder, Inc. All rights reserved.
+        &copy; 2026 MoodQuotes AI. All rights reserved.
       </p>
     </div>
   </footer>
