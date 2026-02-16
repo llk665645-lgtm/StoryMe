@@ -318,7 +318,7 @@
             "fullName": "Полное имя",
             "fullNamePlaceholder": "Мудрая душа",
             "email": "Электронная почта",
-            "emailPlaceholder": "you@example.com",
+            "emailPlaceholder": "you{'@'}example.com",
             "password": "Пароль",
             "social": "Или продолжите через"
         }

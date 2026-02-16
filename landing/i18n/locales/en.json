@@ -318,7 +318,7 @@
             "fullName": "Full Name",
             "fullNamePlaceholder": "Mindful Soul",
             "email": "Email Address",
-            "emailPlaceholder": "you@example.com",
+            "emailPlaceholder": "you{'@'}example.com",
             "password": "Password",
             "social": "Or continue with"
         }
