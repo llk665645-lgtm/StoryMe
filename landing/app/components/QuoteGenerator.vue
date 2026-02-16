@@ -35,11 +35,11 @@
           <button
             @click="generateQuote"
             :disabled="isGenerating"
-            class="relative group px-8 py-4 rounded-full bg-brand-dark text-white font-bold text-lg overflow-hidden transition-all hover:scale-105 active:scale-95 disabled:opacity-50"
+            class="relative group px-10 py-5 rounded-full bg-brand-dark text-white font-bold text-xl overflow-hidden transition-all hover:scale-105 active:scale-95 disabled:opacity-50"
           >
-            <span class="relative z-10 flex items-center gap-2">
-              <Icon v-if="isGenerating" name="svg-spinners:90-ring-with-bg" class="size-5" />
-              <Icon v-else name="lucide:sparkles" class="size-5" />
+            <span class="relative z-10 flex items-center gap-3">
+              <Icon v-if="isGenerating" name="svg-spinners:90-ring-with-bg" class="size-6" />
+              <Icon v-else name="lucide:sparkles" class="size-6 text-primary" />
               {{ isGenerating ? $t('generator.findingWisdom') : $t('generator.revealQuote') }}
             </span>
             <div 
@@ -51,59 +51,73 @@
 
         <!-- Result Area -->
         <Transition
-          enter-active-class="transition duration-500 ease-out"
-          enter-from-class="opacity-0 translate-y-8 scale-95"
+          enter-active-class="transition duration-700 ease-out"
+          enter-from-class="opacity-0 translate-y-12 scale-95"
           enter-to-class="opacity-100 translate-y-0 scale-100"
           leave-active-class="transition duration-300 ease-in"
           leave-from-class="opacity-100 scale-100"
           leave-to-class="opacity-0 scale-95"
         >
-          <div v-if="generatedQuote" class="relative mt-8 p-12 rounded-4xl bg-white shadow-inner overflow-hidden min-h-[300px] flex flex-col items-center justify-center text-center">
-            <Icon name="lucide:quote" class="absolute top-8 left-8 size-12 opacity-10" :style="{ color: currentMoodColor }" />
+          <div v-if="generatedQuote" class="relative mt-8 flex flex-col items-center">
             
-            <blockquote class="relative z-10">
-              <p class="text-3xl md:text-4xl font-serif italic text-brand-dark leading-snug">
-                {{ generatedQuote.text }}
-              </p>
-              <footer class="mt-8 flex flex-col items-center gap-2">
-                <span class="text-xl font-bold text-brand-dark">— {{ generatedQuote.author }} —</span>
-                <span class="text-brand-gray font-medium tracking-wide uppercase text-[10px] opacity-60">
-                  {{ $t('generator.wisdomOfGreats') }}
-                </span>
-              </footer>
-            </blockquote>
+            <!-- 1. Aesthetic Photo -->
+            <div class="relative w-full max-w-2xl aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white group/photo">
+              <div v-if="isGeneratingVisual" class="absolute inset-0 z-10 flex flex-col items-center justify-center bg-brand-light/90 backdrop-blur-sm transition-all">
+                <Icon name="svg-spinners:ring-resize" class="size-16 text-primary mb-4" />
+                <span class="text-brand-dark font-bold animate-pulse text-lg">{{ $t('generator.findingVisual') }}</span>
+              </div>
+              
+              <img 
+                v-if="generatedQuote.visual"
+                :src="generatedQuote.visual" 
+                class="w-full h-full object-cover transition-transform duration-1000 group-hover/photo:scale-105"
+                alt="Aesthetic visual"
+              />
 
-            <!-- Image visual if generated -->
-            <div v-if="generatedQuote.visual" class="mt-10 w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl border-4 border-white animate-in zoom-in slide-in-from-bottom-4 duration-700">
-               <img :src="generatedQuote.visual" class="w-full h-auto" />
-            </div>
-
-            <!-- Card Actions -->
-            <div class="mt-12 flex flex-wrap justify-center gap-4 relative z-10">
-              <button 
-                v-if="!generatedQuote.visual && !isGeneratingVisual"
-                @click="generateVisual"
-                class="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-white hover:bg-primary/90 transition-all text-sm font-semibold shadow-md"
-              >
-                <Icon name="lucide:brush" class="size-4" />
-                {{ $t('generator.generateVisualBtn') || 'Generate Design' }}
-              </button>
-
-              <div v-if="isGeneratingVisual" class="flex items-center gap-2 px-4 py-2 text-sm text-brand-gray italic bg-brand-light rounded-xl">
-                <Icon name="svg-spinners:90-ring-with-bg" class="size-4" />
-                {{ $t('generator.findingVisual') }}
+              <!-- Floating Quote Overlay on Image -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 flex flex-col justify-end p-10">
+                 <Icon name="lucide:quote" class="size-10 text-white/40 mb-4" />
+                 <p class="text-2xl md:text-3xl font-serif italic text-white leading-tight drop-shadow-xl mb-6">
+                    {{ generatedQuote.text }}
+                 </p>
+                 <div class="flex items-center gap-3">
+                    <div class="w-10 h-[2px] bg-primary" />
+                    <span class="text-lg font-bold text-white tracking-wide uppercase">{{ generatedQuote.author }}</span>
+                 </div>
               </div>
 
-              <button class="flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-light hover:bg-white border border-brand-dark/5 transition-colors text-sm font-semibold">
-                <Icon name="lucide:download" class="size-4" />
+              <!-- Regenerate Visual Button -->
+              <button 
+                @click="generateVisual"
+                class="absolute top-6 right-6 z-20 p-4 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 text-white hover:bg-primary hover:border-transparent transition-all shadow-xl hover:rotate-90 duration-500"
+                :title="$t('generator.generateVisualBtn')"
+              >
+                <Icon name="lucide:refresh-cw" class="size-6" />
+              </button>
+            </div>
+
+            <!-- 2. Meme / Caption Text -->
+            <div class="mt-8 w-full max-w-2xl px-6 py-8 rounded-3xl bg-primary/5 border border-primary/10 relative overflow-hidden group">
+               <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <Icon name="lucide:message-circle" class="size-12" />
+               </div>
+               <p class="text-lg md:text-xl font-medium text-brand-dark leading-relaxed relative z-10 italic">
+                  {{ generatedQuote.caption }}
+               </p>
+            </div>
+
+            <!-- 3. Post Summary Actions -->
+            <div class="mt-10 flex flex-wrap justify-center gap-4 relative z-10">
+              <button class="flex items-center gap-3 px-8 py-4 rounded-2xl bg-brand-dark text-white hover:bg-brand-dark/90 transition-all text-sm font-bold shadow-xl hover:-translate-y-1">
+                <Icon name="lucide:download" class="size-5 text-primary" />
                 {{ $t('generator.saveAsImage') }}
               </button>
-              <button class="flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-light hover:bg-white border border-brand-dark/5 transition-colors text-sm font-semibold">
-                <Icon name="lucide:share-2" class="size-4" />
+              <button class="flex items-center gap-3 px-8 py-4 rounded-2xl bg-primary text-white hover:bg-primary/90 transition-all text-sm font-bold shadow-xl hover:-translate-y-1">
+                <Icon name="lucide:send" class="size-5" />
                 {{ $t('generator.share') }}
               </button>
-              <button class="flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-light hover:bg-white border border-brand-dark/5 transition-colors text-sm font-semibold">
-                <Icon name="lucide:copy" class="size-4" />
+              <button class="flex items-center gap-3 px-8 py-4 rounded-2xl bg-white hover:bg-brand-light border border-brand-dark/10 transition-all text-sm font-bold shadow-lg hover:-translate-y-1">
+                <Icon name="lucide:copy" class="size-5 text-brand-gray" />
                 {{ $t('generator.copyText') }}
               </button>
             </div>
@@ -128,6 +142,7 @@
   interface Quote {
     text: string
     author: string
+    caption: string
     visual?: string
   }
 
@@ -145,11 +160,11 @@
   const generatedQuote = ref<Quote | null>(null)
 
   const moodKeywords: Record<string, string> = {
-    motivation: 'fitness,sport,mountain',
-    inspiration: 'sunset,stars,nebula',
-    calm: 'forest,zen,waterfall',
-    confidence: 'business,eagle,city-skyline',
-    love: 'flowers,romance,couple',
+    motivation: 'fitness,sport,grind,luxury-car,neon',
+    inspiration: 'sunset,galaxy,mountains,dreamy,bokeh',
+    calm: 'ocean,forest,nature,abstract-soft,rain',
+    confidence: 'cityscape,skyline,eagle,minimalist-black,suit',
+    love: 'romantic,sunset-beach,couple-holding-hands,flowers,aesthetic-cafe',
   }
 
   const currentMoodColor = computed(() => {
@@ -164,9 +179,10 @@
     // Simulate AI thinking time for design
     await new Promise(resolve => setTimeout(resolve, 1500))
     
-    const keywords = moodKeywords[selectedMood.value] || 'abstract'
-    const randomId = Math.floor(Math.random() * 1000)
-    generatedQuote.value.visual = `https://loremflickr.com/800/800/${keywords.split(',')[0]}?lock=${randomId}`
+    const keywords = moodKeywords[selectedMood.value] || 'aesthetic'
+    const randomId = Math.floor(Math.random() * 5000)
+    // High quality aesthetic visuals
+    generatedQuote.value.visual = `https://loremflickr.com/800/1000/${keywords.split(',')[Math.floor(Math.random() * keywords.split(',').length)]}?lock=${randomId}`
     
     isGeneratingVisual.value = false
   }
@@ -175,7 +191,8 @@
     isGenerating.value = true
     generatedQuote.value = null
     
-    await new Promise(resolve => setTimeout(resolve, 800))
+    // Initial wait
+    await new Promise(resolve => setTimeout(resolve, 1000))
     
     const moodQuotes = tm(`generator.quotes.${selectedMood.value}`) as Quote[]
     
@@ -184,13 +201,19 @@
       const quote = moodQuotes[randomIndex] as Quote
       generatedQuote.value = { 
         text: quote.text, 
-        author: quote.author 
+        author: quote.author,
+        caption: quote.caption
       }
+      
+      // Automatically generate visual
+      generateVisual()
     } else {
       generatedQuote.value = { 
-        text: "Stay positive and keep moving forward.", 
-        author: "Unknown" 
+        text: "Stay focused and keep moving.", 
+        author: "Unknown",
+        caption: "A vibe is a vibe. Don't ruin it. ✨" 
       }
+      generateVisual()
     }
     
     isGenerating.value = false

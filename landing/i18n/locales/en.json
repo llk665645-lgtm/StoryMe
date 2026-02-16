@@ -7,9 +7,9 @@
         "getStarted": "Get Started"
     },
     "hero": {
-        "titlePrefix": "Your Instant",
-        "titleItalic": "Posts",
-        "description": "Enter a topic — get a ready-to-post meme, quote, and design in one click. Perfect for Telegram and Instagram."
+        "titlePrefix": "Ready Content",
+        "titleItalic": "in 1 Click",
+        "description": "Enter a topic — get an aesthetic visual + quote + meme, ready to publish on Telegram or Instagram."
     },
     "generator": {
         "moods": {
@@ -22,73 +22,53 @@
         "findingWisdom": "Creating post...",
         "findingVisual": "Designing visual...",
         "revealQuote": "Generate Post",
-        "generateVisualBtn": "Generate Visual",
-        "wisdomOfGreats": "Wisdom & Humor",
-        "saveAsImage": "Download Post",
+        "generateVisualBtn": "Refresh Design",
+        "wisdomOfGreats": "QuoteShot AI",
+        "saveAsImage": "Download",
         "share": "To Telegram",
         "copyText": "Copy",
         "quotes": {
             "motivation": [
                 {
                     "text": "It does not matter how slowly you go as long as you do not stop.",
-                    "author": "Confucius"
+                    "author": "Confucius",
+                    "caption": "When the deadline is tomorrow but you are still on slide one. We move! 🚀"
                 },
                 {
                     "text": "The only way to do great work is to love what you do.",
-                    "author": "Steve Jobs"
+                    "author": "Steve Jobs",
+                    "caption": "POV: Found a job where they pay you to watch memes. Dream or reality? 🍏"
                 }
             ],
             "inspiration": [
                 {
                     "text": "The best way to predict the future is to invent it.",
-                    "author": "Alan Kay"
+                    "author": "Alan Kay",
+                    "caption": "Me: Mom, I'm not skipping, I'm inventing my future. Mom: *Grabs slipper*"
                 }
             ],
             "calm": [
                 {
                     "text": "Empty your mind, be formless, shapeless — like water.",
-                    "author": "Bruce Lee"
+                    "author": "Bruce Lee",
+                    "caption": "Current mood: Monday. Trying to flow out of work unnoticed. 🌊"
                 }
             ],
             "confidence": [
                 {
                     "text": "Whether you think you can or you think you can't, you're right.",
-                    "author": "Henry Ford"
+                    "author": "Henry Ford",
+                    "caption": "When you check the comments and find zero haters. Confidence level: God mode. 😎"
                 }
             ],
             "love": [
                 {
                     "text": "Love all, trust a few, do wrong to none.",
-                    "author": "William Shakespeare"
+                    "author": "William Shakespeare",
+                    "caption": "Me looking at the last slice of pizza at 3 AM. True love exists. ❤️"
                 }
             ]
         }
-    },
-    "features": {
-        "title": "Why QuoteShot?",
-        "subtitle": "Everything you need for perfect social media content.",
-        "list": [
-            {
-                "name": "Ready-to-post in 1 Click",
-                "description": "Enter a topic → get a meme + quote + visual, ready for publication."
-            },
-            {
-                "name": "Audience-Tailored Trends",
-                "description": "Humor and motivation for teens and students, current trends and local culture."
-            },
-            {
-                "name": "Automatic Combination",
-                "description": "AI selects text, jokes, and backgrounds; no manual editing needed."
-            },
-            {
-                "name": "Mobile & Instant",
-                "description": "Get posts directly in Telegram, Instagram, or download in seconds."
-            },
-            {
-                "name": "Template Reusability",
-                "description": "Generate multiple posts in the same style quickly and easily."
-            }
-        ]
     },
     "uniqueness": {
         "title": "Why QuoteShot?",
@@ -112,6 +92,32 @@
             },
             {
                 "name": "Dynamic Templates",
+                "description": "Generate multiple posts in the same style quickly and easily."
+            }
+        ]
+    },
+    "features": {
+        "title": "Why QuoteShot?",
+        "subtitle": "Everything you need for perfect social media content.",
+        "list": [
+            {
+                "name": "Ready-to-post in 1 Click",
+                "description": "Enter a topic → get a meme + quote + visual, ready for publication."
+            },
+            {
+                "name": "Audience-Tailored Trends",
+                "description": "Humor and motivation for teens and students, current trends and local culture."
+            },
+            {
+                "name": "Automatic Combination",
+                "description": "AI selects text, jokes, and backgrounds; no manual editing needed."
+            },
+            {
+                "name": "Mobile & Instant",
+                "description": "Get posts directly in Telegram, Instagram, or download in seconds."
+            },
+            {
+                "name": "Template Reusability",
                 "description": "Generate multiple posts in the same style quickly and easily."
             }
         ]
