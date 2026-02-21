@@ -204,45 +204,67 @@
 
   @keyframes drift-slow-1 {
     0% {
-      transform: translateX(-10vw) translateY(0);
+      transform: translateX(0) translateY(0);
     }
 
     100% {
-      transform: translateX(110vw) translateY(5vh);
+      transform: translateX(100vw) translateY(5vh);
     }
   }
 
   @keyframes drift-slow-2 {
     0% {
-      transform: translateX(110vw) translateY(0);
+      transform: translateX(0) translateY(0);
     }
 
     100% {
-      transform: translateX(-20vw) translateY(-3vh);
+      transform: translateX(-100vw) translateY(-3vh);
     }
   }
 
   @keyframes drift-slow-3 {
     0% {
-      transform: translateX(-20vw) translateY(0);
+      transform: translateX(0) translateY(0);
     }
 
     100% {
-      transform: translateX(110vw) translateY(2vh);
+      transform: translateX(100vw) translateY(2vh);
+    }
+  }
+
+  /* Twinkle Animation for Stars */
+  --animate-twinkle: twinkle 3s ease-in-out infinite;
+
+  @keyframes twinkle {
+
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scale(0.8);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
     }
   }
 }
 
+/* Brighten UI for Kids */
+::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
 /* Story Typography */
 .story-paragraph {
-  @apply text-xl md:text-2xl leading-relaxed font-serif italic text-foreground/80 whitespace-pre-wrap;
+  @apply text-xl md:text-2xl leading-relaxed font-serif italic text-white/90 whitespace-pre-wrap;
   letter-spacing: -0.01em;
 }
 
 .story-paragraph::first-letter {
-  @apply text-7xl md:text-8xl font-bold float-left mr-4 leading-[0.65] pt-2 text-primary;
+  @apply text-7xl md:text-8xl font-bold float-left mr-4 leading-[0.65] pt-2 text-white;
   font-family: 'Instrument Serif', serif;
-  text-shadow: 4px 4px 0px var(--color-brand-100);
+  text-shadow: 4px 4px 0px rgba(100, 100, 255, 0.3);
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
   padding-bottom: 0.1em;
 }
@@ -255,10 +277,11 @@ h4,
 h5,
 h6 {
   font-family: 'Instrument Serif', sans-serif;
-
+  @apply text-white;
 }
 
 html,
 body {
   font-family: 'Google Sans', sans-serif;
+  @apply text-white/90;
 }

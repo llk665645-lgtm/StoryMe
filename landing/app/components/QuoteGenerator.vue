@@ -6,48 +6,67 @@
           <!-- Left Column -->
           <div class="flex flex-col gap-6 text-left">
             <div class="flex flex-col gap-2">
-               <label class="text-sm font-bold text-white/70 ml-1">{{ $t('generator.nameLabel') }}</label>
+               <label class="text-sm font-bold text-white ml-1">{{ $t('generator.nameLabel') }}</label>
                <input 
                  v-model="form.name"
                  type="text"
                  :placeholder="$t('generator.namePlaceholder')"
-                 class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:border-white/30 focus:bg-white/10 focus:ring-4 focus:ring-white/5 transition-all outline-none"
+                 class="w-full p-5 rounded-2xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-white/40 focus:bg-white/15 focus:ring-4 focus:ring-white/10 transition-all outline-none"
                />
             </div>
             <div class="flex flex-col gap-2">
-               <label class="text-sm font-bold text-white/70 ml-1">{{ $t('generator.ageLabel') }}</label>
+               <label class="text-sm font-bold text-white ml-1">{{ $t('generator.ageLabel') }}</label>
                <input 
                  v-model="form.age"
                  type="number"
                  min="2"
                  max="12"
-                 class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 text-white focus:border-white/30 focus:bg-white/10 focus:ring-4 focus:ring-white/5 transition-all outline-none"
+                 class="w-full p-5 rounded-2xl bg-white/10 border border-white/20 text-white focus:border-white/40 focus:bg-white/15 focus:ring-4 focus:ring-white/10 transition-all outline-none"
                />
             </div>
             <div class="flex flex-col gap-2">
-               <label class="text-sm font-bold text-white/70 ml-1">{{ $t('generator.favLabel') }}</label>
+               <label class="text-sm font-bold text-white ml-1">{{ $t('generator.favLabel') }}</label>
                <textarea 
                  v-model="form.favorites"
                  :placeholder="$t('generator.favPlaceholder')"
-                 class="w-full h-32 p-5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:border-white/30 focus:bg-white/10 focus:ring-4 focus:ring-white/5 transition-all outline-none resize-none"
+                 class="w-full h-32 p-5 rounded-2xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-white/40 focus:bg-white/15 focus:ring-4 focus:ring-white/10 transition-all outline-none resize-none"
                ></textarea>
+               <p v-if="form.favorites.length > 0 && form.favorites.length <= 5" class="text-[10px] text-orange-300 font-medium ml-1">
+                 {{ $t('generator.validationHint') }}
+               </p>
             </div>
           </div>
 
           <!-- Right Column (Themes) -->
           <div class="flex flex-col gap-4 text-left">
-             <label class="text-sm font-bold text-white/70 ml-1">{{ $t('generator.themeLabel') }}</label>
+             <label class="text-sm font-bold text-white ml-1">{{ $t('generator.themeLabel') }}</label>
              <div class="flex flex-col sm:flex-row gap-6">
                 <div class="grid grid-cols-2 gap-3 flex-1">
                    <button 
                      v-for="(label, key) in themes" 
                      :key="key"
                      @click="form.theme = key"
-                     class="flex flex-col items-center gap-3 p-5 rounded-2xl border transition-all group"
-                     :class="form.theme === key ? 'border-white bg-white/20' : 'border-white/5 hover:border-white/20 hover:bg-white/5'"
+                     class="flex flex-col items-center gap-3 p-5 rounded-2xl border transition-all group relative overflow-hidden"
+                     :class="[
+                       form.theme === key ? 'border-white/60 bg-white/25 shadow-lg scale-[1.02]' : 'border-white/10 hover:border-white/30 hover:bg-white/10',
+                       key === 'forest' && form.theme === key ? 'shadow-green-500/20' : '',
+                       key === 'space' && form.theme === key ? 'shadow-purple-500/20' : '',
+                       key === 'ocean' && form.theme === key ? 'shadow-blue-500/20' : '',
+                       key === 'dino' && form.theme === key ? 'shadow-orange-500/20' : '',
+                       key === 'magic' && form.theme === key ? 'shadow-pink-500/20' : '',
+                       key === 'super' && form.theme === key ? 'shadow-red-500/20' : ''
+                     ]"
                    >
-                      <Icon :name="(themeIcons[key] as string)" class="size-8 transition-transform group-hover:scale-110" :class="form.theme === key ? 'text-white' : 'text-white/40'" />
-                      <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-center" :class="form.theme === key ? 'text-white' : 'text-white/40'">{{ label }}</span>
+                      <div v-if="form.theme === key" class="absolute inset-0 opacity-20 bg-gradient-to-br" :class="[
+                        key === 'forest' ? 'from-green-400 to-emerald-600' : '',
+                        key === 'space' ? 'from-purple-400 to-indigo-600' : '',
+                        key === 'ocean' ? 'from-blue-400 to-cyan-600' : '',
+                        key === 'dino' ? 'from-orange-400 to-yellow-600' : '',
+                        key === 'magic' ? 'from-pink-400 to-rose-600' : '',
+                        key === 'super' ? 'from-red-400 to-orange-600' : ''
+                      ]"></div>
+                      <Icon :name="(themeIcons[key] as string)" class="size-8 transition-transform group-hover:scale-110 relative z-10" :class="form.theme === key ? 'text-white' : 'text-white/50'" />
+                      <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-center relative z-10" :class="form.theme === key ? 'text-white' : 'text-white/50'">{{ label }}</span>
                    </button>
                 </div>
              </div>
@@ -57,16 +76,24 @@
                 <button
                   @click="generateStory"
                   :disabled="isGenerating || !isFormValid"
-                  class="w-full relative group px-8 py-5 rounded-full bg-white text-dream-deep font-bold text-xl overflow-hidden transition-all hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(255,255,255,0.2)] active:scale-95 disabled:opacity-30 shadow-[0_8px_20px_rgba(0,0,0,0.25)]"
+                  class="w-full relative group px-8 py-5 rounded-full font-bold text-xl overflow-hidden transition-all shadow-[0_8px_30px_rgba(0,0,0,0.3)]"
+                  :class="[
+                    isFormValid 
+                      ? 'bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white hover:scale-[1.02] hover:shadow-purple-500/40 active:scale-95' 
+                      : 'bg-white/20 text-white/40 cursor-not-allowed border border-white/10'
+                  ]"
                 >
                   <span class="relative z-10 flex items-center justify-center gap-3">
                     <Icon v-if="isGenerating" name="svg-spinners:90-ring-with-bg" class="size-6" />
-                    <Icon v-else name="lucide:sparkles" class="size-6 text-dream-mid" />
+                    <Icon v-else :name="isFormValid ? 'lucide:sparkles' : 'lucide:lock'" class="size-6" />
                     {{ isGenerating ? $t('generator.processing') : $t('generator.processBtn') }}
                   </span>
+                  
+                  <!-- Gloss effect for active button -->
+                  <div v-if="isFormValid" class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 </button>
-                <div class="flex items-center justify-center gap-2 text-[10px] text-white/30 font-bold uppercase tracking-widest">
-                   <Icon name="lucide:shield-check" class="size-3" />
+                <div class="flex items-center justify-center gap-2 text-[10px] text-white/50 font-bold uppercase tracking-widest">
+                   <Icon name="lucide:shield-check" class="size-3 text-emerald-400" />
                    Secure AI Processing
                 </div>
              </div>

@@ -22,6 +22,7 @@
         "favLabel": "Favorite things / Interests",
         "favPlaceholder": "Cars, cats, ice cream...",
         "themeLabel": "Story Theme",
+        "validationHint": "Please write a bit more (minimum 6 characters)",
         "processBtn": "Create Story for $3",
         "processing": "AI is writing and drawing...",
         "resultHeader": "Your Personal Story",
