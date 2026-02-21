@@ -115,19 +115,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, computed } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { useAuth } from '~/composables/useAuth';
 
 const { t, locale: currentLocale, setLocale } = useI18n();
+const { isAuthOpen, authMode, triggerAuth, closeAuth } = useAuth();
 
 const scrolled = ref(false);
 const isMenuOpen = ref(false);
-const isAuthOpen = ref(false);
-const authMode = ref<'login' | 'register'>('register');
 
 const openAuth = (mode: 'login' | 'register') => {
-  authMode.value = mode;
-  isAuthOpen.value = true;
+  triggerAuth(mode);
   isMenuOpen.value = false;
 };
 
