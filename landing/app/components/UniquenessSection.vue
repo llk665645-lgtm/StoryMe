@@ -1,8 +1,6 @@
 <template>
   <section class="py-24 bg-white relative overflow-hidden">
-    <!-- Decorative elements -->
-    <div class="absolute top-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
-    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-y-1/2" />
+
 
     <div class="mx-auto max-w-7xl px-6 lg:px-8 relative">
       <div class="mx-auto max-w-2xl text-center mb-16">

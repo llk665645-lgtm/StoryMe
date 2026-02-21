@@ -1,14 +1,7 @@
 <template>
   <NuxtLayout>
     <AppHeader />
-    <TextCursor
-      :delay="0.01"
-      :spacing="80"
-      :follow-mouse-direction="true"
-      :random-float="true"
-      :exit-duration="0.5"
-      :max-points="10"
-    />
+
 
     <Analytics/>
     <NuxtPage />

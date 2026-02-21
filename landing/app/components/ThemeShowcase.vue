@@ -1,8 +1,6 @@
 <template>
   <section id="worlds" class="py-24 bg-white relative overflow-hidden">
-    <!-- Decorative background elements -->
-    <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+
 
     <div class="mx-auto max-w-7xl px-6 lg:px-8 relative">
       <div class="mx-auto max-w-2xl text-center mb-16">

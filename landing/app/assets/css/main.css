@@ -3,72 +3,72 @@
 @import "tailwindcss";
 
 :root {
-  /* Existing Palette */
-  --color-claret-50: #fdf4f3;
-  --color-claret-100: #faebe9;
-  --color-claret-200: #f5d8d6;
-  --color-claret-300: #edb6b4;
-  --color-claret-400: #e38a89;
-  --color-claret-500: #d45f61;
-  --color-claret-600: #bf3f47;
-  --color-claret-700: #a0303a;
-  --color-claret-800: #862b36;
-  --color-claret-900: #782935;
-  --color-claret-950: #401117;
+  /* Curious Blue Palette */
+  --color-curious-blue-50: #f0f9ff;
+  --color-curious-blue-100: #dff1ff;
+  --color-curious-blue-200: #b8e4ff;
+  --color-curious-blue-300: #7ad1ff;
+  --color-curious-blue-400: #34bbfc;
+  --color-curious-blue-500: #09a4f1;
+  --color-curious-blue-600: #0081cc;
+  --color-curious-blue-700: #0066a5;
+  --color-curious-blue-800: #045788;
+  --color-curious-blue-900: #0a4970;
+  --color-curious-blue-950: #062e4b;
 
-  /* Semantic Mappings for New Library (Shadcn-like tokens) */
-  --background: var(--color-claret-50);
-  --foreground: var(--color-claret-950);
+  /* Semantic Mappings */
+  --background: var(--color-curious-blue-50);
+  --foreground: var(--color-curious-blue-950);
 
   --card: #ffffff;
-  --card-foreground: var(--color-claret-950);
+  --card-foreground: var(--color-curious-blue-950);
 
   --popover: #ffffff;
-  --popover-foreground: var(--color-claret-950);
+  --popover-foreground: var(--color-curious-blue-950);
 
-  --muted: var(--color-claret-100);
-  --muted-foreground: var(--color-claret-600);
+  --muted: var(--color-curious-blue-100);
+  --muted-foreground: var(--color-curious-blue-600);
 
-  --accent: var(--color-claret-100);
-  --accent-foreground: var(--color-claret-900);
+  --accent: var(--color-curious-blue-100);
+  --accent-foreground: var(--color-curious-blue-900);
 
-  --border: var(--color-claret-200);
-  --input: var(--color-claret-200);
+  --border: var(--color-curious-blue-200);
+  --input: var(--color-curious-blue-200);
 
-  --primary: var(--color-claret-600);
+  --primary: var(--color-curious-blue-600);
   --primary-foreground: #ffffff;
 
-  --secondary: var(--color-claret-200);
-  --secondary-foreground: var(--color-claret-900);
+  --secondary: var(--color-curious-blue-200);
+  --secondary-foreground: var(--color-curious-blue-900);
 
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
-  --ring: var(--color-claret-600);
+  --ring: var(--color-curious-blue-600);
 
   --radius: 0.5rem;
 }
 
 @theme {
   /* Expose the raw palette */
-  --color-claret-50: var(--color-claret-50);
-  --color-claret-100: var(--color-claret-100);
-  --color-claret-200: var(--color-claret-200);
-  --color-claret-300: var(--color-claret-300);
-  --color-claret-400: var(--color-claret-400);
-  --color-claret-500: var(--color-claret-500);
-  --color-claret-600: var(--color-claret-600);
-  --color-claret-700: var(--color-claret-700);
-  --color-claret-800: var(--color-claret-800);
-  --color-claret-900: var(--color-claret-900);
-  --color-claret-950: var(--color-claret-950);
+  --color-brand-50: var(--color-curious-blue-50);
+  --color-brand-100: var(--color-curious-blue-100);
+  --color-brand-200: var(--color-curious-blue-200);
+  --color-brand-300: var(--color-curious-blue-300);
+  --color-brand-400: var(--color-curious-blue-400);
+  --color-brand-500: var(--color-curious-blue-500);
+  --color-brand-600: var(--color-curious-blue-600);
+  --color-brand-700: var(--color-curious-blue-700);
+  --color-brand-800: var(--color-curious-blue-800);
+  --color-brand-900: var(--color-curious-blue-900);
+  --color-brand-950: var(--color-curious-blue-950);
 
   /* Original Semantic mappings */
-  --color-brand-primary: var(--color-claret-600);
-  --color-brand-primary-hover: var(--color-claret-700);
-  --color-brand-dark: var(--color-claret-950);
-  --color-brand-light: var(--color-claret-50);
-  --color-brand-gray: var(--color-claret-800);
+  --color-brand-primary: var(--color-curious-blue-600);
+  --color-brand-primary-hover: var(--color-curious-blue-700);
+  --color-brand-dark: var(--color-curious-blue-950);
+  --color-brand-light: var(--color-curious-blue-50);
+  --color-brand-gray: var(--color-curious-blue-800);
 
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
