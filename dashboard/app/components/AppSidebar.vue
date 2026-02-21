@@ -16,6 +16,7 @@ import NavDocuments from '@/components/NavDocuments.vue'
 import NavMain from '@/components/NavMain.vue'
 import NavSecondary from '@/components/NavSecondary.vue'
 import NavUser from '@/components/NavUser.vue'
+import SidebarUsage from '@/components/SidebarUsage.vue'
 import {
   Sidebar,
   SidebarContent,
@@ -42,21 +43,25 @@ const data = {
       title: "My CVs",
       url: "/dashboard/cvs",
       icon: IconFileDescription,
+      badge: "3",
     },
     {
       title: "Job Tracker",
       url: "/dashboard/tracker",
       icon: IconReport,
+      badge: "12",
     },
     {
       title: "Cover Letters",
       url: "/dashboard/letters",
       icon: IconFileDescription,
+      badge: "5",
     },
     {
       title: "ATS Analysis",
       url: "/dashboard/analysis",
       icon: IconSparkles,
+      badge: "NEW",
     },
   ],
   navSecondary: [
@@ -107,6 +112,7 @@ const data = {
     </SidebarHeader>
     <SidebarContent>
       <NavMain :items="data.navMain" />
+      <SidebarUsage />
       <NavDocuments :items="data.documents" />
       <NavSecondary :items="data.navSecondary" class="mt-auto" />
     </SidebarContent>
