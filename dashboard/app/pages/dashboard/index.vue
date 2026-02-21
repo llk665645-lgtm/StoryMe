@@ -17,48 +17,39 @@ import {
 const data = [
   {
     id: 1,
-    header: "Frontend Engineer Resume",
-    type: "Tech",
+    header: "The Brave Little Dino",
+    type: "Fairytale",
     status: "Completed",
-    target: "Google",
-    limit: "98% Match",
-    reviewer: "AI Assistant",
+    target: "Alex (4)",
+    limit: "Watercolor",
+    reviewer: "Forest",
   },
   {
     id: 2,
-    header: "Product Manager Profile",
-    type: "Management",
-    status: "Reviewing",
-    target: "Meta",
-    limit: "85% Match",
-    reviewer: "AI Assistant",
+    header: "Starry Night Adventure",
+    type: "Educational",
+    status: "Completed",
+    target: "Sophia (6)",
+    limit: "Ink & Wash",
+    reviewer: "Space",
   },
   {
     id: 3,
-    header: "UX Designer Portfolio CV",
-    type: "Design",
-    status: "Completed",
-    target: "Airbnb",
-    limit: "92% Match",
-    reviewer: "AI Assistant",
+    header: "The Lost Key of Magic",
+    type: "Fantasy",
+    status: "In Progress",
+    target: "Leo (3)",
+    limit: "3D Render",
+    reviewer: "Fairytale",
   },
   {
     id: 4,
-    header: "Data Scientist Resume",
-    type: "Data",
-    status: "Draft",
-    target: "Amazon",
-    limit: "76% Match",
-    reviewer: "AI Assistant",
-  },
-  {
-    id: 5,
-    header: "Marketing Specialist CV",
-    type: "Marketing",
+    header: "Superhero for a Day",
+    type: "Action",
     status: "Completed",
-    target: "Netflix",
-    limit: "89% Match",
-    reviewer: "AI Assistant",
+    target: "Alex (4)",
+    limit: "Comic Style",
+    reviewer: "Superheroes",
   },
 ]
 
@@ -73,7 +64,7 @@ const data = [
   >
     <AppSidebar variant="inset" />
     <SidebarInset>
-      <SiteHeader />
+      <SiteHeader cta-text="Create Story" />
       <div class="flex flex-1 flex-col">
         <div class="@container/main flex flex-1 flex-col gap-2">
           <div class="flex flex-col gap-4 py-4 md:gap-6 md:py-6">

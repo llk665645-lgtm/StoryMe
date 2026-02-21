@@ -29,9 +29,9 @@ import {
 
 const data = {
   user: {
-    name: "John Doe",
-    email: "john@example.com",
-    avatar: "/avatars/user.jpg",
+    name: "Alex Parent",
+    email: "alex@example.com",
+    avatar: "/avatars/parent.jpg",
   },
   navMain: [
     {
@@ -40,28 +40,27 @@ const data = {
       icon: IconDashboard,
     },
     {
-      title: "My CVs",
-      url: "/dashboard/cvs",
+      title: "My Stories",
+      url: "/dashboard/stories",
       icon: IconFileDescription,
-      badge: "3",
-    },
-    {
-      title: "Job Tracker",
-      url: "/dashboard/tracker",
-      icon: IconReport,
       badge: "12",
     },
     {
-      title: "Cover Letters",
-      url: "/dashboard/letters",
-      icon: IconFileDescription,
-      badge: "5",
+      title: "Children Profiles",
+      url: "/dashboard/profiles",
+      icon: IconUsers,
+      badge: "3",
     },
     {
-      title: "ATS Analysis",
-      url: "/dashboard/analysis",
+      title: "Fairytale Themes",
+      url: "/dashboard/themes",
       icon: IconSparkles,
-      badge: "NEW",
+      badge: "6",
+    },
+    {
+      title: "Gallery",
+      url: "/dashboard/gallery",
+      icon: IconDatabase,
     },
   ],
   navSecondary: [
@@ -83,7 +82,7 @@ const data = {
       icon: IconCreditCard,
     },
     {
-      name: "Resume Tips",
+      name: "Storytelling Tips",
       url: "/dashboard/tips",
       icon: IconDatabase,
     },

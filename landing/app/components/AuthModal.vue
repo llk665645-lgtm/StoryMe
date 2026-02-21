@@ -138,7 +138,10 @@ watch(() => props.isOpen, (val) => {
 });
 
 const handleSubmit = () => {
-  // Logic placeholder
-  console.log('Auth submitted');
+  // Simulate auth delay
+  setTimeout(() => {
+    emit('close');
+    navigateTo('/dashboard');
+  }, 500);
 };
 </script>

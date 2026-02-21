@@ -29,6 +29,9 @@
           <NuxtLink to="/pricing" class="text-sm font-medium text-brand-gray hover:text-primary transition-colors whitespace-nowrap">
             {{ $t('header.pricing') }}
           </NuxtLink>
+          <NuxtLink to="/dashboard" class="text-sm font-medium text-brand-gray hover:text-primary transition-colors whitespace-nowrap">
+            {{ $t('header.dashboard') }}
+          </NuxtLink>
         </nav>
 
         <!-- CTA Action -->
@@ -81,6 +84,9 @@
         </NuxtLink>
         <NuxtLink to="/pricing" class="text-base font-medium text-brand-gray hover:text-primary" @click="isMenuOpen = false">
           {{ $t('header.pricing') }}
+        </NuxtLink>
+        <NuxtLink to="/dashboard" class="text-base font-medium text-brand-gray hover:text-primary" @click="isMenuOpen = false">
+          {{ $t('header.dashboard') }}
         </NuxtLink>
 
         <div class="flex items-center gap-2 mt-2">

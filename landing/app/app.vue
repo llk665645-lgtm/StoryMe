@@ -1,11 +1,10 @@
 <template>
-  <NuxtLayout>
-    <AppHeader />
-
-
-    <Analytics/>
-    <NuxtPage />
-  </NuxtLayout>
+  <div>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+    <Analytics />
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -18,9 +18,13 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/icon',
     '@nuxtjs/i18n',
-    '@nuxtjs/seo'
-
+    '@nuxtjs/seo',
+    'shadcn-nuxt'
   ],
+  shadcn: {
+    prefix: '',
+    componentDir: './app/components/ui',
+  },
   site: {
     url: 'https://storyme.ai', // Placeholder, update to actual if known
     name: 'StoryMe - AI Magical Stories for Kids',

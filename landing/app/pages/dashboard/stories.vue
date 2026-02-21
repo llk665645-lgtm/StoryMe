@@ -1,4 +1,7 @@
 <script setup lang="ts">
+definePageMeta({
+  layout: "dashboard",
+})
 import AppSidebar from "@/components/AppSidebar.vue"
 import DataTable from "@/components/DataTable.vue"
 import SiteHeader from "@/components/SiteHeader.vue"
@@ -9,33 +12,33 @@ import {
 import { Button } from '@/components/ui/button'
 import { IconPlus } from '@tabler/icons-vue'
 
-const cvs = [
+const stories = [
   {
     id: 1,
-    header: "Frontend Engineer Resume",
-    type: "Tech",
+    header: "The Brave Little Dino",
+    type: "Fairytale",
     status: "Completed",
-    target: "Google",
-    limit: "98% Match",
-    reviewer: "AI Assistant",
+    target: "Alex (4)",
+    limit: "Watercolor",
+    reviewer: "Forest",
   },
   {
     id: 2,
-    header: "Product Manager Profile",
-    type: "Management",
-    status: "Reviewing",
-    target: "Meta",
-    limit: "85% Match",
-    reviewer: "AI Assistant",
+    header: "Starry Night Adventure",
+    type: "Educational",
+    status: "Completed",
+    target: "Sophia (6)",
+    limit: "Ink & Wash",
+    reviewer: "Space",
   },
   {
     id: 3,
-    header: "UX Designer Portfolio CV",
-    type: "Design",
-    status: "Completed",
-    target: "Airbnb",
-    limit: "92% Match",
-    reviewer: "AI Assistant",
+    header: "The Lost Key of Magic",
+    type: "Fantasy",
+    status: "In Progress",
+    target: "Leo (3)",
+    limit: "3D Render",
+    reviewer: "Fairytale",
   },
 ]
 </script>
@@ -54,14 +57,16 @@ const cvs = [
         <div class="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
           <div class="flex items-center justify-between px-4 lg:px-6">
             <div>
-              <h1 class="text-2xl font-bold tracking-tight">My CVs</h1>
-              <p class="text-muted-foreground">Manage and tailor your professional resumes</p>
+              <h1 class="text-2xl font-bold tracking-tight">My Stories</h1>
+              <p class="text-muted-foreground">Manage your collection of magical children's stories</p>
             </div>
-            <Button>
-              <IconPlus class="mr-2 h-4 w-4" /> Create New CV
+            <Button as-child>
+              <NuxtLink to="/dashboard/stories/new">
+                <IconPlus class="mr-2 h-4 w-4" /> Create New Story
+              </NuxtLink>
             </Button>
           </div>
-          <DataTable :data="cvs" />
+          <DataTable :data="stories" />
         </div>
       </div>
     </SidebarInset>
