@@ -11,6 +11,9 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
     '@nuxtjs/seo'
   ],
+  ogImage: {
+    enabled: false
+  },
   shadcn: {
     prefix: '',
     componentDir: './app/components/ui',
