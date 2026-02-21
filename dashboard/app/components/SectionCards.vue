@@ -16,91 +16,89 @@ import {
   <div class="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:shadow-xs lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
     <Card class="@container/card">
       <CardHeader>
-        <CardDescription>Total Revenue</CardDescription>
+        <CardDescription>Stories Created</CardDescription>
         <CardTitle class="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-          $1,250.00
+          12
         </CardTitle>
         <CardAction>
           <Badge variant="outline">
             <IconTrendingUp />
-            +12.5%
+            +2 this week
           </Badge>
         </CardAction>
       </CardHeader>
       <CardFooter class="flex-col items-start gap-1.5 text-sm">
         <div class="line-clamp-1 flex gap-2 font-medium">
-          Trending up this month <IconTrendingUp class="size-4" />
+          Growing library <IconTrendingUp class="size-4" />
         </div>
         <div class="text-muted-foreground">
-          Visitors for the last 6 months
+          Total magical moments created
         </div>
       </CardFooter>
     </Card>
     <Card class="@container/card">
       <CardHeader>
-        <CardDescription>New Customers</CardDescription>
+        <CardDescription>Remaining Credits</CardDescription>
         <CardTitle class="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-          1,234
+          3
         </CardTitle>
         <CardAction>
-          <Badge variant="outline">
-            <IconTrendingDown />
-            -20%
+          <Badge variant="outline" class="text-orange-500 border-orange-200">
+            Top up
           </Badge>
         </CardAction>
       </CardHeader>
       <CardFooter class="flex-col items-start gap-1.5 text-sm">
         <div class="line-clamp-1 flex gap-2 font-medium">
-          Down 20% this period <IconTrendingDown class="size-4" />
+          Ready for more stories
         </div>
         <div class="text-muted-foreground">
-          Acquisition needs attention
+          Storyteller plan active
         </div>
       </CardFooter>
     </Card>
     <Card class="@container/card">
       <CardHeader>
-        <CardDescription>Active Accounts</CardDescription>
+        <CardDescription>Child Profiles</CardDescription>
         <CardTitle class="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-          45,678
+          3
         </CardTitle>
         <CardAction>
           <Badge variant="outline">
-            <IconTrendingUp />
-            +12.5%
+            <IconPlus class="size-3 mr-1" /> Add
           </Badge>
         </CardAction>
       </CardHeader>
       <CardFooter class="flex-col items-start gap-1.5 text-sm">
         <div class="line-clamp-1 flex gap-2 font-medium">
-          Strong user retention <IconTrendingUp class="size-4" />
+          Oliver, Sophia, Leo
         </div>
         <div class="text-muted-foreground">
-          Engagement exceed targets
+          Personalized per each child
         </div>
       </CardFooter>
     </Card>
     <Card class="@container/card">
       <CardHeader>
-        <CardDescription>Growth Rate</CardDescription>
+        <CardDescription>Favorite Theme</CardDescription>
         <CardTitle class="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-          4.5%
+          Forest
         </CardTitle>
         <CardAction>
           <Badge variant="outline">
-            <IconTrendingUp />
-            +4.5%
+            Popular
           </Badge>
         </CardAction>
       </CardHeader>
       <CardFooter class="flex-col items-start gap-1.5 text-sm">
         <div class="line-clamp-1 flex gap-2 font-medium">
-          Steady performance increase <IconTrendingUp class="size-4" />
+          Magic & Nature <IconTrendingUp class="size-4" />
         </div>
         <div class="text-muted-foreground">
-          Meets growth projections
+          Most used world theme
         </div>
       </CardFooter>
     </Card>
+
   </div>
 </template>

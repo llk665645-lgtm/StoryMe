@@ -15,6 +15,7 @@ export const schema = z.object({
 </script>
 
 <script setup lang="ts">
+import { h, ref } from 'vue'
 import type {
   ColumnDef,
   ColumnFiltersState,
