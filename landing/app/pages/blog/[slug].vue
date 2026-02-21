@@ -31,7 +31,7 @@
     <!-- Post Image -->
     <div class="mx-auto max-w-5xl px-6 lg:px-8 mt-8 relative z-10">
       <div class="aspect-[21/9] rounded-[3rem] overflow-hidden shadow-3xl border border-white/10">
-        <img :src="post.image" :alt="localizedContent.title" class="w-full h-full object-cover grayscale brightness-75 transition-all duration-1000 hover:grayscale-0 hover:brightness-100" />
+        <img :src="post.image" :alt="localizedContent.title" class="w-full h-full object-cover shadow-2xl" />
       </div>
     </div>
 

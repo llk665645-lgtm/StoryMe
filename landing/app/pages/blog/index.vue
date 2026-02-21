@@ -26,7 +26,7 @@
               <img 
                 :src="post.image" 
                 :alt="post.title" 
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 brightness-75 group-hover:brightness-100 grayscale hover:grayscale-0" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
               />
             </div>
             <div class="p-10 flex-1 flex flex-col">
