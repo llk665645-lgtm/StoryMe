@@ -13,7 +13,7 @@ import {
   IconFish, 
   IconBone, 
   IconSparkles, 
-  IconFistRaised 
+  IconBolt 
 } from '@tabler/icons-vue'
 
 const themes = [
@@ -22,7 +22,7 @@ const themes = [
   { name: 'Ocean', icon: IconFish, description: 'Mermaids and underwater cities', count: 5, color: 'bg-blue-500' },
   { name: 'Dinosaurs', icon: IconBone, description: 'Jurassic adventures and T-Rex', count: 7, color: 'bg-orange-500' },
   { name: 'Fairytale', icon: IconSparkles, description: 'Wizards, dragons and fairies', count: 10, color: 'bg-purple-500' },
-  { name: 'Superheroes', icon: IconFistRaised, description: 'Capes and extraordinary powers', count: 4, color: 'bg-red-500' },
+  { name: 'Superheroes', icon: IconBolt, description: 'Capes and extraordinary powers', count: 4, color: 'bg-red-500' },
 ]
 </script>
 
