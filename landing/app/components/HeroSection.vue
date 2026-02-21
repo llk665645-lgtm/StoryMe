@@ -1,5 +1,5 @@
 <template>
-  <section id="generator" class="bg-brand-light pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+  <section id="generator" class="bg-transparent pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
       <div class="mx-auto max-w-4xl text-center">
         <div class="flex justify-center">

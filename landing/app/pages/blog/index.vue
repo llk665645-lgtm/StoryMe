@@ -1,12 +1,12 @@
 <template>
-  <main class="min-h-screen bg-brand-light">
+  <main class="min-h-screen bg-transparent pt-32">
     <!-- Header -->
-    <section class="py-24 bg-white border-b border-border">
+    <section class="py-24 bg-transparent border-b border-white/5">
       <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-        <h1 class="text-4xl font-bold tracking-tight text-brand-dark sm:text-6xl mb-6">
+        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-7xl mb-8 font-serif italic">
           {{ $t('blog.title') }}
         </h1>
-        <p class="text-xl text-brand-gray max-w-2xl mx-auto">
+        <p class="text-xl text-white/50 max-w-2xl mx-auto leading-relaxed">
           {{ $t('blog.subtitle') }}
         </p>
       </div>
@@ -20,29 +20,29 @@
             v-for="post in localizedPosts" 
             :key="post.slug" 
             :to="`/blog/${post.slug}`"
-            class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
+            class="group bg-white/5 backdrop-blur-md rounded-[2.5rem] overflow-hidden border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all duration-500 flex flex-col shadow-2xl"
           >
             <div class="aspect-[16/9] overflow-hidden">
               <img 
                 :src="post.image" 
                 :alt="post.title" 
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 brightness-75 group-hover:brightness-100 grayscale hover:grayscale-0" 
               />
             </div>
-            <div class="p-8 flex-1 flex flex-col">
-              <div class="flex items-center gap-4 mb-4">
-                <span class="text-xs font-bold text-primary uppercase tracking-widest">{{ post.tags[0] }}</span>
-                <span class="text-xs text-brand-gray">{{ post.date }}</span>
+            <div class="p-10 flex-1 flex flex-col">
+              <div class="flex items-center gap-4 mb-6">
+                <span class="text-[10px] font-black text-white px-3 py-1 rounded-full bg-white/10 uppercase tracking-widest">{{ post.tags[0] }}</span>
+                <span class="text-[10px] font-bold text-white/30 uppercase tracking-widest">{{ post.date }}</span>
               </div>
-              <h2 class="text-2xl font-bold text-brand-dark mb-4 group-hover:text-primary transition-colors">
+              <h2 class="text-2xl font-bold text-white mb-4 group-hover:text-white transition-colors font-serif italic">
                 {{ post.title }}
               </h2>
-              <p class="text-brand-gray mb-6 line-clamp-3">
+              <p class="text-white/50 mb-8 line-clamp-3 leading-relaxed">
                 {{ post.description }}
               </p>
-              <div class="mt-auto flex items-center text-primary font-bold group-hover:gap-2 transition-all">
+              <div class="mt-auto flex items-center text-white/80 font-bold text-xs uppercase tracking-widest">
                 {{ $t('blog.readMore') }}
-                <Icon name="lucide:arrow-right" class="size-4 ml-1" />
+                <Icon name="lucide:arrow-right" class="size-4 ml-2 transition-transform group-hover:translate-x-1" />
               </div>
             </div>
           </NuxtLink>
@@ -51,7 +51,6 @@
     </section>
 
     <CTASection />
-    <AppFooter />
   </main>
 </template>
 

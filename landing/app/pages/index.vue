@@ -1,27 +1,23 @@
 <template>
-  <div class="bg-brand-light min-h-screen">
+  <div class="bg-transparent">
     <HeroSection />
     <UniquenessSection />
     <ThemeShowcase />
     <FeaturesSection />
     <StepsSection />
 
-    <section class="py-24 bg-white">
+    <section class="py-24 bg-transparent mt-20">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="bg-background relative h-[500px] w-full overflow-hidden flex items-center justify-center">
-          <div class="w-full max-w-3xl px-12">
+        <div class="relative w-full overflow-hidden flex items-center justify-center">
+          <div class="w-full max-w-4xl">
             <TestimonialSlider :testimonials="testimonialList" />
           </div>
         </div>
       </div>
     </section>
 
-
     <PricingSection />
-
     <CTASection />
-
-    <AppFooter />
   </div>
 </template>
 

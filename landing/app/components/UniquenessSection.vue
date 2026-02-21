@@ -1,28 +1,25 @@
 <template>
-  <section class="py-24 bg-white relative overflow-hidden">
-
-
+  <section class="py-24 bg-transparent relative overflow-hidden">
     <div class="mx-auto max-w-7xl px-6 lg:px-8 relative">
       <div class="mx-auto max-w-2xl text-center mb-16">
-        <h2 class="text-3xl font-bold tracking-tight text-brand-dark sm:text-4xl">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-5xl font-serif italic">
           {{ $t('uniqueness.title') }}
         </h2>
-
       </div>
 
       <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         <div 
           v-for="(item, index) in uniquenessList" 
           :key="index" 
-          class="group p-8 rounded-4xl bg-brand-light/30 border border-transparent hover:border-primary/20 hover:bg-white transition-all duration-300 shadow-sm hover:shadow-xl"
+          class="group p-10 rounded-[2.5rem] bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all duration-500 shadow-sm hover:shadow-2xl"
         >
-          <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-primary shadow-sm group-hover:bg-primary group-hover:text-white transition-all mb-6">
-            <Icon :name="icons[index] || 'lucide:sparkles'" class="size-7" />
+          <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-dream-deep shadow-[0_8px_20px_rgba(0,0,0,0.25)] group-hover:scale-110 transition-all mb-8">
+            <Icon :name="icons[index] || 'lucide:sparkles'" class="size-8" />
           </div>
-          <h3 class="text-xl font-bold text-brand-dark mb-4">
+          <h3 class="text-xl font-bold text-white mb-4">
             {{ item.name }}
           </h3>
-          <p class="text-base leading-7 text-brand-gray">
+          <p class="text-base leading-7 text-white/50">
             {{ item.description }}
           </p>
         </div>

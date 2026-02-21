@@ -1,74 +1,73 @@
 <template>
-  <div class="w-full max-w-4xl mx-auto mt-12 p-8 md:p-12 rounded-[3rem] bg-white border border-brand-dark/5 shadow-2xl overflow-hidden">
+  <div class="w-full max-w-4xl mx-auto mt-12 p-8 md:p-12 rounded-[3.5rem] bg-white/10 backdrop-blur-xl border border-white/10 shadow-3xl overflow-hidden">
     <div class="flex flex-col gap-10">
         <!-- Input Form -->
         <div v-if="!hasResult" class="grid grid-cols-1 md:grid-cols-2 gap-8 animate-in fade-in duration-700">
           <!-- Left Column -->
-          <div class="flex flex-col gap-6">
+          <div class="flex flex-col gap-6 text-left">
             <div class="flex flex-col gap-2">
-               <label class="text-sm font-bold text-brand-dark ml-1">{{ $t('generator.nameLabel') }}</label>
+               <label class="text-sm font-bold text-white/70 ml-1">{{ $t('generator.nameLabel') }}</label>
                <input 
                  v-model="form.name"
                  type="text"
                  :placeholder="$t('generator.namePlaceholder')"
-                 class="w-full p-4 rounded-2xl bg-brand-light border border-transparent focus:border-primary/30 focus:bg-white focus:ring-4 focus:ring-primary/5 transition-all outline-none"
+                 class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:border-white/30 focus:bg-white/10 focus:ring-4 focus:ring-white/5 transition-all outline-none"
                />
             </div>
             <div class="flex flex-col gap-2">
-               <label class="text-sm font-bold text-brand-dark ml-1">{{ $t('generator.ageLabel') }}</label>
+               <label class="text-sm font-bold text-white/70 ml-1">{{ $t('generator.ageLabel') }}</label>
                <input 
                  v-model="form.age"
                  type="number"
                  min="2"
-                 max="10"
-                 class="w-full p-4 rounded-2xl bg-brand-light border border-transparent focus:border-primary/30 focus:bg-white focus:ring-4 focus:ring-primary/5 transition-all outline-none"
+                 max="12"
+                 class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 text-white focus:border-white/30 focus:bg-white/10 focus:ring-4 focus:ring-white/5 transition-all outline-none"
                />
             </div>
             <div class="flex flex-col gap-2">
-               <label class="text-sm font-bold text-brand-dark ml-1">{{ $t('generator.favLabel') }}</label>
+               <label class="text-sm font-bold text-white/70 ml-1">{{ $t('generator.favLabel') }}</label>
                <textarea 
                  v-model="form.favorites"
                  :placeholder="$t('generator.favPlaceholder')"
-                 class="w-full h-32 p-4 rounded-2xl bg-brand-light border border-transparent focus:border-primary/30 focus:bg-white focus:ring-4 focus:ring-primary/5 transition-all outline-none resize-none"
+                 class="w-full h-32 p-5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:border-white/30 focus:bg-white/10 focus:ring-4 focus:ring-white/5 transition-all outline-none resize-none"
                ></textarea>
             </div>
           </div>
 
           <!-- Right Column (Themes) -->
-          <div class="flex flex-col gap-4">
-             <label class="text-sm font-bold text-brand-dark ml-1">{{ $t('generator.themeLabel') }}</label>
+          <div class="flex flex-col gap-4 text-left">
+             <label class="text-sm font-bold text-white/70 ml-1">{{ $t('generator.themeLabel') }}</label>
              <div class="flex flex-col sm:flex-row gap-6">
                 <div class="grid grid-cols-2 gap-3 flex-1">
                    <button 
                      v-for="(label, key) in themes" 
                      :key="key"
                      @click="form.theme = key"
-                     class="flex flex-col items-center gap-2 p-4 rounded-2xl border-2 transition-all group"
-                     :class="form.theme === key ? 'border-primary bg-primary/5' : 'border-brand-dark/5 hover:border-primary/20 hover:bg-brand-light'"
+                     class="flex flex-col items-center gap-3 p-5 rounded-2xl border transition-all group"
+                     :class="form.theme === key ? 'border-white bg-white/20' : 'border-white/5 hover:border-white/20 hover:bg-white/5'"
                    >
-                      <Icon :name="(themeIcons[key] as string)" class="size-8 transition-transform group-hover:scale-110" :class="form.theme === key ? 'text-primary' : 'text-brand-gray'" />
-                      <span class="text-[10px] font-bold uppercase tracking-wider text-center" :class="form.theme === key ? 'text-primary' : 'text-brand-gray'">{{ label }}</span>
+                      <Icon :name="(themeIcons[key] as string)" class="size-8 transition-transform group-hover:scale-110" :class="form.theme === key ? 'text-white' : 'text-white/40'" />
+                      <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-center" :class="form.theme === key ? 'text-white' : 'text-white/40'">{{ label }}</span>
                    </button>
                 </div>
-                <!-- Theme Preview Removed -->
              </div>
 
              <!-- Price / Action -->
-             <div class="mt-auto pt-6 flex flex-col gap-4">
+             <div class="mt-auto pt-8 flex flex-col gap-4">
                 <button
                   @click="generateStory"
                   :disabled="isGenerating || !isFormValid"
-                  class="w-full relative group px-8 py-5 rounded-full bg-brand-dark text-white font-bold text-xl overflow-hidden transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-30 shadow-xl"
+                  class="w-full relative group px-8 py-5 rounded-full bg-white text-dream-deep font-bold text-xl overflow-hidden transition-all hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(255,255,255,0.2)] active:scale-95 disabled:opacity-30 shadow-[0_8px_20px_rgba(0,0,0,0.25)]"
                 >
                   <span class="relative z-10 flex items-center justify-center gap-3">
                     <Icon v-if="isGenerating" name="svg-spinners:90-ring-with-bg" class="size-6" />
-                    <Icon v-else name="lucide:wand-2" class="size-6 text-primary" />
+                    <Icon v-else name="lucide:sparkles" class="size-6 text-dream-mid" />
                     {{ isGenerating ? $t('generator.processing') : $t('generator.processBtn') }}
                   </span>
                 </button>
-                <div class="flex items-center justify-center gap-2 text-[10px] text-brand-gray font-bold uppercase tracking-widest opacity-60">
+                <div class="flex items-center justify-center gap-2 text-[10px] text-white/30 font-bold uppercase tracking-widest">
                    <Icon name="lucide:shield-check" class="size-3" />
-                   Secure Payment via Stripe
+                   Secure AI Processing
                 </div>
              </div>
           </div>
@@ -76,23 +75,23 @@
 
         <!-- Result Page -->
         <Transition
-          enter-active-class="transition duration-1000 ease-out"
+          enter-active-class="transition duration-[2000ms] ease-out"
           enter-from-class="opacity-0 translate-y-12"
           enter-to-class="opacity-100 translate-y-0"
         >
           <div v-if="hasResult" class="flex flex-col gap-10">
              <!-- Header -->
-             <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-brand-dark/5 pb-8">
-                <div>
-                   <span class="text-[10px] font-black uppercase tracking-[0.3em] text-primary mb-2 block">Premium Storybook</span>
-                   <h2 class="text-3xl font-serif italic text-brand-dark font-bold">{{ result.title }}</h2>
+             <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-8">
+                <div class="text-left">
+                   <span class="text-[10px] font-black uppercase tracking-[0.3em] text-white/50 mb-2 block">Premium Storybook</span>
+                   <h2 class="text-3xl font-serif italic text-white font-bold">{{ result.title }}</h2>
                 </div>
                 <div class="flex gap-3">
-                   <button class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-light hover:bg-white border border-brand-dark/5 transition-all text-xs font-bold">
+                   <button class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 transition-all text-xs font-bold text-white">
                       <Icon name="lucide:printer" class="size-4" />
                       {{ $t('generator.saveAsImage') }}
                    </button>
-                   <button @click="hasResult = false" class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-brand-dark/10 hover:border-primary/30 transition-all text-xs font-bold">
+                   <button @click="hasResult = false" class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-white/30 transition-all text-xs font-bold text-white">
                       <Icon name="lucide:rotate-ccw" class="size-4" />
                       New Story
                    </button>
@@ -100,22 +99,21 @@
              </div>
 
              <!-- Story Layout -->
-             <div class="flex flex-col gap-6">
-                 <!-- Illustration Removed -->
-                 <div class="prose prose-brand max-w-none">
-                    <p class="story-paragraph">
-                       {{ result.storyContent }}
-                    </p>
-                 </div>
+             <div class="flex flex-col gap-6 text-left">
+                  <div class="prose prose-invert max-w-none">
+                     <p class="story-paragraph !text-white/90">
+                        {{ result.storyContent }}
+                     </p>
+                  </div>
              </div>
 
              <!-- Footer Actions -->
              <div class="mt-8 flex flex-wrap justify-center gap-4">
-                <button @click="copyToClipboard" class="flex items-center gap-2 px-8 py-4 rounded-2xl bg-brand-dark text-white hover:bg-brand-dark/90 transition-all text-sm font-bold shadow-xl">
-                   <Icon name="lucide:copy" class="size-5 text-primary" />
+                <button @click="copyToClipboard" class="flex items-center gap-2 px-8 py-4 rounded-2xl bg-white text-dream-deep hover:bg-white/90 transition-all text-sm font-bold shadow-xl">
+                   <Icon name="lucide:copy" class="size-5 text-dream-mid" />
                    {{ $t('generator.share') }}
                 </button>
-                <button @click="triggerAuth('register')" class="flex items-center gap-2 px-8 py-4 rounded-2xl bg-primary text-white hover:bg-primary/90 transition-all text-sm font-bold shadow-xl">
+                <button @click="triggerAuth('register')" class="flex items-center gap-2 px-8 py-4 rounded-2xl bg-white/10 border border-white/20 text-white hover:bg-white/15 transition-all text-sm font-bold backdrop-blur-md">
                    <Icon name="lucide:sparkles" class="size-5 text-white" />
                    {{ $t('generator.wantMore') }}
                 </button>

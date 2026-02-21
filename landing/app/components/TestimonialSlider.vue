@@ -77,14 +77,14 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="mx-auto w-full max-w-3xl text-center">
+  <div class="mx-auto w-full max-w-4xl text-center">
     <!-- Testimonial image -->
-    <div class="relative h-32">
+    <div class="relative h-40">
       <div
-        class="pointer-events-none absolute top-0 left-1/2 size-[480px] -translate-x-1/2 before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-gradient-to-b before:from-zinc-500/25 before:via-zinc-500/5 before:via-25% before:to-zinc-500/0 before:to-75%"
+        class="pointer-events-none absolute top-0 left-1/2 size-[480px] -translate-x-1/2"
       >
         <div
-          class="h-32 [mask-image:_linear-gradient(0deg,transparent,theme(colors.white)_20%,theme(colors.white))]"
+          class="h-40 [mask-image:_linear-gradient(0deg,transparent,theme(colors.white)_20%,theme(colors.white))]"
         >
           <transition-group name="testimonial-image">
             <div
@@ -94,10 +94,10 @@ onUnmounted(() => {
               class="absolute inset-0 -z-10 flex h-full flex-col"
             >
               <NuxtImg
-                class="relative top-11 left-1/2 -translate-x-1/2 rounded-full"
+                class="relative top-11 left-1/2 -translate-x-1/2 rounded-full border-4 border-white/10 shadow-2xl"
                 :src="testimonial.img"
-                width="60"
-                height="60"
+                width="80"
+                height="80"
                 :alt="testimonial.name"
               />
             </div>
@@ -106,7 +106,7 @@ onUnmounted(() => {
       </div>
     </div>
     <!-- Text -->
-    <div class="mb-8 transition-all delay-300 duration-150 ease-in-out">
+    <div class="mb-12 transition-all delay-300 duration-150 ease-in-out px-4">
       <div
         ref="testimonialsRef"
         class="relative flex flex-col"
@@ -119,7 +119,7 @@ onUnmounted(() => {
             class="w-full"
           >
             <div
-              class="text-2xl font-bold text-primary before:content-['\201C'] after:content-['\201D']"
+              class="text-3xl font-serif italic font-bold text-white leading-relaxed before:content-['\201C'] after:content-['\201D']"
             >
               {{ testimonial.quote }}
             </div>
@@ -127,30 +127,30 @@ onUnmounted(() => {
         </transition-group>
       </div>
     </div>
-    <div class="mt-4 flex w-full items-center justify-between gap-4 pt-12 md:pt-0">
+    <div class="mt-8 flex w-full items-center justify-between gap-8 pt-12 md:pt-0 max-w-2xl mx-auto">
       <button
-        class="group/button flex size-9 items-center justify-center rounded-full bg-primary transition-all hover:scale-110 active:scale-95"
+        class="group/button flex size-12 items-center justify-center rounded-full bg-white transition-all hover:scale-110 hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)] active:scale-95 shadow-xl"
         @click="handlePrev"
       >
         <Icon
           name="lucide:arrow-left"
-          class="size-5 text-white transition-transform duration-300 group-hover/button:rotate-12"
+          class="size-6 text-dream-deep transition-transform duration-300 group-hover/button:rotate-12"
         />
       </button>
 
       <!-- Name and Org -->
       <div class="flex flex-col items-center gap-1">
-        <span class="text-base font-semibold text-primary">{{ testimonials.at(active)?.name }}</span>
-        <span class="text-sm font-medium text-primary/80">{{ testimonials.at(active)?.role }}</span>
+        <span class="text-lg font-bold text-white">{{ testimonials.at(active)?.name }}</span>
+        <span class="text-sm font-medium text-white/40 uppercase tracking-widest">{{ testimonials.at(active)?.role }}</span>
       </div>
 
       <button
-        class="group/button flex size-9 items-center justify-center rounded-full bg-primary transition-all hover:scale-110 active:scale-95"
+        class="group/button flex size-12 items-center justify-center rounded-full bg-white transition-all hover:scale-110 hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)] active:scale-95 shadow-xl"
         @click="handleNext"
       >
         <Icon
           name="lucide:arrow-right"
-          class="size-5 text-white transition-transform duration-300 group-hover/button:-rotate-12"
+          class="size-6 text-dream-deep transition-transform duration-300 group-hover/button:-rotate-12"
         />
       </button>
 

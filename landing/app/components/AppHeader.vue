@@ -1,35 +1,35 @@
 <template>
   <header 
-    class="fixed top-0 left-0 right-0 z-[50] transition-all duration-300 border-b border-transparent bg-brand-light/80 backdrop-blur-md"
-    :class="{ 'border-border/50 bg-white/90': scrolled }"
+    class="fixed top-0 left-0 right-0 z-[50] transition-all duration-300 border-b border-transparent backdrop-blur-sm"
+    :class="{ 'border-white/10 bg-black/20': scrolled }"
   >
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid h-20 grid-cols-2 md:grid-cols-[1fr_auto_1fr] items-center">
         <!-- Logo -->
         <div class="flex items-center gap-2">
-          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white shadow-lg">
-            <LogoIcon class="w-6 h-6 stroke-white fill-white" />
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-dream-deep shadow-lg">
+            <LogoIcon class="w-6 h-6 stroke-dream-deep fill-dream-deep" />
           </div>
-          <span class="text-xl font-bold tracking-tight text-brand-dark">
-            Story<span class="text-primary">Me</span>
+          <span class="text-xl font-bold tracking-tight text-white">
+            Story<span class="text-white/80 italic">Me</span>
           </span>
         </div>
 
         <!-- Desktop Navigation - Perfectly Centered -->
         <nav class="hidden md:flex items-center justify-center gap-8 px-4">
-          <NuxtLink to="/" class="text-sm font-medium text-brand-gray hover:text-primary transition-colors whitespace-nowrap">
+          <NuxtLink to="/" class="text-sm font-medium text-white/70 hover:text-white transition-colors whitespace-nowrap">
             {{ $t('header.features') }}
           </NuxtLink>
-          <NuxtLink to="/about" class="text-sm font-medium text-brand-gray hover:text-primary transition-colors whitespace-nowrap">
+          <NuxtLink to="/about" class="text-sm font-medium text-white/70 hover:text-white transition-colors whitespace-nowrap">
             {{ $t('header.about') }}
           </NuxtLink>
-          <NuxtLink to="/blog" class="text-sm font-medium text-brand-gray hover:text-primary transition-colors whitespace-nowrap">
+          <NuxtLink to="/blog" class="text-sm font-medium text-white/70 hover:text-white transition-colors whitespace-nowrap">
             {{ $t('header.blog') }}
           </NuxtLink>
-          <NuxtLink to="/pricing" class="text-sm font-medium text-brand-gray hover:text-primary transition-colors whitespace-nowrap">
+          <NuxtLink to="/pricing" class="text-sm font-medium text-white/70 hover:text-white transition-colors whitespace-nowrap">
             {{ $t('header.pricing') }}
           </NuxtLink>
-          <NuxtLink to="/dashboard" class="text-sm font-medium text-brand-gray hover:text-primary transition-colors whitespace-nowrap">
+          <NuxtLink to="/dashboard" class="text-sm font-medium text-white/70 hover:text-white transition-colors whitespace-nowrap">
             {{ $t('header.dashboard') }}
           </NuxtLink>
         </nav>
@@ -37,33 +37,33 @@
         <!-- CTA Action -->
         <div class="flex items-center justify-end gap-3">
           <!-- Language Switcher -->
-          <div class="hidden sm:flex items-center bg-brand-light/50 rounded-lg p-1 border border-border/30">
+          <div class="hidden sm:flex items-center bg-white/5 rounded-lg p-1 border border-white/10">
             <button 
               v-for="locale in ['en', 'ru']" 
               :key="locale"
               @click="setLocale(locale as any)"
               class="px-2 py-1 text-[10px] font-bold uppercase transition-all rounded"
-              :class="currentLocale === locale ? 'bg-primary text-white shadow-sm' : 'text-brand-gray/60 hover:text-primary'"
+              :class="currentLocale === locale ? 'bg-white text-dream-deep shadow-sm' : 'text-white/60 hover:text-white'"
             >
               {{ locale }}
             </button>
           </div>
 
           <button 
-            class="hidden sm:block text-sm font-semibold text-brand-dark hover:text-primary transition-colors"
+            class="hidden sm:block text-sm font-semibold text-white/80 hover:text-white transition-colors"
             @click="openAuth('login')"
           >
             {{ $t('header.login') }}
           </button>
           <button 
-            class="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white shadow-md transition-all hover:scale-105 active:scale-95"
+            class="rounded-full bg-white px-6 py-2.5 text-sm font-bold text-dream-deep shadow-[0_8px_20px_rgba(0,0,0,0.25)] transition-all hover:scale-105 hover:shadow-[0_12px_24px_rgba(255,255,255,0.15)] active:scale-95"
             @click="openAuth('register')"
           >
             {{ $t('header.getStarted') }}
           </button>
           
           <!-- Mobile Menu Toggle -->
-          <button class="md:hidden text-brand-dark p-2" @click="isMenuOpen = !isMenuOpen">
+          <button class="md:hidden text-white p-2" @click="isMenuOpen = !isMenuOpen">
             <Icon :name="isMenuOpen ? 'lucide:x' : 'lucide:menu'" class="size-6" />
           </button>
         </div>
