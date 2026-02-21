@@ -4,7 +4,9 @@
         "features": "Features",
         "howItWorks": "How it works",
         "login": "Login",
-        "getStarted": "Create Story"
+        "getStarted": "Create Story",
+        "about": "About",
+        "blog": "Blog"
     },
     "hero": {
         "titlePrefix": "Your Child is the",
@@ -77,57 +79,9 @@
             },
             "variations": {
                 "forest": [
-                    "The sun barely peeked through the tall, whispering trees as [NAME] tiptoed along a hidden forest path. Every step crunched softly on the carpet of golden leaves, and the air smelled of moss and pine. From somewhere above, a gentle rustle hinted at the presence of [HERO], a mysterious friend who only appeared to children with curious hearts.\n\n“Did you hear that?” [NAME] whispered, eyes wide. Tiny lights flickered in the shadows, like fireflies dancing in secret patterns. Somewhere near the sparkling stream, a strange giggle echoed, sending shivers of excitement down their spine. [HERO] emerged from behind a twisted oak, holding a small bag filled with [FAVOURITES].\n\n“You’ve come at just the right moment,” [HERO] said, smiling. “The forest is waking up, and it has secrets to show us. But only the bravest adventurers can follow the hidden trail.”\n\nTogether, they stepped onto the narrow path, each stone shimmering faintly beneath their feet. Birds with golden feathers sang as if they knew a secret, and the wind carried whispers of an ancient magic. Somewhere deep in the forest, something awaited — something that could only be found by those who dared to explore. [NAME] felt a rush of excitement. This was not an ordinary forest. Every leaf, every shadow, and every beam of sunlight promised a discovery unlike any other.",
-                    " [NAME] had always thought the forest behind their home was ordinary, full of tall trees and soft moss. But today, a curious sparkle caught their eye near the old stone bridge. Kneeling closer, they discovered [HERO], a tiny figure with bright eyes, balancing on a log as if it were a tightrope. In their hands were [FAVOURITES], glowing faintly in the morning light.\n\n“Welcome,” [HERO] said, their voice like the rustle of leaves. “I’ve been waiting for someone like you. The forest isn’t what it seems.”\n\nAs [NAME] followed [HERO], the trees seemed to lean closer, as if listening. Strange shapes moved in the shadows — a fox with silvery fur, a squirrel wearing a tiny crown, and a rabbit carrying a lantern. Each creature glanced at them knowingly, as though they were expecting something important.\n\nSuddenly, the path split into three. One trail glowed faintly green, another shimmered with silver light, and the third was covered in golden petals. [HERO] whispered, “One of these paths leads to the Heart of the Forest. But be careful — not everything here is friendly.”\n\nExcitement bubbled in [NAME]’s chest. Something magical was about to happen. The forest was alive, and every step promised a secret waiting to be discovered. The adventure had begun.",
-                    "A soft mist curled around the roots of ancient trees as [NAME] wandered deeper into the forest than ever before. The leaves shimmered like tiny emeralds, and the air was thick with the scent of wildflowers and rain. [HERO] appeared suddenly on a tree branch, swinging down gracefully as if the forest itself had delivered them. In their hands were sparkling [FAVOURITES], twinkling like stars.\n\n“Finally, you’re here!” [HERO] said, with a grin. “The forest has been waiting for us. There’s a place not even the wind can reach, and it only shows itself to those who are ready for adventure.”\n\nStrange noises surrounded them — a gentle hum, the flapping of wings, and the occasional giggle that seemed to come from nowhere. Mushrooms formed tiny circles on the forest floor, glowing faintly with magical light. A path of stones appeared as [NAME] stepped forward, guiding them deeper into the woods.\n\n“Keep your eyes open,” [HERO] whispered. “The forest speaks, if you know how to listen. And today, it has something extraordinary to show us.”\n\nEvery step felt thrilling. The forest seemed alive, as if it were holding its breath, waiting for [NAME] and [HERO] to uncover its hidden wonders. Something wonderful was about to happen — something that would change the way they saw the world forever."
-                ],
-                "space": [
-                    "The stars sparkled like diamonds in the endless sky as [NAME] peered out of the spaceship window. Somewhere far away, planets glowed in colors they had never imagined — deep purple, shimmering turquoise, and fiery orange. [HERO] floated beside them, holding a glowing box filled with [FAVOURITES].\n\n“Are you ready?” [HERO] asked, their eyes reflecting the swirl of galaxies outside. “Tonight, we’re going to discover a planet no one has ever seen before. And it’s not on any star map.”\n\nThe spaceship hummed softly as it zoomed past asteroid belts and comet trails. Tiny meteorites bounced off the shields, creating sparks that danced like fireworks. Somewhere in the distance, a massive ringed planet loomed, glowing faintly. [NAME]’s heart raced. Something extraordinary awaited them — a secret hidden among the stars, and only those brave enough to explore could find it.\n\nSuddenly, the ship’s lights flickered. A soft, melodic signal echoed through the cabin, and [HERO] smiled. “That’s our first clue. Whoever left it wanted us to find something amazing.”\n\nWith a deep breath, [NAME] stepped closer to the controls, ready to follow the signal into the unknown. Beyond the dark expanse, mysteries, wonders, and new friends waited. The universe had opened its doors, and the adventure had just begun.",
-                    "High above the clouds, the stars stretched endlessly in every direction. [NAME] had never felt so small and so powerful at the same time. Beside them, [HERO] adjusted the controls of a sleek spaceship that shimmered with [FAVOURITES].\n\n“Every star is a story,” [HERO] said softly. “And tonight, we’re going to write one of our own.”\n\nAs the spaceship rocketed past sparkling nebulae, mysterious shadows flickered across the control panels. Tiny lights blinked in patterns that seemed almost like messages. [NAME] leaned closer, trying to make sense of them.\n\nSuddenly, a planet appeared ahead, glowing like a giant jewel. Its surface shimmered with colors that seemed impossible. [HERO] grinned. “No map has ever led here. Only adventurers who are curious and bold can find it.”\n\nWith a thrill rushing through their veins, [NAME] reached for the joystick. The ship dove into the unknown, past glowing rings and swirling clouds of cosmic dust. Somewhere on that planet, wonders beyond imagination waited — creatures who loved [FAVOURITES], hidden caves filled with secrets, and mysteries that could change everything they thought they knew about space.",
-                    "The galaxy stretched endlessly, filled with glittering stars and floating islands of rock. [NAME] pressed their face to the spaceship window, spotting planets shaped like shimmering crystals and swirling gas clouds that glowed in [FAVOURITES] colors.\n\n“Look there,” [HERO] whispered, pointing toward a tiny, uncharted planet orbiting a blue star. “Legend says it’s full of things no one has ever seen. Only explorers with brave hearts can set foot there.”\n\nThe engines hummed, and the spaceship moved smoothly through asteroid fields that sparkled like tiny stars. Every twist and turn brought new surprises: glowing comets, singing meteor showers, and strange lights that danced across the darkness.\n\n[NAME] could feel a tingle of excitement. This wasn’t just a journey; it was a chance to discover something magical. And with [HERO] guiding the way, there was no limit to the wonders waiting in the vast expanse of space. Somewhere ahead, secrets and adventures beyond imagination waited to be found."
-                ],
-                "ocean": [
-                    "The waves sparkled under the golden sunlight as [NAME] peered over the edge of the small boat. Somewhere beneath the surface, a world full of color and mystery waited. [HERO] dived gracefully into the water, carrying a bag filled with [FAVOURITES] that shimmered in the sunlight.\n\n“Come on,” [HERO] called, waving. “There’s something down there you have to see!”\n\nThe moment [NAME] plunged into the cool water, the world transformed. Schools of rainbow-colored fish darted past, and coral towers stretched like underwater castles. Strange glowing plants swayed in rhythm with the current. From somewhere in the distance, a soft melody echoed, as if the ocean itself were singing.\n\n“Do you hear that?” [HERO] whispered. “The ocean only sings to those who are brave enough to explore.”\n\nTogether, they swam past caves with shimmering walls, discovering hidden tunnels and secret gardens filled with [FAVOURITES]. Every ripple of the water carried a new surprise, and every shadow could be hiding a friend — or a mystery waiting to be solved. [NAME] felt a rush of excitement; this was no ordinary day at the ocean. This was the start of an adventure that could change everything they thought they knew about the sea.",
-                    "A soft breeze carried the scent of salt as [NAME] stepped onto the sandy shore. Waves lapped at their feet, sparkling like tiny stars scattered across the beach. [HERO] emerged from behind a rock, holding [FAVOURITES] that twinkled in the sunlight.\n\n“Today,” [HERO] said, “we’re going to the hidden part of the ocean — the part no one else knows about.”\n\nWith a splash, they dove into the water, leaving the ordinary world behind. Beneath the surface, a magical kingdom revealed itself: glowing jellyfish floated lazily, dolphins played in the currents, and coral gardens stretched endlessly, filled with colors beyond imagination. Strange tunnels led to hidden chambers where treasures glimmered faintly.\n\nEvery corner of this underwater world seemed alive, humming with secrets. [NAME] felt a thrill as they swam alongside [HERO]. Somewhere in the distance, something enormous stirred, sending ripples across the water. Whatever it was, it had been waiting for explorers like them, and the ocean was about to show its wonders.",
-                    "The sun dipped low, casting golden streaks across the endless waves. [NAME] clutched [HERO]’s hand as they prepared to sail toward a mysterious island rumored to hold unimaginable secrets. In a small chest, [FAVOURITES] glimmered, ready to reveal their magic.\n\n“Legend says the ocean chooses who can find the treasures hidden beneath its waves,” [HERO] said, eyes sparkling with excitement. “And I think it’s chosen us.”\n\nAs the boat glided through sparkling waters, schools of fish leapt alongside, forming patterns that looked almost like messages. Strange shapes flickered beneath the waves, and every splash hinted at a creature just out of sight. [NAME] felt the thrill of discovery course through their veins.\n\nWhen they reached the underwater cliffs, glowing plants illuminated the path to a secret cave. Inside, the walls shimmered with [FAVOURITES], and the water seemed alive, guiding them deeper. Something incredible awaited — a discovery that could only happen here, in this magical, untamed ocean."
-                ],
-                "dino": [
-                    "The ground shook beneath [NAME]’s feet as they stepped into a valley unlike any they had ever seen. Gigantic trees towered above, their leaves brushing the clouds, and somewhere in the distance, a roar echoed, sending shivers of excitement down their spine. [HERO] appeared from behind a boulder, carrying a small satchel filled with [FAVOURITES] that sparkled in the sunlight.\n\n“Look over there,” [HERO] whispered, pointing toward a herd of dinosaurs grazing peacefully. “This valley holds secrets no one has discovered for millions of years.”\n\nEvery step revealed wonders: tiny dinosaurs peeking out from between ferns, colorful birds that looked like living jewels, and streams filled with glimmering fish. [NAME] could hardly believe their eyes. The air was thick with the scent of adventure and something ancient, something that seemed to hum with magic.\n\nSuddenly, a playful roar rang out, and a small dinosaur ran toward them, eyes wide and curious. [HERO] smiled. “I think it wants to show us something. Let’s follow it.”\n\nAs they walked deeper into the valley, [NAME] felt the thrill of discovery building. Every shadow could hide a new friend, every clearing a hidden treasure. The world of dinosaurs was alive, waiting for explorers bold enough to uncover its mysteries.",
-                    "Thick mist rolled over the prehistoric jungle as [NAME] peered through the ferns. A flash of movement caught their eye, and there, balancing on a fallen log, was [HERO] with a twinkle in their eye and [FAVOURITES] sparkling in their hands.\n\n“Welcome to the Lost Valley,” [HERO] said. “Here, dinosaurs still roam, and every corner hides a story.”\n\nThe air was filled with strange sounds: a low rumble from a distant T-Rex, the chirps of tiny winged dinosaurs, and the soft rustling of leaves as creatures moved unseen. [NAME] felt a thrill they had never experienced before — this was a world untouched by time, a place where anything could happen.\n\n“Do you see that?” [HERO] pointed toward a cluster of shimmering footprints. “Someone has been here recently… maybe even waiting for us.”\n\nCuriosity burning, [NAME] stepped forward, following [HERO] along the winding paths. Every rock, every tree, every shadow hinted at secrets. Somewhere in the jungle, a discovery waited — one that would change how they saw the prehistoric world forever.",
-                    "The sun rose over a land frozen in time, painting the sky in fiery oranges and pinks. [NAME] crouched behind a giant rock, watching [HERO] wave excitedly from a clearing ahead. In their hands were [FAVOURITES], glowing faintly in the morning light.\n\n“Today is the day we explore the Valley of Giants,” [HERO] said. “And who knows what we might find?”\n\nAs [NAME] crept forward, the ground trembled beneath their feet. Tall, majestic dinosaurs moved gracefully through the ferns, their scales shimmering in sunlight. Some had horns, some had wings, and others had tails long enough to sweep entire groves. Every creature seemed alive, almost aware that newcomers had entered their world.\n\nA soft rustle from the bushes caught their attention. Out stepped a curious young dinosaur, its eyes wide and sparkling. [HERO] knelt down. “It looks like it wants to guide us… maybe to a secret place only we can find.”\n\nWith hearts pounding and eyes wide with wonder, [NAME] followed [HERO] and their new dinosaur friend deeper into the jungle. Every step promised a new discovery, a hidden adventure, and a magical story waiting to be told."
-                ],
-                "magic": [
-                    "Once upon a time, in a kingdom hidden behind shimmering clouds, [NAME] wandered through a golden meadow. Every flower sparkled like a tiny jewel, and the air smelled sweet, like honey and magic. Suddenly, [HERO] appeared, carrying a satchel filled with [FAVOURITES] that twinkled with a mysterious glow.\n\n“Welcome,” [HERO] said, bowing politely. “The kingdom has been waiting for someone like you. Something extraordinary is about to happen, and only those who are brave and kind can be part of it.”\n\nAs they walked toward the castle in the distance, [NAME] noticed animals that could talk, trees with faces that smiled, and streams that glittered with tiny lights dancing above the water. A gentle breeze carried whispers, and every step seemed to hum with magic.\n\n“Do you see the castle?” [HERO] asked. “It holds secrets, puzzles, and treasures that only a true adventurer can discover. And I think you’re ready.”\n\nExcitement bubbled in [NAME]’s chest. They didn’t know what awaited them — enchanted rooms, mysterious creatures, or maybe even a hidden kingdom beyond the walls. But one thing was certain: this was a place where imagination came alive, and every moment held a new adventure.",
-                    "In a quiet village surrounded by towering mountains, [NAME] stumbled upon a sparkling path hidden behind a waterfall. [HERO] was waiting there, holding [FAVOURITES] that glimmered like stars in the morning sun.\n\n“This path leads to a world no one has seen for centuries,” [HERO] whispered. “A place where castles float above clouds, dragons tell stories, and magic is everywhere. Are you ready to step inside?”\n\nWith a deep breath, [NAME] followed, feeling the mist on their face and hearing faint laughter carried by the wind. The path twisted and turned, revealing glimpses of colorful creatures, enchanted gardens, and talking animals that nodded as they passed. Every corner seemed alive, as if the forest itself were inviting them to explore.\n\nAs they reached a sparkling bridge made of crystal, [HERO] smiled. “Beyond this bridge lies the heart of the kingdom. What you find there may change everything you thought you knew about magic.”\n\nEvery step forward sent a thrill through [NAME]. The world was alive with wonder, and they had no idea what amazing adventures were about to unfold.",
-                    "The moon hung low in the sky, casting silver light over the enchanted forest. [NAME] tiptoed carefully, their eyes catching tiny glimmers among the trees. Suddenly, [HERO] appeared, carrying a small chest filled with [FAVOURITES] that sparkled softly in the moonlight.\n\n“Tonight, the kingdom awakens in a way it never has before,” [HERO] said, voice full of mystery. “Magic is everywhere, and those who dare to explore may find wonders no one else can see.”\n\nAs [NAME] followed, animals with glowing eyes peeked from behind bushes, flowers swayed as if whispering secrets, and soft melodies floated on the wind. A castle appeared in the distance, its towers twisting toward the stars, glowing faintly like lanterns in the dark.\n\n“Every step counts,” [HERO] said. “Every choice can unlock a secret. And sometimes, the smallest adventurer discovers the greatest magic.”\n\nExcitement surged through [NAME]. The night was full of possibility, and each shadow seemed to hide a story waiting to be told. Something extraordinary awaited them, and the adventure was just beginning."
-                ],
-                "super": [
-                    "The city slept under a blanket of stars, but [NAME] could sense something unusual in the air. Shadows moved strangely along the rooftops, and faint flashes of light sparkled across the streets. [HERO] appeared suddenly, landing gracefully on the rooftop with a small bag of [FAVOURITES] that glowed softly.\n\n“Welcome to your first mission,” [HERO] said, voice low but filled with excitement. “The city has secrets, and tonight, we might uncover one that no one else has ever seen.”\n\nFrom above, the skyline looked peaceful, but [NAME] could feel the thrill of the unknown. Every alley, every flickering streetlight, seemed to hide something important. [HERO] handed them a glowing gadget shaped like [FAVOURITES] and nodded.\n\n“Together, we can protect the city, discover hidden clues, and maybe even meet someone unexpected. But we must stay alert — danger and surprises can appear anywhere.”\n\nAs [NAME] followed [HERO] along the rooftops, a soft wind carried distant sounds of movement. Somewhere below, the city whispered, hinting at mysteries waiting to be solved. The night was alive, and the adventure was only beginning.",
-                    "Lightning flashed across the sky as [NAME] climbed the edge of a tall building. [HERO] stood waiting, holding [FAVOURITES] that shimmered like tiny stars. “Are you ready?” [HERO] asked. “The city needs us, and we might be the only ones who can save it tonight.”\n\nFrom their vantage point, [NAME] could see glowing lights darting through the streets, mysterious figures moving in the shadows, and windows flickering as if something magical was happening inside. Every sound carried a hint of adventure — a distant crash, a soft hum, the whisper of wings.\n\n“Tonight, we discover the unknown,” [HERO] said, handing [NAME] a tiny device shaped like [FAVOURITES]. “And perhaps make friends in places we never imagined. The city is full of surprises for those brave enough to explore.”\n\nWith hearts pounding, [NAME] and [HERO] leaped into action. The wind whipped past them, the streets stretched below like a maze, and every step promised mystery, excitement, and a story that could only be written by the city’s newest superheroes.",
-                    "The moon shone brightly over the city skyline as [NAME] stood on the edge of the tallest building, feeling the pulse of the streets below. [HERO] appeared silently, holding [FAVOURITES] that sparkled with hidden power.\n\n“Every hero has a beginning,” [HERO] said. “And tonight, you start yours. Something extraordinary is happening, and only we can uncover it.”\n\nBelow, shadows shifted strangely. A figure disappeared into an alley, leaving behind a trail of glowing sparks. [NAME] could sense a challenge approaching — something that would test courage, cleverness, and imagination. [HERO] handed them a small gadget shaped like [FAVOURITES], glowing faintly in the darkness.\n\n“Follow me,” [HERO] whispered. “The city has secrets, and those who explore them can discover powers beyond anything they ever imagined.”\n\nAs [NAME] moved through the streets with [HERO], the city seemed alive. Every rooftop, every shadow, every flicker of light hinted at hidden mysteries and thrilling adventures. Something incredible was about to happen, and the story of two young heroes was just beginning."
+                    "The sun barely peeked through the tall, whispering trees as [NAME] tiptoed along a hidden forest path. Every step crunched softly on the carpet of golden leaves, and the air smelled of moss and pine. From somewhere above, a gentle rustle hinted at the presence of [HERO], a mysterious friend who only appeared to children with curious hearts.\n\n“Did you hear that?” [NAME] whispered, eyes wide. Tiny lights flickered in the shadows, like fireflies dancing in secret patterns. Somewhere near the sparkling stream, a strange giggle echoed, sending shivers of excitement down their spine. [HERO] emerged from behind a twisted oak, holding a small bag filled with [FAVOURITES].\n\n“You’ve come at just the right moment,” [HERO] said, smiling. “The forest is waking up, and it has secrets to show us. But only the bravest adventurers can follow the hidden trail.”\n\nTogether, they stepped onto the narrow path, each stone shimmering faintly beneath their feet. Birds with golden feathers sang as if they knew a secret, and the wind carried whispers of an ancient magic. Somewhere deep in the forest, something awaited — something that could only be found by those who dared to explore. [NAME] felt a rush of excitement. This was not an ordinary forest. Every leaf, every shadow, and every beam of sunlight promised a discovery unlike any other."
                 ]
-            },
-            "starters": {
-                "forest": [
-                    "One sunny morning, [NAME] wandered into the magical forest near their home. The trees whispered secrets, and tiny sparkling lights danced around. Suddenly, a talking fox appeared, bowing politely, 'Hello, [NAME], I’ve been waiting for you...'"
-                ],
-                "space": [
-                    "High above the clouds, [NAME] floated in their shiny space suit. Stars twinkled like diamonds, and a friendly robot waved from a spaceship. 'Welcome to the Cosmic Playground!' the robot said..."
-                ],
-                "ocean": [
-                    "[NAME] dipped their toes into the sparkling blue ocean. Suddenly, a glowing mermaid surfaced, smiling, 'Come explore my hidden underwater kingdom!' she said."
-                ],
-                "dino": [
-                    "In a land long ago, [NAME] tiptoed past gigantic ferns and towering trees. They spotted a gentle baby triceratops with sparkling eyes. 'Hello, [NAME], I need your help!' it said softly."
-                ],
-                "magic": [
-                    "Once upon a time, in a village full of laughter, [NAME] discovered a golden key under their bed. Suddenly, a tiny talking dragon popped out of a teacup. 'This key will unlock a secret fairytale adventure!' it squeaked."
-                ],
-                "super": [
-                    "[NAME] put on their magical cape and looked in the mirror. Suddenly, a wise talking cat jumped onto the windowsill. 'Time to save the city, hero!' it meowed, handing them a glowing shield..."
-                ]
-            },
-            "story": "[STARTER]\n\nAnd then the real magic began! [NAME] and the angel set off on their journey, taking along their favorite thing — [FAVOURITES]. Every step revealed new secrets of the [THEME]. Evening crept up unnoticed, and when it was time to rest, our hero fell asleep with a smile, knowing that many more wonders lay ahead."
+            }
         }
     },
     "uniqueness": {
@@ -174,23 +128,86 @@
         ]
     },
     "pricing": {
-        "title": "Fair Pricing",
-        "subtitle": "Magic accessible to everyone",
-        "description": "No subscriptions. You only pay for the story you want to create.",
-        "mostPopular": "Popular",
-        "perMonth": "per story",
+        "title": "Pricing",
+        "subtitle": "Magic available for everyone",
+        "description": "Choose the best plan to create unforgettable childhood memories.",
+        "mostPopular": "Best Value",
+        "perMonth": "",
+        "faq_title": "Frequently Asked Questions",
+        "faqs": [
+            {
+                "question": "How do I receive my story?",
+                "answer": "Immediately after generation, you can read it online, print it, or save it as a high-quality PDF."
+            },
+            {
+                "question": "Can I edit the story later?",
+                "answer": "Yes, with the Creator plan, you can tune the story and regenerate illustrations to get it perfect."
+            },
+            {
+                "question": "Is it safe for my child?",
+                "answer": "Absolutely. Our AI is configured to generate only kind, educational content appropriate for young children."
+            },
+            {
+                "question": "What if I don't like the result?",
+                "answer": "Satisfaction is our priority. If you're not happy, contact support for a free regeneration."
+            }
+        ],
         "tiers": [
             {
-                "name": "Single Story",
+                "name": "Single Magic",
                 "price": "$3",
-                "description": "Perfect for a gift or a special bedtime.",
+                "description": "Perfect for one special evening.",
                 "features": [
-                    "Unique plot (400 words)",
-                    "1 DALL-E 3 Illustration",
-                    "Name Personalization",
-                    "Print-friendly PDF"
+                    "1 Personalized Story",
+                    "4 AI Illustrations",
+                    "Permanent Link",
+                    "Digital Export"
                 ],
-                "cta": "Create Magic"
+                "cta": "Create Now"
+            },
+            {
+                "name": "Storyteller",
+                "price": "$9",
+                "description": "For families who love reading together.",
+                "features": [
+                    "5 Stories Monthly",
+                    "All AI Themes",
+                    "Priority Generation",
+                    "Private Library"
+                ],
+                "cta": "Subscribe",
+                "mostPopular": true
+            },
+            {
+                "name": "Creator",
+                "price": "$19",
+                "description": "Unlimited imagination for your kids.",
+                "features": [
+                    "Unlimited Stories",
+                    "Custom Themes",
+                    "Family Sharing (3 accounts)",
+                    "Advanced Editing"
+                ],
+                "cta": "Go Unlimited"
+            }
+        ]
+    },
+    "testimonials": {
+        "list": [
+            {
+                "quote": "My son was shocked to hear his name in a story about dinosaurs! We read StoryMe every night now.",
+                "name": "Elena",
+                "role": "Mom of 4-year-old Artyom"
+            },
+            {
+                "quote": "The picture turned out absolutely magical. I printed it and framed it.",
+                "name": "Olga",
+                "role": "Mom of 6-year-old Sophia"
+            },
+            {
+                "quote": "Great gift idea for my nephew. Fast, quality, and very touching.",
+                "name": "Igor",
+                "role": "Uncle of the bravest hero"
             }
         ]
     },
@@ -234,27 +251,33 @@
             "social": "Or via"
         }
     },
-    "testimonials": {
-        "list": [
-            {
-                "quote": "My son was shocked to hear his name in a story about dinosaurs! We read StoryMe every night now.",
-                "name": "Elena",
-                "role": "Mom of 4-year-old Artyom"
-            },
-            {
-                "quote": "The picture turned out absolutely magical. I printed it and framed it.",
-                "name": "Olga",
-                "role": "Mom of 6-year-old Sophia"
-            },
-            {
-                "quote": "Great gift idea for my nephew. Fast, quality, and very touching.",
-                "name": "Igor",
-                "role": "Uncle of the bravest hero"
-            }
-        ]
+    "about": {
+        "hero_title": "Making Every Child the Hero of Their Own Story",
+        "hero_description": "We believe technology should bring families closer. StoryMe combines AI creativity with parent intuition to create magical reading moments.",
+        "mission_title": "Our Mission",
+        "mission_p1": "At StoryMe, we want to solve the 'one-size-fits-all' problem in children's literature. Every child has unique fears, dreams, and favorite heroes.",
+        "mission_p2": "By using AI to personalize stories and illustrations, we make reading more engaging and help children develop a lifelong love for books.",
+        "values_title": "Our Values",
+        "value1_title": "Empathy First",
+        "value1_desc": "We build stories that respect childhood and prioritize kindness.",
+        "value2_title": "Safe & Secure",
+        "value2_desc": "Your family's privacy and your child's safety are non-negotiable.",
+        "value3_title": "Democratizing Art",
+        "value3_desc": "High-quality custom illustrations available for everyone, not just those with huge budgets."
+    },
+    "blog": {
+        "title": "StoryMe Blog",
+        "subtitle": "Discover how AI is shaping the future of early childhood education and storytelling.",
+        "readMore": "Read full story"
     },
     "seo": {
         "title": "StoryMe — Personalized AI Bedtime Stories for Kids",
-        "description": "Create a unique story for your child. Hero name personalization, DALL-E 3 illustrations, and kind Claude-written plots for $3."
+        "description": "Create a unique story for your child. Hero name personalization, DALL-E 3 illustrations, and kind AI-written plots starting at $3.",
+        "pricing_title": "Pricing & Plans | StoryMe",
+        "pricing_description": "Affordable magical stories. Start from a single story for $3 or subscribe for unlimited monthly magic.",
+        "about_title": "About StoryMe | Our Mission and Values",
+        "about_description": "Learn why we started StoryMe and how we are using AI to make every child a hero of their own bedtime story.",
+        "blog_title": "Blog | StoryMe Insights & Tips",
+        "blog_description": "Articles, tips, and insights on AI storytelling, children's literacy, and creative parenting."
     }
 }

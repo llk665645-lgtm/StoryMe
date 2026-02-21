@@ -60,11 +60,13 @@ const testimonialList = computed(() => {
 })
 
 
-useHead({
-  title: computed(() => t('seo.title')),
-  meta: [
-    { name: 'description', content: computed(() => t('seo.description')) }
-  ]
+useSeoMeta({
+  title: t('seo.title'),
+  description: t('seo.description'),
+  ogTitle: t('seo.title'),
+  ogDescription: t('seo.description'),
+  ogImage: '/og-main.png',
+  twitterCard: 'summary_large_image',
 })
 </script>
 

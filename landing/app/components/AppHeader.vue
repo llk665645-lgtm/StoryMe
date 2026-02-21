@@ -17,15 +17,18 @@
 
         <!-- Desktop Navigation - Perfectly Centered -->
         <nav class="hidden md:flex items-center justify-center gap-8 px-4">
-          <a href="#features" class="text-sm font-medium text-brand-gray hover:text-primary transition-colors whitespace-nowrap">
+          <NuxtLink to="/" class="text-sm font-medium text-brand-gray hover:text-primary transition-colors whitespace-nowrap">
             {{ $t('header.features') }}
-          </a>
-          <a href="#how-it-works" class="text-sm font-medium text-brand-gray hover:text-primary transition-colors whitespace-nowrap">
-            {{ $t('header.howItWorks') }}
-          </a>
-          <a href="#pricing" class="text-sm font-medium text-brand-gray hover:text-primary transition-colors whitespace-nowrap">
+          </NuxtLink>
+          <NuxtLink to="/about" class="text-sm font-medium text-brand-gray hover:text-primary transition-colors whitespace-nowrap">
+            {{ $t('header.about') }}
+          </NuxtLink>
+          <NuxtLink to="/blog" class="text-sm font-medium text-brand-gray hover:text-primary transition-colors whitespace-nowrap">
+            {{ $t('header.blog') }}
+          </NuxtLink>
+          <NuxtLink to="/pricing" class="text-sm font-medium text-brand-gray hover:text-primary transition-colors whitespace-nowrap">
             {{ $t('header.pricing') }}
-          </a>
+          </NuxtLink>
         </nav>
 
         <!-- CTA Action -->
@@ -67,15 +70,18 @@
     <!-- Mobile Navigation -->
     <div v-if="isMenuOpen" class="md:hidden border-t border-border/50 bg-white px-4 py-6 shadow-xl animate-in fade-in slide-in-from-top-4 duration-300">
       <nav class="flex flex-col gap-4">
-        <a href="#features" class="text-base font-medium text-brand-gray hover:text-primary" @click="isMenuOpen = false">
+        <NuxtLink to="/" class="text-base font-medium text-brand-gray hover:text-primary" @click="isMenuOpen = false">
           {{ $t('header.features') }}
-        </a>
-        <a href="#how-it-works" class="text-base font-medium text-brand-gray hover:text-primary" @click="isMenuOpen = false">
-          {{ $t('header.howItWorks') }}
-        </a>
-        <a href="#pricing" class="text-base font-medium text-brand-gray hover:text-primary" @click="isMenuOpen = false">
+        </NuxtLink>
+        <NuxtLink to="/about" class="text-base font-medium text-brand-gray hover:text-primary" @click="isMenuOpen = false">
+          {{ $t('header.about') }}
+        </NuxtLink>
+        <NuxtLink to="/blog" class="text-base font-medium text-brand-gray hover:text-primary" @click="isMenuOpen = false">
+          {{ $t('header.blog') }}
+        </NuxtLink>
+        <NuxtLink to="/pricing" class="text-base font-medium text-brand-gray hover:text-primary" @click="isMenuOpen = false">
           {{ $t('header.pricing') }}
-        </a>
+        </NuxtLink>
 
         <div class="flex items-center gap-2 mt-2">
           <span class="text-xs text-brand-gray font-medium uppercase">Language:</span>

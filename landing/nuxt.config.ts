@@ -17,8 +17,16 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/image',
     '@nuxt/icon',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    '@nuxtjs/seo'
+
   ],
+  site: {
+    url: 'https://storyme.ai', // Placeholder, update to actual if known
+    name: 'StoryMe - AI Magical Stories for Kids',
+    description: 'Create personalized bedtime stories with AI illustrations for your child in 30 seconds.',
+    defaultLocale: 'en',
+  },
   i18n: {
     locales: [
       { code: 'en', name: 'English', file: 'en.json' },
@@ -28,5 +36,14 @@ export default defineNuxtConfig({
     langDir: 'locales',
     defaultLocale: 'en',
     strategy: 'no_prefix'
+  },
+  ogImage: {
+    enabled: true,
+  },
+  sitemap: {
+    enabled: true,
+  },
+  robots: {
+    enabled: true,
   }
 });
