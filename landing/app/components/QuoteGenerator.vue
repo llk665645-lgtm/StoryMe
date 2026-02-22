@@ -49,15 +49,10 @@
                      class="flex flex-col items-center gap-3 p-5 rounded-2xl border transition-all group relative overflow-hidden"
                      :class="[
                        form.theme === key ? 'border-white/60 bg-white/25 shadow-lg scale-[1.02]' : 'border-white/10 hover:border-white/30 hover:bg-white/10',
-                       key === 'forest' && form.theme === key ? 'shadow-green-500/20' : '',
-                       key === 'space' && form.theme === key ? 'shadow-purple-500/20' : '',
-                       key === 'ocean' && form.theme === key ? 'shadow-blue-500/20' : '',
-                       key === 'dino' && form.theme === key ? 'shadow-orange-500/20' : '',
-                       key === 'magic' && form.theme === key ? 'shadow-pink-500/20' : '',
-                       key === 'super' && form.theme === key ? 'shadow-red-500/20' : ''
+                       form.theme === key ? themeGradients[key] : ''
                      ]"
                    >
-                      <div v-if="form.theme === key" class="absolute inset-0 opacity-20 bg-gradient-to-br" :class="[
+                      <div v-if="form.theme === key" class="absolute inset-0 opacity-40 bg-gradient-to-br" :class="[
                         key === 'forest' ? 'from-green-400 to-emerald-600' : '',
                         key === 'space' ? 'from-purple-400 to-indigo-600' : '',
                         key === 'ocean' ? 'from-blue-400 to-cyan-600' : '',
@@ -201,11 +196,21 @@
   const themes = computed(() => {
     const result: Record<string, string> = {}
     themeKeys.forEach(key => {
-      result[key] = t(`generator.themes.${key}`)
+      const label = t(`generator.themes.${key}`)
+      result[key] = typeof label === 'string' ? label : key
     })
     return result
   })
   
+  const themeGradients: Record<string, string> = {
+    forest: 'bg-emerald-500/20 border-emerald-500/30',
+    space: 'bg-indigo-500/20 border-indigo-500/30',
+    ocean: 'bg-blue-500/20 border-blue-500/30',
+    dino: 'bg-orange-500/20 border-orange-500/30',
+    magic: 'bg-pink-500/20 border-pink-500/30',
+    super: 'bg-red-500/20 border-red-500/30'
+  }
+
   const moodKeywords: Record<string, string> = {
     forest: 'magical-forest,glowing-mushrooms,fairy-tale-woods,watercolor-illustration',
     space: 'cosmic-adventure,astronaut-child,stars-and-planets,outer-space-watercolor',
@@ -227,9 +232,15 @@
     await new Promise(resolve => setTimeout(resolve, 800))
     
     // 2. Generate Content
-    const demo = tm('generator.demo') as any
-    const themeVariations = demo.variations?.[form.theme]
-    const heroNames = demo.heroNames?.[form.theme] || ['the Magic Friend']
+    const rawDemo = tm('generator.demo')
+    const demo = (rawDemo && typeof rawDemo === 'object') ? rawDemo : {} as any
+    
+    const variations = demo.variations || {}
+    const themeVariations = variations[form.theme]
+    
+    const heroNamesMap = demo.heroNames || {}
+    const heroNames = heroNamesMap[form.theme] || ['the Magic Friend']
+    
     const heroName = Array.isArray(heroNames) 
       ? heroNames[Math.floor(Math.random() * heroNames.length)]
       : heroNames
@@ -239,26 +250,29 @@
     if (Array.isArray(themeVariations) && themeVariations.length > 0) {
       // Pick random variation
       const randomVar = themeVariations[Math.floor(Math.random() * themeVariations.length)]
-      storyContent = randomVar
+      storyContent = String(randomVar)
         .replace(/\[NAME\]/g, form.name)
         .replace(/\[HERO\]/g, heroName)
         .replace(/\[FAVOURITES\]/g, form.favorites)
     } else {
       // Use standard starter + template
-      const themeStarters = demo.starters?.[form.theme]
+      const starters = demo.starters || {}
+      const themeStarters = starters[form.theme]
       const rawStarter = Array.isArray(themeStarters) 
         ? themeStarters[Math.floor(Math.random() * themeStarters.length)]
         : (themeStarters || '')
       
-      const starterText = rawStarter.replace(/\[NAME\]/g, form.name)
-      storyContent = demo.story
+      const demoStory = demo.story || 'Once upon a time, [NAME] went on an adventure.'
+      const starterText = String(rawStarter).replace(/\[NAME\]/g, form.name)
+      storyContent = String(demoStory)
         .replace('[STARTER]', starterText)
         .replace(/\[NAME\]/g, form.name)
         .replace(/\[FAVOURITES\]/g, form.favorites)
-        .replace(/\[THEME\]/g, (themes.value as any)[form.theme])
+        .replace(/\[THEME\]/g, (themes.value as any)[form.theme] || form.theme)
     }
 
-    result.title = demo.title.replace('[NAME]', form.name)
+    const demoTitle = demo.title || 'The Adventure of [NAME]'
+    result.title = String(demoTitle).replace('[NAME]', form.name)
     result.storyContent = storyContent
 
     // 3. Set Visual (Using local theme images)
