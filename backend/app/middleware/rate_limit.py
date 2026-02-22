@@ -36,6 +36,10 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
         self._storage: dict[str, tuple[int, float]] = {}
 
     async def dispatch(self, request: Request, call_next):
+        # Let CORS preflight through without rate limiting
+        if request.method == "OPTIONS":
+            return await call_next(request)
+
         key = self.key_func(request)
         now = time.monotonic()
         if key in self._storage:
