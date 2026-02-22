@@ -197,7 +197,14 @@
     super: 'lucide:zap'
   }
 
-  const themes = computed(() => (tm('generator.themes') || {}) as Record<string, string>)
+  const themeKeys = ['forest', 'space', 'ocean', 'dino', 'magic', 'super']
+  const themes = computed(() => {
+    const result: Record<string, string> = {}
+    themeKeys.forEach(key => {
+      result[key] = t(`generator.themes.${key}`)
+    })
+    return result
+  })
   
   const moodKeywords: Record<string, string> = {
     forest: 'magical-forest,glowing-mushrooms,fairy-tale-woods,watercolor-illustration',
