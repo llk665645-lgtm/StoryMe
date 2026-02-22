@@ -46,18 +46,40 @@
             </button>
           </div>
 
-          <button 
-            class="hidden sm:block text-sm font-semibold text-white/80 hover:text-white transition-colors"
-            @click="openAuth('login')"
-          >
-            {{ $t('header.login') }}
-          </button>
-          <button 
-            class="rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] px-8 py-3 text-sm font-black text-white transition-all hover:scale-105 active:scale-95 border border-white/20"
-            @click="openAuth('register')"
-          >
-            {{ $t('header.getStarted') }}
-          </button>
+          <template v-if="!authStore.isAuthenticated">
+            <button 
+              class="hidden sm:block text-sm font-semibold text-white/80 hover:text-white transition-colors"
+              @click="openAuth('login')"
+            >
+              {{ $t('header.login') }}
+            </button>
+            <button 
+              class="rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] px-8 py-3 text-sm font-black text-white transition-all hover:scale-105 active:scale-95 border border-white/20"
+              @click="openAuth('register')"
+            >
+              {{ $t('header.getStarted') }}
+            </button>
+          </template>
+          
+          <template v-else>
+            <div class="flex items-center gap-4">
+              <span class="hidden lg:block text-sm font-bold text-white/60">
+                Hi, {{ authStore.user?.full_name || 'Hero' }}
+              </span>
+              <button 
+                @click="authStore.logout()"
+                class="text-sm font-semibold text-white/60 hover:text-white transition-colors"
+              >
+                Logout
+              </button>
+              <NuxtLink 
+                to="/dashboard"
+                class="rounded-full bg-white/10 px-6 py-2.5 text-xs font-black text-white hover:bg-white/20 transition-all border border-white/10"
+              >
+                Dashboard
+              </NuxtLink>
+            </div>
+          </template>
           
           <!-- Mobile Menu Toggle -->
           <button class="md:hidden text-white p-2" @click="isMenuOpen = !isMenuOpen">
@@ -99,12 +121,35 @@
         </div>
 
         <hr class="border-white/10 my-6" />
-        <button 
-          class="w-full rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] py-4 text-center font-black text-white shadow-lg shadow-purple-900/20"
-          @click="openAuth('register')"
-        >
-          {{ $t('header.getStarted') }}
-        </button>
+        <template v-if="!authStore.isAuthenticated">
+          <button 
+            class="w-full rounded-2xl bg-white/10 py-4 text-center font-bold text-white mb-2"
+            @click="openAuth('login')"
+          >
+            {{ $t('header.login') }}
+          </button>
+          <button 
+            class="w-full rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] py-4 text-center font-black text-white shadow-lg shadow-purple-900/20"
+            @click="openAuth('register')"
+          >
+            {{ $t('header.getStarted') }}
+          </button>
+        </template>
+        <template v-else>
+          <NuxtLink 
+            to="/dashboard"
+            class="w-full rounded-2xl bg-white/10 py-4 text-center font-bold text-white mb-2"
+            @click="isMenuOpen = false"
+          >
+            Go to Dashboard
+          </NuxtLink>
+          <button 
+            @click="authStore.logout()"
+            class="w-full py-4 text-center font-bold text-white/60"
+          >
+            Logout
+          </button>
+        </template>
       </nav>
     </div>
 
@@ -124,9 +169,11 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useAuth } from '~/composables/useAuth';
+import { useAuthStore } from '~/stores/auth';
 
 const { t, locale: currentLocale, setLocale } = useI18n();
 const { isAuthOpen, authMode, triggerAuth, closeAuth } = useAuth();
+const authStore = useAuthStore();
 
 const scrolled = ref(false);
 const isMenuOpen = ref(false);

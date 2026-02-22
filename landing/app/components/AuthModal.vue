@@ -112,6 +112,9 @@
 <script setup lang="ts">
 import { ref, reactive, watch } from 'vue';
 import { Motion, AnimatePresence } from 'motion-v';
+import { useAuthStore } from '~/stores/auth';
+
+const authStore = useAuthStore();
 
 const props = defineProps<{
   isOpen: boolean;
@@ -188,8 +191,8 @@ const handleSubmit = async () => {
 
     // Store tokens
     const { access_token, refresh_token } = data.data;
-    localStorage.setItem('access_token', access_token);
-    localStorage.setItem('refresh_token', refresh_token);
+    authStore.setTokens(access_token, refresh_token);
+    await authStore.fetchUser();
 
     emit('close');
     // Instead of dashboard, we stay on home or refresh

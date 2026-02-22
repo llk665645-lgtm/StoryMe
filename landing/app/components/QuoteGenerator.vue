@@ -95,13 +95,36 @@
           </div>
         </div>
 
+        <!-- Loading Magic Overlay -->
+        <Transition
+          enter-active-class="transition duration-500 ease-out"
+          enter-from-class="opacity-0"
+          enter-to-class="opacity-100"
+          leave-active-class="transition duration-500 ease-in"
+          leave-from-class="opacity-100"
+          leave-to-class="opacity-0"
+        >
+          <div v-if="isGenerating" class="absolute inset-0 z-50 flex flex-col items-center justify-center bg-[#0F172A]/90 backdrop-blur-xl">
+            <div class="relative">
+              <div class="size-32 rounded-full border-4 border-purple-500/20 border-t-purple-500 animate-spin"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <Icon name="lucide:sparkles" class="size-10 text-purple-400 animate-pulse" />
+              </div>
+            </div>
+            <h3 class="mt-8 text-2xl font-black text-white tracking-tight animate-pulse">
+              {{ $t('generator.processing') }}
+            </h3>
+            <p class="mt-2 text-white/50 font-medium">Creating a world for {{ form.name }}...</p>
+          </div>
+        </Transition>
+
         <!-- Result Page -->
         <Transition
-          enter-active-class="transition duration-[2000ms] ease-out"
+          enter-active-class="transition duration-[1000ms] ease-out"
           enter-from-class="opacity-0 translate-y-12"
           enter-to-class="opacity-100 translate-y-0"
         >
-          <div v-if="hasResult" class="flex flex-col gap-10">
+          <div v-if="hasResult" class="flex flex-col gap-10 result-content">
              <!-- Header -->
              <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-8">
                 <div class="text-left">
@@ -120,26 +143,35 @@
                 </div>
              </div>
 
-             <!-- Story Layout -->
-             <div class="flex flex-col gap-6 text-left">
-                  <div class="prose prose-invert max-w-none">
-                     <p class="story-paragraph !text-white/90">
-                        {{ result.storyContent }}
-                     </p>
-                  </div>
-             </div>
+              <!-- Story Layout -->
+              <div class="flex flex-col gap-6 text-left">
+                   <div class="prose prose-invert max-w-none">
+                      <div v-if="result.image" class="w-full h-80 rounded-3xl overflow-hidden mb-8 border border-white/10 shadow-2xl">
+                        <img :src="result.image" alt="Story Illustration" class="w-full h-full object-cover" />
+                      </div>
+                      <div class="space-y-4">
+                        <p v-for="(p, i) in formattedStory" :key="i" class="story-paragraph !text-white/90 text-lg leading-relaxed">
+                           {{ p }}
+                        </p>
+                      </div>
+                   </div>
+              </div>
 
-             <!-- Footer Actions -->
-             <div class="mt-8 flex flex-wrap justify-center gap-4">
-                <button @click="copyToClipboard" class="flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] text-white hover:scale-[1.02] transition-all text-sm font-black border border-white/20">
-                   <Icon name="lucide:copy" class="size-5 text-white" />
-                   {{ $t('generator.share') }}
-                </button>
-                <button @click="triggerAuth('register')" class="flex items-center gap-2 px-8 py-4 rounded-2xl bg-white/10 border border-white/20 text-white hover:bg-white/15 transition-all text-sm font-bold backdrop-blur-md">
-                   <Icon name="lucide:sparkles" class="size-5 text-white" />
-                   {{ $t('generator.wantMore') }}
-                </button>
-             </div>
+              <!-- Footer Actions -->
+              <div class="mt-8 flex flex-wrap justify-center gap-4">
+                 <button v-if="result.is_demo" @click="triggerAuth('register')" class="group relative flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:scale-[1.05] active:scale-95 transition-all text-sm font-black border border-white/30 shadow-[0_0_20px_rgba(236,72,153,0.3)]">
+                    <Icon name="lucide:sparkles" class="size-5 text-white animate-pulse" />
+                    {{ $t('generator.wantMore') }}
+                    <div class="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                 </button>
+                 <button @click="copyToClipboard" class="flex items-center gap-2 px-8 py-4 rounded-2xl bg-white/10 border border-white/20 text-white hover:bg-white/15 transition-all text-sm font-bold backdrop-blur-md">
+                    <Icon name="lucide:copy" class="size-5 text-white" />
+                    {{ $t('generator.share') }}
+                 </button>
+                 <button v-if="!result.is_demo" @click="hasResult = false" class="flex items-center gap-2 px-8 py-4 rounded-2xl bg-white/5 border border-white/10 text-white/70 hover:text-white transition-all text-sm font-bold">
+                    Create New Story
+                 </button>
+              </div>
           </div>
         </Transition>
 
@@ -149,12 +181,11 @@
   </template>
 
   <script setup lang="ts">
-  import { ref, reactive, computed } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  import { useAuth } from '~/composables/useAuth'
+  import { useAuthStore } from '~/stores/auth'
 
-  const { t, tm } = useI18n()
+  const { t } = useI18n()
   const { triggerAuth } = useAuth()
+  const authStore = useAuthStore()
 
   const form = reactive({
     name: '',
@@ -169,7 +200,12 @@
   const result = reactive({
     title: '',
     storyContent: '',
-    image: ''
+    image: '',
+    is_demo: true
+  })
+
+  const formattedStory = computed(() => {
+    return result.storyContent.split('\n').filter(p => p.trim())
   })
 
 
@@ -222,56 +258,56 @@
 
 
   const isFormValid = computed(() => {
-    return form.name.length > 1 && form.favorites.length > 5
+    return form.name.length > 1 && form.favorites.length >= 0
   })
 
   async function generateStory() {
     isGenerating.value = true
     
-    const rawDemo = tm('generator.demo')
-    const demo = (rawDemo && typeof rawDemo === 'object') ? rawDemo : {} as any
-    
-    const variations = demo.variations || {}
-    const themeVariations = variations[form.theme]
-    
-    const heroNamesMap = demo.heroNames || {}
-    const heroNames = heroNamesMap[form.theme] || ['the Magic Friend']
-    
-    const heroName = Array.isArray(heroNames) 
-      ? heroNames[Math.floor(Math.random() * heroNames.length)]
-      : heroNames
-
-    let storyContent = ''
-    
-    if (Array.isArray(themeVariations) && themeVariations.length > 0) {
-      const randomVar = themeVariations[Math.floor(Math.random() * themeVariations.length)]
-      storyContent = String(randomVar)
-        .replace(/\[NAME\]/g, form.name)
-        .replace(/\[HERO\]/g, heroName)
-        .replace(/\[FAVOURITES\]/g, form.favorites)
-    } else {
-      const starters = demo.starters || {}
-      const themeStarters = starters[form.theme]
-      const rawStarter = Array.isArray(themeStarters) 
-        ? themeStarters[Math.floor(Math.random() * themeStarters.length)]
-        : (themeStarters || '')
+    try {
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json'
+      }
       
-      const demoStory = demo.story || 'Once upon a time, [NAME] went on an adventure.'
-      const starterText = String(rawStarter).replace(/\[NAME\]/g, form.name)
-      storyContent = String(demoStory)
-        .replace('[STARTER]', starterText)
-        .replace(/\[NAME\]/g, form.name)
-        .replace(/\[FAVOURITES\]/g, form.favorites)
-        .replace(/\[THEME\]/g, (themes.value as any)[form.theme] || form.theme)
+      if (authStore.accessToken) {
+        headers['Authorization'] = `Bearer ${authStore.accessToken}`
+      }
+
+      const response = await fetch('http://127.0.0.1:8000/story/generate', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          name: form.name,
+          age: form.age,
+          theme: form.theme,
+          additional_params: form.favorites
+        })
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.message || 'Failed to generate story')
+      }
+
+      const data = await response.json()
+      
+      result.title = t('generator.resultHeader')
+      result.storyContent = data.story
+      result.image = data.image
+      result.is_demo = data.is_demo
+      
+      hasResult.value = true
+      
+      // Smooth scroll to top of generator
+      setTimeout(() => {
+        const el = document.querySelector('.result-content')
+        el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 100)
+    } catch (error) {
+      console.error('Generation error:', error)
+      alert((error as Error).message)
+    } finally {
+      isGenerating.value = false
     }
-
-    const demoTitle = demo.title || 'The Adventure of [NAME]'
-    result.title = String(demoTitle).replace('[NAME]', form.name)
-    result.storyContent = storyContent
-    result.image = `/images/themes/${form.theme}.webp`
-
-    // No delays, show result instantly
-    hasResult.value = true
-    isGenerating.value = false
   }
   </script>
