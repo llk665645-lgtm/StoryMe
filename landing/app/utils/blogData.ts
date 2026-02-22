@@ -18,7 +18,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'revolutionizing-bedtime-stories',
     date: '2024-02-15',
-    image: 'https://images.unsplash.com/photo-1543004218-ee141d0ef114?auto=format&fit=crop&q=80&w=1200',
+    image: '/images/themes/photo.jpg',
     en: {
       title: 'How AI is Revolutionizing Personalized Bedtime Stories',
       description: 'Discover how artificial intelligence is enabling parents to create unique, magical moments where their children are the main heroes.',
