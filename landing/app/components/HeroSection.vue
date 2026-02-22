@@ -5,12 +5,12 @@
         <div class="flex justify-center">
           <h1 
             ref="titleRef"
-            class="text-5xl font-bold tracking-tight text-brand-dark sm:text-7xl text-center justify-center mb-6 opacity-0"
+            class="text-5xl font-black tracking-tight text-white sm:text-7xl text-center justify-center mb-8 opacity-0"
           >
-            {{ $t('hero.titlePrefix') }} <br class="hidden sm:block" /> <span class="text-primary italic">{{ $t('hero.titleItalic') }}</span>
+            {{ $t('hero.titlePrefix') }} <br class="hidden sm:block" /> <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 italic font-serif">{{ $t('hero.titleItalic') }}</span>
           </h1>
         </div>
-        <p ref="descriptionRef" class="mt-6 text-xl leading-8 text-brand-gray opacity-0 max-w-2xl mx-auto">
+        <p ref="descriptionRef" class="mt-6 text-xl leading-relaxed text-white/60 opacity-0 max-w-2xl mx-auto font-medium">
           {{ $t('hero.description') }}
         </p>
         

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full max-w-4xl mx-auto mt-12 p-8 md:p-12 rounded-[3.5rem] bg-white/10 backdrop-blur-xl border border-white/10 shadow-3xl overflow-hidden">
+  <div class="w-full max-w-4xl mx-auto mt-12 p-8 md:p-12 rounded-[3.5rem] bg-[#0F172A]/80 backdrop-blur-2xl border border-white/10 overflow-hidden">
     <div class="flex flex-col gap-10">
         <!-- Input Form -->
         <div v-if="!hasResult" class="grid grid-cols-1 md:grid-cols-2 gap-8 animate-in fade-in duration-700">
@@ -11,7 +11,7 @@
                  v-model="form.name"
                  type="text"
                  :placeholder="$t('generator.namePlaceholder')"
-                 class="w-full p-5 rounded-2xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-white/40 focus:bg-white/15 focus:ring-4 focus:ring-white/10 transition-all outline-none"
+                 class="w-full p-5 rounded-2xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:border-purple-400 focus:bg-white/15 focus:ring-4 focus:ring-purple-500/20 transition-all outline-none"
                />
             </div>
             <div class="flex flex-col gap-2">
@@ -71,11 +71,11 @@
                 <button
                   @click="generateStory"
                   :disabled="isGenerating || !isFormValid"
-                  class="w-full relative group px-8 py-5 rounded-full font-bold text-xl overflow-hidden transition-all shadow-[0_8px_30px_rgba(0,0,0,0.3)]"
+                  class="w-full relative group px-8 py-5 rounded-full font-black text-xl overflow-hidden transition-all border border-white/20"
                   :class="[
                     isFormValid 
-                      ? 'bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white hover:scale-[1.02] hover:shadow-purple-500/40 active:scale-95' 
-                      : 'bg-white/20 text-white/40 cursor-not-allowed border border-white/10'
+                      ? 'bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white hover:scale-[1.02] active:scale-95' 
+                      : 'bg-white/10 text-white/40 cursor-not-allowed border border-white/10'
                   ]"
                 >
                   <span class="relative z-10 flex items-center justify-center gap-3">
@@ -131,8 +131,8 @@
 
              <!-- Footer Actions -->
              <div class="mt-8 flex flex-wrap justify-center gap-4">
-                <button @click="copyToClipboard" class="flex items-center gap-2 px-8 py-4 rounded-2xl bg-white text-dream-deep hover:bg-white/90 transition-all text-sm font-bold shadow-xl">
-                   <Icon name="lucide:copy" class="size-5 text-dream-mid" />
+                <button @click="copyToClipboard" class="flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] text-white hover:scale-[1.02] transition-all text-sm font-black border border-white/20">
+                   <Icon name="lucide:copy" class="size-5 text-white" />
                    {{ $t('generator.share') }}
                 </button>
                 <button @click="triggerAuth('register')" class="flex items-center gap-2 px-8 py-4 rounded-2xl bg-white/10 border border-white/20 text-white hover:bg-white/15 transition-all text-sm font-bold backdrop-blur-md">

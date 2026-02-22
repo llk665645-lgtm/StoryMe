@@ -1,13 +1,7 @@
 <template>
   <section id="features" class="bg-transparent py-24 sm:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl lg:text-center">
-        <h2 class="text-base font-semibold leading-7 text-white/50 uppercase tracking-widest">{{ $t('features.title') }}</h2>
-        <div class="flex justify-center mt-2">
-            <p class="text-3xl font-bold tracking-tight text-white sm:text-4xl text-center justify-center">
-              {{ $t('features.subtitle') }}
-            </p>
-        </div>
+      <div class="mx-auto max-w-2xl lg:text-center px-4">
       </div>
       <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
         <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">

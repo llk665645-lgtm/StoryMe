@@ -4,51 +4,62 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Soft Dream Minimal Palette */
-  --color-dream-deep: #0F172A;
-  --color-brand-blue: #093895;
-  --color-dream-mid: #1E293B;
-  --color-dream-light: #334155;
+  /* Magical Violet Palette (Based on St Tropaz hue shift) */
+  --color-violet-50: #f5f3ff;
+  --color-violet-100: #ede9fe;
+  --color-violet-200: #ddd6fe;
+  --color-violet-300: #c4b5fd;
+  --color-violet-400: #a78bfa;
+  --color-violet-500: #8b5cf6;
+  --color-violet-600: #7c3aed;
+  --color-violet-700: #6d28d9;
+  --color-violet-800: #5b21b6;
+  --color-violet-900: #4c1d95;
+  --color-violet-950: #2e1065;
+
+  --color-dream-deep: #0F0A1E;
+  --color-dream-mid: #1A1033;
+  --color-dream-light: #2E1065;
 
   --background: var(--color-dream-deep);
   --foreground: #f8fafc;
 
-  --card: #1E293B;
+  --card: #1A1033;
   --card-foreground: #f1f5f9;
 
-  --popover: #1E293B;
+  --popover: #1A1033;
   --popover-foreground: #f1f5f9;
 
-  --muted: #334155;
-  --muted-foreground: #94a3b8;
+  --muted: #2E1065;
+  --muted-foreground: #a78bfa;
 
-  --accent: #334155;
-  --accent-foreground: #f1f5f9;
+  --accent: #4c1d95;
+  --accent-foreground: #ffffff;
 
-  --border: rgba(255, 255, 255, 0.1);
-  --input: rgba(255, 255, 255, 0.1);
+  --border: rgba(139, 92, 246, 0.2);
+  --input: rgba(139, 92, 246, 0.1);
 
   --primary: #ffffff;
-  --primary-foreground: var(--color-brand-blue);
+  --primary-foreground: #7c3aed;
 
-  --secondary: #334155;
-  --secondary-foreground: #f1f5f9;
+  --secondary: #2e1065;
+  --secondary-foreground: #ede9fe;
 
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
-  --ring: rgba(255, 255, 255, 0.3);
+  --ring: rgba(139, 92, 246, 0.5);
 
-  --radius: 1rem;
+  --radius: 2rem;
 
-  --sidebar: #0F172A;
-  --sidebar-foreground: #f1f5f9;
+  --sidebar: #0F0A1E;
+  --sidebar-foreground: #ede9fe;
   --sidebar-primary: #ffffff;
-  --sidebar-primary-foreground: var(--color-brand-blue);
-  --sidebar-accent: #1E293B;
+  --sidebar-primary-foreground: #7c3aed;
+  --sidebar-accent: #1A1033;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: rgba(255, 255, 255, 0.1);
-  --sidebar-ring: rgba(255, 255, 255, 0.3);
+  --sidebar-border: rgba(139, 92, 246, 0.2);
+  --sidebar-ring: rgba(217, 70, 239, 0.5);
 }
 
 .dark {
@@ -88,25 +99,25 @@
 
 @theme {
   /* Expose the raw palette */
-  --color-brand-50: var(--color-curious-blue-50);
-  --color-brand-100: var(--color-curious-blue-100);
-  --color-brand-200: var(--color-curious-blue-200);
-  --color-brand-300: var(--color-curious-blue-300);
-  --color-brand-400: var(--color-curious-blue-400);
-  --color-brand-500: var(--color-curious-blue-500);
-  --color-brand-600: var(--color-curious-blue-600);
-  --color-brand-700: var(--color-curious-blue-700);
-  --color-brand-800: var(--color-curious-blue-800);
-  --color-brand-900: var(--color-curious-blue-900);
-  --color-brand-950: var(--color-curious-blue-950);
+  --color-brand-50: var(--color-violet-50);
+  --color-brand-100: var(--color-violet-100);
+  --color-brand-200: var(--color-violet-200);
+  --color-brand-300: var(--color-violet-300);
+  --color-brand-400: var(--color-violet-400);
+  --color-brand-500: var(--color-violet-500);
+  --color-brand-600: var(--color-violet-600);
+  --color-brand-700: var(--color-violet-700);
+  --color-brand-800: var(--color-violet-800);
+  --color-brand-900: var(--color-violet-900);
+  --color-brand-950: var(--color-violet-950);
 
   /* Original Semantic mappings */
-  --color-brand-primary: var(--color-curious-blue-600);
-  --color-brand-primary-hover: var(--color-curious-blue-700);
-  --color-brand-dark: var(--color-curious-blue-950);
-  --color-brand-light: var(--color-curious-blue-50);
-  --color-brand-gray: var(--color-curious-blue-800);
-  --color-brand-blue: #093895;
+  --color-brand-primary: var(--color-violet-600);
+  --color-brand-primary-hover: var(--color-violet-700);
+  --color-brand-dark: var(--color-violet-950);
+  --color-brand-light: var(--color-violet-50);
+  --color-brand-gray: var(--color-violet-800);
+  --color-brand-violet: #7c3aed;
 
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }

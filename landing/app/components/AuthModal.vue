@@ -15,21 +15,21 @@
 
       <!-- Modal Container -->
       <Motion
-        class="relative w-full max-w-md overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-border"
+        class="relative w-full max-w-md overflow-hidden rounded-[2.5rem] bg-[#0F172A]/90 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-white/10"
         :initial="{ opacity: 0, scale: 0.9, y: 20 }"
         :animate="{ opacity: 1, scale: 1, y: 0 }"
         :exit="{ opacity: 0, scale: 0.9, y: 20 }"
         :transition="{ type: 'spring', damping: 25, stiffness: 300 }"
       >
         <!-- Top accent bar -->
-        <div class="h-2 bg-primary" />
+        <div class="h-1.5 bg-gradient-to-r from-[#8B5CF6] via-[#D946EF] to-[#8B5CF6] animate-gradient-x" />
 
         <div class="px-8 py-10">
           <div class="mb-8 text-center">
-            <h2 class="text-3xl font-bold tracking-tight text-brand-dark">
+            <h2 class="text-3xl font-black tracking-tight text-white">
               {{ isLogin ? $t('auth.login.title') : $t('auth.register.title') }}
             </h2>
-            <p class="mt-2 text-sm text-brand-gray">
+            <p class="mt-2 text-sm text-white/50 font-medium">
               {{ isLogin ? $t('auth.login.subtitle') : $t('auth.register.subtitle') }}
             </p>
           </div>
@@ -40,7 +40,7 @@
               <input 
                 type="text" 
                 :placeholder="$t('auth.form.fullNamePlaceholder')"
-                class="w-full rounded-xl border border-border bg-brand-light/50 px-4 py-3 text-sm transition-all focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
+                class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-white transition-all focus:border-purple-400 focus:ring-4 focus:ring-purple-500/10 placeholder:text-white/30 outline-none"
               />
             </div>
 
@@ -49,7 +49,7 @@
               <input 
                 type="email" 
                 :placeholder="$t('auth.form.emailPlaceholder')"
-                class="w-full rounded-xl border border-border bg-brand-light/50 px-4 py-3 text-sm transition-all focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
+                class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-white transition-all focus:border-purple-400 focus:ring-4 focus:ring-purple-500/10 placeholder:text-white/30 outline-none"
               />
             </div>
 
@@ -58,25 +58,25 @@
               <input 
                 type="password" 
                 placeholder="••••••••"
-                class="w-full rounded-xl border border-border bg-brand-light/50 px-4 py-3 text-sm transition-all focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
+                class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-white transition-all focus:border-purple-400 focus:ring-4 focus:ring-purple-500/10 placeholder:text-white/30 outline-none"
               />
             </div>
 
             <button 
               type="submit"
-              class="group relative w-full overflow-hidden rounded-xl bg-primary py-4 text-sm font-bold text-white shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
+              class="group relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] py-4 text-sm font-black text-white shadow-[0_8px_30px_rgba(139,92,246,0.3)] transition-all hover:scale-[1.02] active:scale-[0.98] border border-white/20"
             >
               <span class="relative z-10">{{ isLogin ? $t('auth.login.submit') : $t('auth.register.submit') }}</span>
-              <div class="absolute inset-0 -z-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              <div class="absolute inset-0 -z-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
             </button>
           </form>
 
-          <div class="mt-8 flex items-center justify-center gap-2 text-sm">
-            <span class="text-brand-gray">
+          <div class="mt-8 flex items-center justify-center gap-2 text-sm font-bold">
+            <span class="text-white/40">
               {{ isLogin ? $t('auth.login.switch') : $t('auth.register.switch') }}
             </span>
             <button 
-              class="font-bold text-primary hover:underline"
+              class="text-purple-400 hover:text-purple-300 transition-colors"
               @click="isLogin = !isLogin"
             >
               {{ isLogin ? $t('auth.login.action') : $t('auth.register.action') }}
@@ -84,19 +84,19 @@
           </div>
         </div>
 
-        <!-- Social Auth (Visual only) -->
-        <div class="bg-brand-light/50 border-t border-border px-8 py-6">
+        <!-- Social Auth -->
+        <div class="bg-white/[0.03] border-t border-white/10 px-8 py-8">
           <div class="flex items-center gap-3">
-             <div class="h-px flex-1 bg-border" />
-             <span class="text-[10px] font-bold uppercase tracking-widest text-brand-gray">{{ $t('auth.form.social') }}</span>
-             <div class="h-px flex-1 bg-border" />
+             <div class="h-px flex-1 bg-white/10" />
+             <span class="text-[10px] font-black uppercase tracking-widest text-white/40">{{ $t('auth.form.social') }}</span>
+             <div class="h-px flex-1 bg-white/10" />
           </div>
-          <div class="mt-4 grid grid-cols-2 gap-3">
-            <button class="flex items-center justify-center gap-2 rounded-xl border border-border bg-white py-2 text-xs font-bold text-brand-dark hover:bg-brand-light transition-colors">
+          <div class="mt-6 grid grid-cols-2 gap-4">
+            <button class="flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 py-3 text-xs font-black text-white hover:bg-white/10 transition-all">
               <Icon name="logos:google-icon" class="size-4" />
               Google
             </button>
-            <button class="flex items-center justify-center gap-2 rounded-xl border border-border bg-white py-2 text-xs font-bold text-brand-dark hover:bg-brand-light transition-colors">
+            <button class="flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 py-3 text-xs font-black text-white hover:bg-white/10 transition-all">
               <Icon name="logos:github-icon" class="size-4" />
               GitHub
             </button>
@@ -105,10 +105,10 @@
 
         <!-- Close Button -->
         <button 
-          class="absolute top-4 right-4 p-2 text-brand-gray hover:text-brand-dark transition-colors"
+          class="absolute top-6 right-6 p-2 text-white/30 hover:text-white transition-colors"
           @click="$emit('close')"
         >
-          <Icon name="lucide:x" class="size-5" />
+          <Icon name="lucide:x" class="size-6" />
         </button>
       </Motion>
     </div>

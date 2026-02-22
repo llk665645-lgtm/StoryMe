@@ -7,11 +7,11 @@
       <div class="grid h-20 grid-cols-2 md:grid-cols-[1fr_auto_1fr] items-center">
         <!-- Logo -->
         <div class="flex items-center gap-2">
-          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-dream-deep shadow-lg">
-            <LogoIcon class="w-6 h-6 stroke-dream-deep fill-dream-deep" />
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-[#8B5CF6] to-[#D946EF] text-white border border-white/20">
+            <LogoIcon class="w-6 h-6 stroke-white fill-white" />
           </div>
-          <span class="text-xl font-bold tracking-tight text-white">
-            Story<span class="text-white/80 italic">Me</span>
+          <span class="text-xl font-bold tracking-tight text-white group cursor-default">
+            Story<span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-200 italic">Me</span>
           </span>
         </div>
 
@@ -39,8 +39,8 @@
               v-for="locale in ['en', 'ru']" 
               :key="locale"
               @click="setLocale(locale as any)"
-              class="px-2 py-1 text-[10px] font-bold uppercase transition-all rounded"
-              :class="currentLocale === locale ? 'bg-white text-dream-deep shadow-sm' : 'text-white/60 hover:text-white'"
+              class="px-2 py-1 text-[10px] font-black uppercase transition-all rounded-md"
+              :class="currentLocale === locale ? 'bg-[#8B5CF6] text-white' : 'text-white/60 hover:text-white'"
             >
               {{ locale }}
             </button>
@@ -53,7 +53,7 @@
             {{ $t('header.login') }}
           </button>
           <button 
-            class="rounded-full bg-white px-6 py-2.5 text-sm font-bold text-dream-deep shadow-[0_8px_20px_rgba(0,0,0,0.25)] transition-all hover:scale-105 hover:shadow-[0_12px_24px_rgba(255,255,255,0.15)] active:scale-95"
+            class="rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] px-8 py-3 text-sm font-black text-white transition-all hover:scale-105 active:scale-95 border border-white/20"
             @click="openAuth('register')"
           >
             {{ $t('header.getStarted') }}
@@ -68,39 +68,39 @@
     </div>
 
     <!-- Mobile Navigation -->
-    <div v-if="isMenuOpen" class="md:hidden border-t border-border/50 bg-white px-4 py-6 shadow-xl animate-in fade-in slide-in-from-top-4 duration-300">
+    <div v-if="isMenuOpen" class="md:hidden border-t border-white/10 bg-slate-950/95 backdrop-blur-xl px-4 py-8 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-500">
       <nav class="flex flex-col gap-4">
-        <NuxtLink to="/" class="text-base font-medium text-brand-gray hover:text-primary" @click="isMenuOpen = false">
+        <NuxtLink to="/" class="text-base font-bold text-white/70 hover:text-white" @click="isMenuOpen = false">
           {{ $t('header.features') }}
         </NuxtLink>
-        <NuxtLink to="/about" class="text-base font-medium text-brand-gray hover:text-primary" @click="isMenuOpen = false">
+        <NuxtLink to="/about" class="text-base font-bold text-white/70 hover:text-white" @click="isMenuOpen = false">
           {{ $t('header.about') }}
         </NuxtLink>
-        <NuxtLink to="/blog" class="text-base font-medium text-brand-gray hover:text-primary" @click="isMenuOpen = false">
+        <NuxtLink to="/blog" class="text-base font-bold text-white/70 hover:text-white" @click="isMenuOpen = false">
           {{ $t('header.blog') }}
         </NuxtLink>
-        <NuxtLink to="/pricing" class="text-base font-medium text-brand-gray hover:text-primary" @click="isMenuOpen = false">
+        <NuxtLink to="/pricing" class="text-base font-bold text-white/70 hover:text-white" @click="isMenuOpen = false">
           {{ $t('header.pricing') }}
         </NuxtLink>
 
-        <div class="flex items-center gap-2 mt-2">
-          <span class="text-xs text-brand-gray font-medium uppercase">Language:</span>
-          <div class="flex gap-2">
+        <div class="flex items-center gap-3 mt-4">
+          <span class="text-[10px] text-white/40 font-black uppercase tracking-widest">Language:</span>
+          <div class="flex gap-2 bg-white/5 p-1 rounded-lg border border-white/10">
             <button 
               v-for="locale in ['en', 'ru']" 
               :key="locale"
               @click="setLocale(locale as any)"
-              class="px-3 py-1 text-xs font-bold uppercase border border-border rounded-lg"
-              :class="currentLocale === locale ? 'bg-primary text-white border-primary' : 'text-brand-gray bg-white'"
+              class="px-3 py-1.5 text-[10px] font-black uppercase transition-all rounded-md"
+              :class="currentLocale === locale ? 'bg-purple-600 text-white' : 'text-white/40'"
             >
               {{ locale }}
             </button>
           </div>
         </div>
 
-        <hr class="border-border/50 my-2" />
+        <hr class="border-white/10 my-6" />
         <button 
-          class="w-full rounded-xl bg-primary py-3 text-center font-bold text-white shadow-md"
+          class="w-full rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] py-4 text-center font-black text-white shadow-lg shadow-purple-900/20"
           @click="openAuth('register')"
         >
           {{ $t('header.getStarted') }}

@@ -34,7 +34,7 @@ import StepsSection from '~/components/StepsSection.vue'
 import CTASection from '~/components/CTASection.vue'
 import AppFooter from '~/components/AppFooter.vue'
 
-const { t, tm } = useI18n()
+const { t, tm, rt } = useI18n()
 
 function getRandomNumber() {
   return rand(1, 99);
@@ -48,11 +48,14 @@ interface Testimonial {
 }
 
 const testimonialList = computed(() => {
-  const baseList = tm('testimonials.list') as Omit<Testimonial, 'img'>[]
+  const baseList = tm('testimonials.list') as any[]
+  if (!Array.isArray(baseList)) return []
   return baseList.map((item, index) => ({
-    ...item,
+    quote: rt(item.quote),
+    name: rt(item.name),
+    role: rt(item.role),
     img: `https://randomuser.me/api/portraits/${index % 2 === 0 ? 'men' : 'women'}/${30 + index}.jpg`
-  }))
+  })) as Testimonial[]
 })
 
 

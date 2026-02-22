@@ -15,6 +15,16 @@
           class="group relative aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
           :class="themeGradients[key] || 'bg-white/5'"
         >
+          <!-- Background Image -->
+          <div v-if="themeImages[key]" class="absolute inset-0 z-0">
+            <img 
+              :src="themeImages[key]" 
+              :alt="label" 
+              class="w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-110 transition-all duration-1000"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/40 to-transparent"></div>
+          </div>
+
           <!-- Animated Background Glow -->
           <div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.2),transparent_70%)]"></div>
           
@@ -31,7 +41,7 @@
             
             <button 
               @click="scrollToGenerator"
-              class="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-dream-deep bg-white px-6 py-3.5 rounded-full w-fit opacity-0 group-hover:opacity-100 transition-all duration-500 delay-150 transform scale-90 group-hover:scale-100 shadow-xl hover:bg-dream-deep hover:text-white transition-colors"
+              class="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-white bg-gradient-to-r from-white/10 to-white/20 backdrop-blur-xl border border-white/20 px-6 py-3.5 rounded-full w-fit opacity-0 group-hover:opacity-100 transition-all duration-500 delay-150 transform scale-90 group-hover:scale-100 shadow-xl hover:bg-white/30 hover:shadow-white/10"
             >
               {{ $t('generator.showcase.cta') }}
               <Icon name="lucide:arrow-right" class="size-3" />
@@ -67,6 +77,15 @@ const themeIcons: Record<string, string> = {
   dino: 'lucide:bone',
   magic: 'lucide:sparkles',
   super: 'lucide:zap'
+}
+
+const themeImages: Record<string, string> = {
+  forest: '/images/themes/forest.jpg',
+  ocean: '/images/themes/beautiful-fantasy-landscape.jpg',
+  space: '/images/themes/cosmos.jpg',
+  super: '/images/themes/17083.jpg',
+  magic: '/images/themes/taless.jpg',
+  dino: '/images/themes/dinasour.jpg'
 }
 
 const themeGradients: Record<string, string> = {

@@ -38,9 +38,12 @@
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <h2 class="text-4xl font-bold text-white text-center mb-20 font-serif italic">{{ $t('about.values_title') }}</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          <div v-for="value in values" :key="value.title" class="bg-white/5 backdrop-blur-md p-10 rounded-[2.5rem] border border-white/10 hover:bg-white/10 transition-all duration-500 shadow-xl group">
-            <div class="size-16 rounded-2xl bg-white flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform">
-              <Icon :name="value.icon" class="size-8 text-dream-deep" />
+          <div v-for="value in values" :key="value.title" class="bg-white/5 backdrop-blur-md p-10 rounded-[2.5rem] border border-white/10 hover:bg-white/10 transition-all duration-500 group">
+            <!-- Magical Icon Container -->
+            <div class="relative flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-900/50 border border-white/10 mb-10 overflow-hidden group-hover:border-purple-500/50 transition-all duration-500 group-hover:-translate-y-2">
+              <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 opacity-50 group-hover:opacity-100 transition-opacity"></div>
+              <div class="absolute -inset-1 bg-gradient-to-br from-purple-500 to-pink-500 blur-2xl opacity-0 group-hover:opacity-20 transition-opacity"></div>
+              <Icon :name="value.icon" class="size-10 text-purple-400 group-hover:text-white transition-all duration-500 relative z-10" />
             </div>
             <h3 class="text-2xl font-bold text-white mb-4">{{ value.title }}</h3>
             <p class="text-white/50 leading-relaxed">{{ value.description }}</p>
