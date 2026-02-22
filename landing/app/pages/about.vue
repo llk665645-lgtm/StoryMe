@@ -19,7 +19,7 @@
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <div class="relative aspect-square rounded-[3rem] overflow-hidden shadow-3xl border border-white/10">
-            <img src="https://images.unsplash.com/photo-1550399105-c4db5fb85c18?q=80&w=1000&auto=format&fit=crop" alt="Magical Library" class="object-cover w-full h-full transition-all duration-1000 hover:scale-110" />
+            <img src="/images/fairy.jpg" alt="Magical Library" class="object-cover w-full h-full transition-all duration-1000 hover:scale-110" />
             <div class="absolute inset-0 bg-gradient-to-t from-dream-deep/80 to-transparent"></div>
           </div>
           <div class="text-left">
