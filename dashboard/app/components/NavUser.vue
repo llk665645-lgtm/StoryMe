@@ -27,6 +27,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from '@/components/ui/sidebar'
+import { useAuthStore } from '@/stores/auth'
 
 interface User {
   name: string
@@ -39,6 +40,11 @@ defineProps<{
 }>()
 
 const { isMobile } = useSidebar()
+const auth = useAuthStore()
+
+function handleLogout() {
+  auth.logout()
+}
 </script>
 
 <template>
@@ -103,7 +109,7 @@ const { isMobile } = useSidebar()
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>
+          <DropdownMenuItem @click="handleLogout">
             <IconLogout />
             Log out
           </DropdownMenuItem>
@@ -112,3 +118,4 @@ const { isMobile } = useSidebar()
     </SidebarMenuItem>
   </SidebarMenu>
 </template>
+

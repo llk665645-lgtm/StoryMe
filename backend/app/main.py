@@ -14,7 +14,7 @@ from fastapi.responses import JSONResponse
 from app.core.config import settings
 from app.core.database import connect_to_mongo, close_mongo_connection
 from app.middleware.rate_limit import RateLimitMiddleware
-from app.routers import auth, health, items, portfolios, resumes, uploads
+from app.routers import auth, health, items, portfolios, resumes, uploads, story
 from app.schemas.common import ErrorResponse, SuccessResponse
 
 # Логирование
@@ -95,3 +95,4 @@ app.include_router(auth.router)
 app.include_router(resumes.router)
 app.include_router(portfolios.router)
 app.include_router(uploads.router)
+app.include_router(story.router)

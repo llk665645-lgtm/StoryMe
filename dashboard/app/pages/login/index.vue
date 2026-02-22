@@ -1,10 +1,13 @@
-<script lang="ts">
-export const description = "A two column login page with a cover image."
-</script>
-
 <script setup lang="ts">
 import LoginForm from "@/components/login-02/components/LoginForm.vue"
+import RegisterForm from "@/components/login-02/components/RegisterForm.vue"
 import LogoIcon from "@/components/LogoIcon.vue"
+
+const isLogin = ref(true)
+
+function toggleForm() {
+  isLogin.value = !isLogin.value
+}
 </script>
 
 <template>
@@ -18,9 +21,12 @@ import LogoIcon from "@/components/LogoIcon.vue"
           <span class="text-xl tracking-tight text-foreground">Story<span class="text-primary italic">Me</span></span>
         </NuxtLink>
       </div>
-      <div class="flex flex-1 items-center justify-center">
+      <div class="flex flex-1 items-center justify-center py-8">
         <div class="w-full max-w-xs">
-          <LoginForm />
+          <Transition name="fade" mode="out-in">
+            <LoginForm v-if="isLogin" @toggle-form="toggleForm" />
+            <RegisterForm v-else @toggle-form="toggleForm" />
+          </Transition>
         </div>
       </div>
     </div>
@@ -34,3 +40,16 @@ import LogoIcon from "@/components/LogoIcon.vue"
     </div>
   </div>
 </template>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
+

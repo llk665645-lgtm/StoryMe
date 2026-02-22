@@ -22,6 +22,7 @@ const auth = useAuthStore()
 const form = reactive({
   email: '',
   password: '',
+  full_name: '',
 })
 
 const error = ref('')
@@ -29,14 +30,10 @@ const error = ref('')
 async function handleSubmit() {
   error.value = ''
   try {
-    const params = new URLSearchParams()
-    params.append('username', form.email)
-    params.append('password', form.password)
-    
-    await auth.login(params)
+    await auth.register(form)
     navigateTo('/dashboard')
   } catch (e: any) {
-    error.value = e.data?.message || 'Invalid email or password'
+    error.value = e.data?.message || 'Registration failed. Please try again.'
   }
 }
 </script>
@@ -46,10 +43,10 @@ async function handleSubmit() {
     <FieldGroup>
       <div class="flex flex-col items-center gap-1 text-center mb-4">
         <h1 class="text-3xl font-bold font-serif italic text-white">
-          Welcome Back
+          Begin Your Story
         </h1>
         <p class="text-white/50 text-sm text-balance leading-relaxed">
-          Enter your magic scrolls to continue the journey
+          Create an account to start your magical journey
         </p>
       </div>
 
@@ -58,31 +55,34 @@ async function handleSubmit() {
       </div>
 
       <Field>
+        <FieldLabel for="full_name">
+          Full Name
+        </FieldLabel>
+        <Input id="full_name" v-model="form.full_name" placeholder="John Doe" required />
+      </Field>
+
+      <Field>
         <FieldLabel for="email">
           Email
         </FieldLabel>
         <Input id="email" v-model="form.email" type="email" placeholder="parent@example.com" required />
       </Field>
+
       <Field>
-        <div class="flex items-center">
-          <FieldLabel for="password">
-            Password
-          </FieldLabel>
-          <a
-            href="#"
-            class="ml-auto text-sm underline-offset-4 hover:underline"
-          >
-            Forgot your password?
-          </a>
-        </div>
+        <FieldLabel for="password">
+          Password
+        </FieldLabel>
         <Input id="password" v-model="form.password" type="password" required />
       </Field>
+
       <Field>
         <Button type="submit" :disabled="auth.isLoading">
-          {{ auth.isLoading ? 'Authenticating...' : 'Login' }}
+          {{ auth.isLoading ? 'Creating account...' : 'Sign Up' }}
         </Button>
       </Field>
+
       <FieldSeparator>Or continue with</FieldSeparator>
+
       <Field>
         <Button variant="outline" type="button" @click="() => navigateTo('http://localhost:8000/auth/github', { external: true })">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-4 mr-2">
@@ -91,14 +91,13 @@ async function handleSubmit() {
               fill="currentColor"
             />
           </svg>
-          Login with GitHub
+          Sign up with GitHub
         </Button>
         <FieldDescription class="text-center">
-          Don't have an account?
-          <button type="button" class="underline hover:text-primary transition-colors" @click="emit('toggle-form')">Sign up</button>
+          Already have an account?
+          <button type="button" class="underline hover:text-primary transition-colors" @click="emit('toggle-form')">Login</button>
         </FieldDescription>
       </Field>
     </FieldGroup>
   </form>
 </template>
-

@@ -18,6 +18,7 @@ import NavMain from '@/components/NavMain.vue'
 import NavSecondary from '@/components/NavSecondary.vue'
 import NavUser from '@/components/NavUser.vue'
 import SidebarUsage from '@/components/SidebarUsage.vue'
+import { useAuthStore } from '@/stores/auth'
 import {
   Sidebar,
   SidebarContent,
@@ -89,6 +90,15 @@ const data = {
     },
   ],
 }
+const auth = useAuthStore()
+
+const currentUser = computed(() => {
+  return {
+    name: auth.user?.full_name || 'Adventurer',
+    email: auth.user?.email || 'magic@storyme.com',
+    avatar: auth.user?.avatar_url || '/avatars/parent.jpg',
+  }
+})
 </script>
 
 <template>
@@ -117,7 +127,8 @@ const data = {
       <NavSecondary :items="data.navSecondary" class="mt-auto" />
     </SidebarContent>
     <SidebarFooter>
-      <NavUser :user="data.user" />
+      <NavUser :user="currentUser" />
     </SidebarFooter>
   </Sidebar>
 </template>
+

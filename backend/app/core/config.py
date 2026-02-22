@@ -46,6 +46,9 @@ class Settings(BaseSettings):
     S3_BUCKET: str = "uploads"
     S3_REGION: str = "us-east-1"
 
+    # AI API
+    OPENAI_API_KEY: str = ""
+
     model_config = SettingsConfigDict(
         env_file=".env",
         case_sensitive=False,
