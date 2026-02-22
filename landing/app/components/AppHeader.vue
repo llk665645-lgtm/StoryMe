@@ -72,12 +72,6 @@
               >
                 Logout
               </button>
-              <NuxtLink 
-                to="/dashboard"
-                class="rounded-full bg-white/10 px-6 py-2.5 text-xs font-black text-white hover:bg-white/20 transition-all border border-white/10"
-              >
-                Dashboard
-              </NuxtLink>
             </div>
           </template>
           
@@ -136,13 +130,6 @@
           </button>
         </template>
         <template v-else>
-          <NuxtLink 
-            to="/dashboard"
-            class="w-full rounded-2xl bg-white/10 py-4 text-center font-bold text-white mb-2"
-            @click="isMenuOpen = false"
-          >
-            Go to Dashboard
-          </NuxtLink>
           <button 
             @click="authStore.logout()"
             class="w-full py-4 text-center font-bold text-white/60"

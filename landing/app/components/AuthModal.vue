@@ -44,13 +44,7 @@
             </div>
             <div class="flex flex-col gap-3 pt-4">
               <button 
-                @click="navigateTo('/dashboard'); $emit('close')"
                 class="w-full rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] py-4 text-sm font-black text-white text-center transition-all hover:scale-[1.02] active:scale-[0.98]"
-              >
-                Go to Dashboard
-              </button>
-              <button 
-                class="text-sm font-bold text-white/40 hover:text-white transition-colors"
                 @click="$emit('close')"
               >
                 Continue Browsing
