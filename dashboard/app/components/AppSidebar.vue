@@ -12,6 +12,7 @@ import {
   IconSparkles,
 } from "@tabler/icons-vue"
 
+import LogoIcon from '@/components/LogoIcon.vue'
 import NavDocuments from '@/components/NavDocuments.vue'
 import NavMain from '@/components/NavMain.vue'
 import NavSecondary from '@/components/NavSecondary.vue'
@@ -99,11 +100,11 @@ const data = {
             as-child
             class="data-[slot=sidebar-menu-button]:!p-1.5"
           >
-            <NuxtLink to="/dashboard" class="flex items-center gap-3 font-bold">
-              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white shadow-lg">
-                <IconSparkles class="size-6" />
+            <NuxtLink to="/dashboard" class="flex items-center gap-3 font-bold group">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#8B5CF6] to-[#D946EF] text-white shadow-lg border border-white/20 transition-transform group-hover:scale-105">
+                <LogoIcon class="size-6 stroke-white fill-white" />
               </div>
-              <span class="text-xl tracking-tight text-foreground">Story<span class="text-primary">Me</span></span>
+              <span class="text-xl tracking-tight text-white">Story<span class="text-white/60 italic">Me</span></span>
             </NuxtLink>
           </SidebarMenuButton>
         </SidebarMenuItem>

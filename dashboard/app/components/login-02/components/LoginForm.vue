@@ -19,12 +19,12 @@ const props = defineProps<{
 <template>
   <form :class="cn('flex flex-col gap-6', props.class)">
     <FieldGroup>
-      <div class="flex flex-col items-center gap-1 text-center">
-        <h1 class="text-2xl font-bold">
-          Login to your account
+      <div class="flex flex-col items-center gap-1 text-center mb-4">
+        <h1 class="text-3xl font-bold font-serif italic text-white">
+          Welcome Back
         </h1>
-        <p class="text-muted-foreground text-sm text-balance">
-          Enter your email below to login to your account
+        <p class="text-white/50 text-sm text-balance leading-relaxed">
+          Enter your magic scrolls to continue the journey
         </p>
       </div>
       <Field>
