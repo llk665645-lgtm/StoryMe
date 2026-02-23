@@ -22,7 +22,7 @@
         :transition="{ type: 'spring', damping: 25, stiffness: 300 }"
       >
         <!-- Top accent bar -->
-        <div class="h-1.5 bg-gradient-to-r from-[#8B5CF6] via-[#D946EF] to-[#8B5CF6] animate-gradient-x" />
+        <div class="h-1.5 bg-violet-600" />
 
         <div class="px-8 py-10">
           <div class="mb-8 text-center">
@@ -44,7 +44,7 @@
             </div>
             <div class="flex flex-col gap-3 pt-4">
               <button 
-                class="w-full rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] py-4 text-sm font-black text-white text-center transition-all hover:scale-[1.02] active:scale-[0.98]"
+                class="w-full rounded-2xl bg-violet-600 py-4 text-sm font-black text-white text-center transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-violet-900/30"
                 @click="$emit('close')"
               >
                 Continue Browsing
@@ -93,12 +93,11 @@
             <button 
               type="submit"
               :disabled="isLoading"
-              class="group relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] py-4 text-sm font-black text-white shadow-[0_8px_30px_rgba(139,92,246,0.3)] transition-all hover:scale-[1.02] active:scale-[0.98] border border-white/20 disabled:opacity-50 disabled:scale-100"
+              class="group relative w-full overflow-hidden rounded-2xl bg-violet-600 py-4 text-sm font-black text-white shadow-[0_8px_30px_rgba(124,58,237,0.3)] transition-all hover:scale-[1.02] active:scale-[0.98] border border-white/20 disabled:opacity-50 disabled:scale-100"
             >
               <span class="relative z-10">
                 {{ isLoading ? 'Processing...' : (isLogin ? $t('auth.login.submit') : $t('auth.register.submit')) }}
               </span>
-              <div class="absolute inset-0 -z-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
             </button>
           </form>
 

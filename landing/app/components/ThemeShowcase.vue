@@ -41,7 +41,7 @@
             
             <button 
               @click="scrollToGenerator"
-              class="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-white bg-gradient-to-r from-white/10 to-white/20 backdrop-blur-xl border border-white/20 px-6 py-3.5 rounded-full w-fit opacity-0 group-hover:opacity-100 transition-all duration-500 delay-150 transform scale-90 group-hover:scale-100 shadow-xl hover:bg-white/30 hover:shadow-white/10"
+              class="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-white bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-3.5 rounded-full w-fit opacity-0 group-hover:opacity-100 transition-all duration-500 delay-150 transform scale-90 group-hover:scale-100 shadow-xl hover:bg-white/30 hover:shadow-white/10"
             >
               {{ $t('generator.showcase.cta') }}
               <Icon name="lucide:arrow-right" class="size-3" />

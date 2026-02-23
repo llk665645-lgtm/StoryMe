@@ -66,7 +66,7 @@
                 </div>
              </div>
 
-              <!-- Price / Action -->
+              <!-- Action -->
               <div class="mt-auto pt-8 flex flex-col gap-4">
                  <div v-if="limitReached" class="p-4 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-orange-200 text-xs font-medium text-center animate-in fade-in slide-in-from-top-2 duration-300">
                    <div class="flex items-center justify-center gap-2 mb-1">
@@ -82,7 +82,7 @@
                    class="w-full relative group px-8 py-5 rounded-full font-black text-xl overflow-hidden transition-all border border-white/20"
                    :class="[
                      isFormValid && (!limitReached || authStore.isAuthenticated)
-                       ? 'bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white hover:scale-[1.02] active:scale-95' 
+                       ? 'bg-violet-600 text-white hover:scale-[1.02] active:scale-95 shadow-lg shadow-violet-900/30' 
                        : 'bg-white/10 text-white/40 cursor-not-allowed border border-white/10'
                    ]"
                  >
@@ -91,9 +91,6 @@
                      <Icon v-else :name="isFormValid && (!limitReached || authStore.isAuthenticated) ? 'lucide:sparkles' : 'lucide:lock'" class="size-6" />
                      {{ isGenerating ? $t('generator.processing') : $t('generator.processBtn') }}
                    </span>
-                   
-                   <!-- Gloss effect for active button -->
-                   <div v-if="isFormValid && (!limitReached || authStore.isAuthenticated)" class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                  </button>
                  <div class="flex items-center justify-center gap-2 text-[10px] text-white/50 font-bold uppercase tracking-widest">
                     <Icon name="lucide:shield-check" class="size-3 text-emerald-400" />
@@ -167,10 +164,9 @@
 
               <!-- Footer Actions -->
               <div class="mt-8 flex flex-wrap justify-center gap-4">
-                 <button v-if="result.is_demo" @click="triggerAuth('register')" class="group relative flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:scale-[1.05] active:scale-95 transition-all text-sm font-black border border-white/30 shadow-[0_0_20px_rgba(236,72,153,0.3)]">
+                 <button v-if="result.is_demo" @click="triggerAuth('register')" class="group relative flex items-center gap-2 px-8 py-4 rounded-2xl bg-violet-600 text-white hover:scale-[1.05] active:scale-95 transition-all text-sm font-black border border-white/30 shadow-[0_0_20px_rgba(124,58,237,0.3)]">
                     <Icon name="lucide:sparkles" class="size-5 text-white animate-pulse" />
                     {{ $t('generator.wantMore') }}
-                    <div class="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                  </button>
                  <button @click="copyToClipboard" class="flex items-center gap-2 px-8 py-4 rounded-2xl bg-white/10 border border-white/20 text-white hover:bg-white/15 transition-all text-sm font-bold backdrop-blur-md">
                     <Icon name="lucide:copy" class="size-5 text-white" />

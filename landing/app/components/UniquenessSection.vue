@@ -11,9 +11,9 @@
       </div>
 
       <!-- Full-Width Cohesive Block Container with Premium Shine -->
-      <div class="relative w-full bg-gradient-to-b from-white/10 to-transparent p-[1px] shadow-2xl overflow-hidden border-y border-white/10 group/block">
+      <div class="relative w-full bg-gradient-to-b from-white/10 to-transparent p-[1px] shadow-2xl overflow-hidden border-y border-white/10 group">
         <!-- Moving Shine Effect -->
-        <div class="absolute inset-0 translate-x-[-100%] group-hover/block:translate-x-[100%] transition-transform duration-[3000ms] ease-in-out bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[3000ms] ease-in-out bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none"></div>
         
         <div class="absolute inset-0 bg-[#0F172A]/40 backdrop-blur-3xl"></div>
         
@@ -23,7 +23,7 @@
         
         <div class="relative max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-16 gap-x-8 p-12 lg:p-24">
           <div 
-            v-for="(item, index) in uniquenessList" 
+            v-for="(item, index) in list" 
             :key="index" 
             class="group flex flex-col items-center text-center transition-all duration-500 p-6 rounded-[2.5rem] hover:bg-white/5 hover:scale-[1.02] cursor-default"
           >
@@ -47,34 +47,29 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
 
-const { tm, rt } = useI18n()
+const { t, tm } = useI18n()
 
 interface UniquenessItem {
   name: string
   description: string
 }
 
-const uniquenessList = computed(() => {
-  const list = tm('uniqueness.list') as any[]
-  if (!Array.isArray(list)) return []
-  return list.map((item: any) => ({
-    name: rt(item.name),
-    description: rt(item.description)
+// Safer way to get the list to avoid "Invalid arguments" on rt()
+const list = computed(() => {
+  const raw = tm('uniqueness.list') as any
+  if (!Array.isArray(raw)) return []
+  
+  return raw.map((_, index) => ({
+    name: t(`uniqueness.list[${index}].name`),
+    description: t(`uniqueness.list[${index}].description`)
   })) as UniquenessItem[]
 })
+
 const icons = [
   'lucide:user',
   'lucide:palette',
   'lucide:sparkles',
   'lucide:printer'
-]
-
-const images = [
-  'https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=600&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop',
-  '/images/themes/d.jpg',
-  'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=600&auto=format&fit=crop'
 ]
 </script>

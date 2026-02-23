@@ -11,10 +11,10 @@
       </div>
       <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
         <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-          <div v-for="(step, index) in stepList" :key="index" class="flex flex-col items-center text-center p-10 bg-white/5 backdrop-blur-md rounded-[2.5rem] border border-white/10 transition-all hover:bg-white/10 hover:-translate-y-1">
+          <div v-for="(step, index) in list" :key="index" class="flex flex-col items-center text-center p-10 bg-white/5 backdrop-blur-md rounded-[2.5rem] border border-white/10 transition-all hover:bg-white/10 hover:-translate-y-1">
             <!-- Themed Step Number -->
             <div class="relative flex h-16 w-16 items-center justify-center mb-10 group-hover:scale-110 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+              <div class="absolute inset-0 bg-violet-500/20 rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
               <div class="relative flex h-full w-full items-center justify-center rounded-full bg-slate-900 border border-white/20 text-white text-2xl font-black">
                 {{ index + 1 }}
               </div>
@@ -30,20 +30,20 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
-const { tm, rt } = useI18n()
+
+const { t, tm } = useI18n()
 
 interface Step {
   title: string
   description: string
 }
 
-const stepList = computed(() => {
-  const list = tm('steps.list') as any[]
-  if (!Array.isArray(list)) return []
-  return list.map((item: any) => ({
-    title: rt(item.title),
-    description: rt(item.description)
+const list = computed(() => {
+  const raw = tm('steps.list') as any
+  if (!Array.isArray(raw)) return []
+  return raw.map((_, index) => ({
+    title: t(`steps.list[${index}].title`),
+    description: t(`steps.list[${index}].description`)
   })) as Step[]
 })
 </script>
