@@ -25,13 +25,20 @@ class StoryResponse(BaseModel):
 
 # Тематические изображения для демо-версии
 THEME_DEMO_IMAGES = {
-    "forest": "https://images.unsplash.com/photo-1448375240581-ed3216b38c8c?q=80&w=1200&auto=format&fit=crop",
-    "space": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop",
-    "ocean": "https://images.unsplash.com/photo-1551244072-5d12893278ab?q=80&w=1200&auto=format&fit=crop",
-    "dino": "https://images.unsplash.com/photo-1517930410329-0eb7c9d69901?q=80&w=1200&auto=format&fit=crop",
-    "magic": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
-    "super": "https://images.unsplash.com/photo-1533411448364-7707e4d8fb87?q=80&w=1200&auto=format&fit=crop"
+    "forest": ["/images/fairytales/foresttt.jpg"],
+    "space": ["/images/fairytales/cosmosttt.jpg"],
+    "ocean": ["/images/fairytales/oceanttt.jpg"],
+    "dino": ["/images/fairytales/dinosaurttt.jpg"],
+    "magic": ["/images/fairytales/fairyttt.jpg"],
+    "city": ["/images/fairytales/cityttt.jpg"]
 }
+
+def get_demo_image(theme: str, name: str = "") -> str:
+    import zlib
+    urls = THEME_DEMO_IMAGES.get(theme, THEME_DEMO_IMAGES["magic"])
+    # stable random index based on name or default to 0
+    idx = zlib.adler32(name.encode()) % len(urls) if name else 0
+    return urls[idx]
 
 # Описания стилей для DALL-E 3
 THEME_STYLE_MODIFIERS = {
@@ -40,7 +47,7 @@ THEME_STYLE_MODIFIERS = {
     "ocean": "vibrant coral reef, bright underwater light, friendly sea creatures, Disney-style animation",
     "dino": "prehistoric jungle, lush green ferns, cute baby dinosaurs, bright sunny day, Pixar style",
     "magic": "sparkling fairy dust, golden hour lighting, whimsical storybook illustration, glowing magic wand",
-    "super": "comic book style, dynamic action lines, vibrant pop art, heroic pose, bright primary colors"
+    "city": "comic book style, dynamic action lines, vibrant pop art, heroic pose, bright primary colors"
 }
 
 @router.post("/generate", response_model=StoryResponse)
@@ -92,7 +99,7 @@ async def generate_story(data: StoryRequest, user: dict | None = Depends(get_opt
 
     if not is_paid:
         # Ответ для гостей и бесплатных пользователей (Демо)
-        demo_image = THEME_DEMO_IMAGES.get(data.theme, THEME_DEMO_IMAGES["magic"])
+        demo_image = get_demo_image(data.theme, data.name)
         
         demo_story = (
             f"Жил-был отважный герой по имени {data.name}, которому было всего {data.age} лет. "
@@ -125,9 +132,13 @@ async def generate_story(data: StoryRequest, user: dict | None = Depends(get_opt
         )
 
     # ЛОГИКА ДЛЯ ПЛАТНЫХ ПОЛЬЗОВАТЕЛЕЙ
-    if not settings.OPENAI_API_KEY:
-        logger.error("OpenAI API key missing")
-        raise HTTPException(status_code=500, detail="Конфигурация AI временно недоступна")
+    if not settings.OPENAI_API_KEY or settings.OPENAI_API_KEY == "your-api-key-here":
+        # Если ключ не задан, все равно даем более качественное демо с картинками
+        return StoryResponse(
+            story="AI Генерация временно недоступна (не настроен API ключ). Но мы подготовили для вас эту демо-сказку!",
+            image=get_demo_image(data.theme, data.name),
+            is_demo=True
+        )
 
     async with httpx.AsyncClient() as client:
         try:
@@ -160,7 +171,7 @@ async def generate_story(data: StoryRequest, user: dict | None = Depends(get_opt
             story_text = text_response.json()["choices"][0]["message"]["content"]
 
             # 2. Попытка генерации уникальной картинки (DALL-E 3)
-            image_url = THEME_DEMO_IMAGES.get(data.theme, THEME_DEMO_IMAGES["magic"])
+            image_url = get_demo_image(data.theme, data.name)
             
             try:
                 style_desc = THEME_STYLE_MODIFIERS.get(data.theme, "whimsical storybook illustration")

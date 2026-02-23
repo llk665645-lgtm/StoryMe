@@ -69,7 +69,7 @@
             @click="triggerAuth('register')"
             class="mt-10 block w-full rounded-2xl px-6 py-4 text-center text-sm font-black transition-all duration-300"
             :class="tier.mostPopular 
-              ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-900/20 hover:scale-[1.03] hover:shadow-purple-900/40 active:scale-95' 
+              ? 'bg-violet-600 text-white shadow-lg shadow-violet-900/20 hover:scale-[1.03] hover:shadow-violet-900/40 active:scale-95' 
               : 'bg-white/5 text-white border border-white/10 hover:bg-white/10 hover:border-white/30'"
           >
             {{ tier.cta }}
@@ -85,7 +85,7 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useAuth } from '~/composables/useAuth'
 
-const { tm, rt } = useI18n()
+const { t, tm, rt } = useI18n()
 const { triggerAuth } = useAuth()
 
 interface Tier {
@@ -98,14 +98,14 @@ interface Tier {
 }
 
 const tierList = computed(() => {
-  const list = tm('pricing.tiers') as any[]
-  if (!Array.isArray(list)) return []
-  return list.map((item: any) => ({
-    name: rt(item.name),
-    price: rt(item.price),
-    description: rt(item.description),
-    features: Array.isArray(item.features) ? item.features.map((f: any) => rt(f)) : [],
-    cta: rt(item.cta),
+  const raw = tm('pricing.tiers') as any[]
+  if (!Array.isArray(raw)) return []
+  return raw.map((item: any, index: number) => ({
+    name: t(`pricing.tiers[${index}].name`),
+    price: t(`pricing.tiers[${index}].price`),
+    description: t(`pricing.tiers[${index}].description`),
+    features: Array.isArray(item.features) ? item.features.map((_ : any, fIndex : number) => t(`pricing.tiers[${index}].features[${fIndex}]`)) : [],
+    cta: t(`pricing.tiers[${index}].cta`),
     mostPopular: !!item.mostPopular
   })) as Tier[]
 })

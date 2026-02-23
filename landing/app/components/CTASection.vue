@@ -12,7 +12,7 @@
         <div class="mt-10 flex items-center justify-center gap-x-6">
           <button 
             @click="triggerAuth('register')"
-            class="rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] px-10 py-5 text-lg font-black text-white hover:scale-105 active:scale-95 transition-all duration-300 border border-white/20"
+            class="rounded-2xl bg-violet-600 px-10 py-5 text-lg font-black text-white hover:scale-105 active:scale-95 transition-all duration-300 border border-white/20 shadow-lg shadow-violet-900/30"
           >
             {{ $t('cta.button') }}
           </button>

@@ -41,7 +41,7 @@
             
             <button 
               @click="scrollToGenerator"
-              class="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-white bg-gradient-to-r from-white/10 to-white/20 backdrop-blur-xl border border-white/20 px-6 py-3.5 rounded-full w-fit opacity-0 group-hover:opacity-100 transition-all duration-500 delay-150 transform scale-90 group-hover:scale-100 shadow-xl hover:bg-white/30 hover:shadow-white/10"
+              class="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-white bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-3.5 rounded-full w-fit opacity-0 group-hover:opacity-100 transition-all duration-500 delay-150 transform scale-90 group-hover:scale-100 shadow-xl hover:bg-white/30 hover:shadow-white/10"
             >
               {{ $t('generator.showcase.cta') }}
               <Icon name="lucide:arrow-right" class="size-3" />
@@ -59,7 +59,7 @@ import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
-const themeKeys = ['forest', 'space', 'ocean', 'dino', 'magic', 'super']
+const themeKeys = ['forest', 'space', 'ocean', 'dino', 'magic', 'city']
 
 const themes = computed(() => {
   const result: Record<string, string> = {}
@@ -76,16 +76,16 @@ const themeIcons: Record<string, string> = {
   ocean: 'lucide:waves',
   dino: 'lucide:bone',
   magic: 'lucide:sparkles',
-  super: 'lucide:zap'
+  city: 'lucide:building'
 }
 
 const themeImages: Record<string, string> = {
-  forest: '/images/themes/forest.jpg',
-  ocean: '/images/themes/beautiful-fantasy-landscape.jpg',
-  space: '/images/themes/cosmos.jpg',
-  super: '/images/themes/17083.jpg',
-  magic: '/images/themes/taless.jpg',
-  dino: '/images/themes/dinasour.jpg'
+  forest: "/images/fairytales/foresttt.jpg",
+  space: "/images/fairytales/cosmosttt.jpg",
+  ocean: "/images/fairytales/oceanttt.jpg",
+  dino: "/images/fairytales/dinosaurttt.jpg",
+  magic: "/images/fairytales/fairyttt.jpg",
+  city: "/images/fairytales/cityttt.jpg"
 }
 
 const themeGradients: Record<string, string> = {
@@ -94,7 +94,7 @@ const themeGradients: Record<string, string> = {
   ocean: 'bg-gradient-to-br from-blue-900/40 via-cyan-950/60 to-[#0F172A]',
   dino: 'bg-gradient-to-br from-orange-900/40 via-yellow-950/60 to-[#0F172A]',
   magic: 'bg-gradient-to-br from-pink-900/40 via-rose-950/60 to-[#0F172A]',
-  super: 'bg-gradient-to-br from-red-900/40 via-orange-950/60 to-[#0F172A]'
+  city: 'bg-gradient-to-br from-slate-900/40 via-gray-950/60 to-[#0F172A]'
 }
 
 function scrollToGenerator() {
