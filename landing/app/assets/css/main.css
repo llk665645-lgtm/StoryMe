@@ -167,79 +167,27 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  /* Cloud Animations */
-  --animate-cloud-drift-1: cloud-drift-1 40s ease-in-out infinite;
-  --animate-cloud-drift-2: cloud-drift-2 60s ease-in-out infinite;
-  --animate-cloud-drift-3: cloud-drift-3 80s ease-in-out infinite;
+  /* Comet Animation */
+  --animate-comet: comet 15s linear infinite;
 
-  @keyframes cloud-drift-1 {
-
-    0%,
-    100% {
-      transform: translate(-5%, -2%) scale(1);
-    }
-
-    50% {
-      transform: translate(5%, 2%) scale(1.05);
-    }
-  }
-
-  @keyframes cloud-drift-2 {
-
-    0%,
-    100% {
-      transform: translate(3%, 1%) scale(1.02);
-    }
-
-    50% {
-      transform: translate(-3%, -1%) scale(0.98);
-    }
-  }
-
-  @keyframes cloud-drift-3 {
-
-    0%,
-    100% {
-      transform: translate(-2%, 3%) scale(0.97);
-    }
-
-    50% {
-      transform: translate(2%, -3%) scale(1.03);
-    }
-  }
-
-  /* Cute Cloud Horizontal Drift */
-  --animate-drift-slow-1: drift-slow-1 120s linear infinite;
-  --animate-drift-slow-2: drift-slow-2 150s linear infinite;
-  --animate-drift-slow-3: drift-slow-3 180s linear infinite;
-
-  @keyframes drift-slow-1 {
+  @keyframes comet {
     0% {
-      transform: translateX(0) translateY(0);
+      transform: translateX(0) translateY(0) rotate(-45deg);
+      opacity: 0;
+    }
+
+    10% {
+      opacity: 1;
+    }
+
+    20% {
+      transform: translateX(110vw) translateY(110vh) rotate(-45deg);
+      opacity: 0;
     }
 
     100% {
-      transform: translateX(100vw) translateY(5vh);
-    }
-  }
-
-  @keyframes drift-slow-2 {
-    0% {
-      transform: translateX(0) translateY(0);
-    }
-
-    100% {
-      transform: translateX(-100vw) translateY(-3vh);
-    }
-  }
-
-  @keyframes drift-slow-3 {
-    0% {
-      transform: translateX(0) translateY(0);
-    }
-
-    100% {
-      transform: translateX(100vw) translateY(2vh);
+      transform: translateX(110vw) translateY(110vh) rotate(-45deg);
+      opacity: 0;
     }
   }
 
@@ -273,11 +221,8 @@
 }
 
 .story-paragraph::first-letter {
-  @apply text-7xl md:text-8xl font-bold float-left mr-4 leading-[0.65] pt-2 text-white;
-  font-family: 'Instrument Serif', serif;
-  text-shadow: 4px 4px 0px rgba(100, 100, 255, 0.3);
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
-  padding-bottom: 0.1em;
+  @apply text-4xl md:text-5xl font-bold font-serif text-white;
+  text-shadow: 2px 2px 0px rgba(139, 92, 246, 0.3);
 }
 
 

@@ -9,7 +9,9 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/image',
     'shadcn-nuxt',
-    '@nuxtjs/seo'
+    '@nuxtjs/seo',
+    '@pinia/nuxt',
+    '@pinia/colada-nuxt'
   ],
   ogImage: {
     enabled: false

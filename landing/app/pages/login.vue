@@ -3,27 +3,78 @@ import { ref } from 'vue'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { IconBrandGoogle, IconBrandGithub, IconSparkles } from '@tabler/icons-vue'
+import { IconSparkles } from '@tabler/icons-vue'
 import LogoIcon from '@/components/LogoIcon.vue'
 
 definePageMeta({
   layout: false
 })
 
+const isLogin = ref(true)
+const fullName = ref('')
 const email = ref('')
 const password = ref('')
 const isLoading = ref(false)
+const error = ref('')
 
 async function onSubmit(event: Event) {
   event.preventDefault()
   isLoading.value = true
-  
-  // Simulate login
-  setTimeout(() => {
+  error.value = ''
+
+  try {
+    const endpoint = isLogin.value ? '/auth/login' : '/auth/register'
+    const body = isLogin.value
+      ? new URLSearchParams({ username: email.value, password: password.value })
+      : JSON.stringify({ email: email.value, password: password.value, full_name: fullName.value })
+
+    const headers: Record<string, string> = {}
+    if (isLogin.value) {
+      headers['Content-Type'] = 'application/x-www-form-urlencoded'
+    } else {
+      headers['Content-Type'] = 'application/json'
+    }
+
+    const response = await fetch(`http://127.0.0.1:8000${endpoint}`, {
+      method: 'POST',
+      headers,
+      body,
+    })
+
+    let data
+    try {
+      data = await response.json()
+    } catch (parseError) {
+      error.value = 'Server returned an invalid response. Please try again later.'
+      return
+    }
+
+    if (!response.ok) {
+      error.value = data.detail || data.message || 'Authentication failed'
+      return
+    }
+
+    if (!data.data || !data.data.access_token) {
+      error.value = 'Invalid response format from server'
+      return
+    }
+
+    const { access_token, refresh_token } = data.data
+    localStorage.setItem('access_token', access_token)
+    localStorage.setItem('refresh_token', refresh_token)
+
+    navigateTo('/')
+  } catch (e: any) {
+    console.error('Auth error:', e)
+    error.value = 'Connection error. Is the backend running?'
+  } finally {
     isLoading.value = false
-    navigateTo('/dashboard')
-  }, 1000)
+  }
+}
+
+function toggleMode() {
+  isLogin.value = !isLogin.value
+  error.value = ''
 }
 </script>
 
@@ -60,19 +111,35 @@ async function onSubmit(event: Event) {
         </div>
       </div>
 
-      <!-- Login Form Side -->
+      <!-- Login/Register Form Side -->
       <div class="w-full max-w-md">
         <div class="bg-white/5 backdrop-blur-2xl p-10 sm:p-12 rounded-[3rem] border border-white/10 shadow-3xl">
           <div class="flex flex-col space-y-4 text-center mb-10">
-            <h1 class="text-3xl font-bold tracking-tight text-white font-serif italic">Welcome Back</h1>
+            <h1 class="text-3xl font-bold tracking-tight text-white font-serif italic">
+              {{ isLogin ? 'Welcome Back' : 'Create Account' }}
+            </h1>
             <p class="text-base text-white/50">
-              Enter your magic scrolls to continue the journey
+              {{ isLogin ? 'Enter your magic scrolls to continue the journey' : 'Save all your created stories in one place' }}
             </p>
           </div>
           
-          <div class="grid gap-8">
-            <form @submit="onSubmit" class="space-y-6">
+          <div class="grid gap-6">
+            <form @submit="onSubmit" class="space-y-5">
               <div class="space-y-4">
+                <!-- Full Name (register only) -->
+                <div v-if="!isLogin" class="space-y-2">
+                  <Label class="text-white/70 ml-1 text-xs uppercase tracking-widest font-bold" for="fullName">Your Name</Label>
+                  <Input
+                    id="fullName"
+                    v-model="fullName"
+                    placeholder="John Doe"
+                    type="text"
+                    required
+                    class="h-14 bg-white/5 border-white/10 text-white placeholder:text-white/20 rounded-2xl focus:ring-purple-500 focus:border-purple-500"
+                    :disabled="isLoading"
+                  />
+                </div>
+
                 <div class="space-y-2">
                   <Label class="text-white/70 ml-1 text-xs uppercase tracking-widest font-bold" for="email">Email</Label>
                   <Input
@@ -80,6 +147,7 @@ async function onSubmit(event: Event) {
                     v-model="email"
                     placeholder="name@example.com"
                     type="email"
+                    required
                     class="h-14 bg-white/5 border-white/10 text-white placeholder:text-white/20 rounded-2xl focus:ring-purple-500 focus:border-purple-500"
                     :disabled="isLoading"
                   />
@@ -91,11 +159,17 @@ async function onSubmit(event: Event) {
                     v-model="password"
                     placeholder="••••••••"
                     type="password"
+                    required
                     class="h-14 bg-white/5 border-white/10 text-white placeholder:text-white/20 rounded-2xl focus:ring-purple-500 focus:border-purple-500"
                     :disabled="isLoading"
                   />
                 </div>
               </div>
+
+              <!-- Error message -->
+              <p v-if="error" class="text-red-400 text-sm font-semibold px-1">
+                {{ error }}
+              </p>
               
               <Button 
                 class="w-full h-14 rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] text-white font-black text-base shadow-xl shadow-purple-900/40 hover:scale-[1.02] active:scale-95 transition-all"
@@ -105,34 +179,25 @@ async function onSubmit(event: Event) {
                 <span v-else class="mr-2 h-5 w-5 animate-spin">
                    <IconSparkles class="h-5 w-5" />
                 </span>
-                Login
+                {{ isLoading ? 'Processing...' : (isLogin ? 'Login' : 'Sign Up') }}
               </Button>
             </form>
 
-            <div class="relative">
-              <div class="absolute inset-0 flex items-center">
-                <span class="w-full border-t border-white/10" />
-              </div>
-              <div class="relative flex justify-center text-xs uppercase tracking-widest">
-                <span class="bg-slate-950 px-4 text-white/40 font-bold">
-                  Or continue with
-                </span>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4">
-              <Button variant="outline" type="button" class="h-14 rounded-2xl border-white/10 bg-white/5 text-white hover:bg-white/10 hover:border-white/20" :disabled="isLoading">
-                <IconBrandGithub class="mr-2 h-5 w-5" />
-                Github
-              </Button>
-              <Button variant="outline" type="button" class="h-14 rounded-2xl border-white/10 bg-white/5 text-white hover:bg-white/10 hover:border-white/20" :disabled="isLoading">
-                <IconBrandGoogle class="mr-2 h-5 w-5" />
-                Google
-              </Button>
+            <!-- Toggle login/register -->
+            <div class="flex items-center justify-center gap-2 text-sm font-bold">
+              <span class="text-white/40">
+                {{ isLogin ? "Don't have an account?" : 'Already have an account?' }}
+              </span>
+              <button
+                class="text-purple-400 hover:text-purple-300 transition-colors"
+                @click="toggleMode"
+              >
+                {{ isLogin ? 'Sign up' : 'Login' }}
+              </button>
             </div>
           </div>
 
-          <p class="mt-10 text-center text-sm text-white/40">
+          <p class="mt-8 text-center text-sm text-white/40">
             By clicking continue, you agree to our
             <a href="/terms" class="text-purple-400 hover:text-purple-300 underline underline-offset-4">Terms</a>
             and

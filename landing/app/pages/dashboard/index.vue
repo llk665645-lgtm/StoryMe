@@ -4,6 +4,7 @@ import SectionCards from "@/components/SectionCards.vue"
 
 definePageMeta({
   layout: "dashboard",
+  middleware: "auth"
 })
 
 const data = [

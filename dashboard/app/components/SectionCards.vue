@@ -18,7 +18,7 @@ import {
       <CardHeader>
         <CardDescription>Stories Created</CardDescription>
         <CardTitle class="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-          12
+          18
         </CardTitle>
         <CardAction>
           <Badge variant="outline">

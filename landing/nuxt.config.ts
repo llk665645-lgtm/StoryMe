@@ -6,6 +6,12 @@ export default defineNuxtConfig({
   srcDir: 'app',
   devtools: { enabled: true },
 
+  runtimeConfig: {
+    public: {
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || 'http://127.0.0.1:8000'
+    }
+  },
+
   css: ['~/assets/css/main.css'],
 
   vite: {
@@ -22,7 +28,8 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxtjs/i18n',
     '@nuxtjs/seo',
-    'shadcn-nuxt'
+    'shadcn-nuxt',
+    '@pinia/nuxt'
   ],
 
   shadcn: {
@@ -42,7 +49,6 @@ export default defineNuxtConfig({
       { code: 'en', name: 'English', file: 'en.json' },
       { code: 'ru', name: 'Русский', file: 'ru.json' }
     ],
-    lazy: true,
     langDir: 'locales',
     defaultLocale: 'en',
     strategy: 'no_prefix'

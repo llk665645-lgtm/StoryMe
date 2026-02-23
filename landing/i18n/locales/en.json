@@ -5,7 +5,6 @@
         "howItWorks": "How it works",
         "login": "Login",
         "getStarted": "Create Story",
-        "dashboard": "Dashboard",
         "about": "About",
         "blog": "Blog"
     },
@@ -24,6 +23,7 @@
         "themeLabel": "Story Theme",
         "validationHint": "Please write a bit more (minimum 6 characters)",
         "processBtn": "Create Story for $3",
+        "limitReached": "Daily limit of 3 stories reached. Please sign up or come back tomorrow to create more magical worlds!",
         "processing": "AI is writing and drawing...",
         "resultHeader": "Your Personal Story",
         "findingWisdom": "Writing the plot...",
@@ -276,8 +276,7 @@
             "fullNamePlaceholder": "John Doe",
             "email": "Email Address",
             "emailPlaceholder": "parent{'@'}example.com",
-            "password": "Password",
-            "social": "Or via"
+            "password": "Password"
         }
     },
     "about": {

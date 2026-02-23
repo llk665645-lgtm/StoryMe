@@ -34,11 +34,31 @@
             </p>
           </div>
 
-          <form @submit.prevent="handleSubmit" class="space-y-4">
+          <div v-if="successMessage" class="space-y-6 py-4 text-center">
+            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-500/20 text-green-400 border border-green-500/20">
+              <Icon name="lucide:check" class="size-8" />
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold text-white">{{ isLogin ? 'Welcome Back!' : 'Account Created!' }}</h3>
+              <p class="text-sm text-white/60">{{ successMessage }}</p>
+            </div>
+            <div class="flex flex-col gap-3 pt-4">
+              <button 
+                class="w-full rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] py-4 text-sm font-black text-white text-center transition-all hover:scale-[1.02] active:scale-[0.98]"
+                @click="$emit('close')"
+              >
+                Continue Browsing
+              </button>
+            </div>
+          </div>
+
+          <form v-else @submit.prevent="handleSubmit" class="space-y-4">
             <div v-if="!isLogin" class="space-y-1">
               <label class="text-xs font-bold uppercase tracking-wider text-brand-gray ml-1">{{ $t('auth.form.fullName') }}</label>
               <input 
+                v-model="form.fullName"
                 type="text" 
+                required
                 :placeholder="$t('auth.form.fullNamePlaceholder')"
                 class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-white transition-all focus:border-purple-400 focus:ring-4 focus:ring-purple-500/10 placeholder:text-white/30 outline-none"
               />
@@ -47,7 +67,9 @@
             <div class="space-y-1">
               <label class="text-xs font-bold uppercase tracking-wider text-brand-gray ml-1">{{ $t('auth.form.email') }}</label>
               <input 
+                v-model="form.email"
                 type="email" 
+                required
                 :placeholder="$t('auth.form.emailPlaceholder')"
                 class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-white transition-all focus:border-purple-400 focus:ring-4 focus:ring-purple-500/10 placeholder:text-white/30 outline-none"
               />
@@ -56,49 +78,39 @@
             <div class="space-y-1">
               <label class="text-xs font-bold uppercase tracking-wider text-brand-gray ml-1">{{ $t('auth.form.password') }}</label>
               <input 
+                v-model="form.password"
                 type="password" 
+                required
                 placeholder="••••••••"
                 class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-white transition-all focus:border-purple-400 focus:ring-4 focus:ring-purple-500/10 placeholder:text-white/30 outline-none"
               />
             </div>
 
+            <p v-if="error" class="text-red-400 text-xs font-bold px-1 mt-2">
+              {{ error }}
+            </p>
+
             <button 
               type="submit"
-              class="group relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] py-4 text-sm font-black text-white shadow-[0_8px_30px_rgba(139,92,246,0.3)] transition-all hover:scale-[1.02] active:scale-[0.98] border border-white/20"
+              :disabled="isLoading"
+              class="group relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] py-4 text-sm font-black text-white shadow-[0_8px_30px_rgba(139,92,246,0.3)] transition-all hover:scale-[1.02] active:scale-[0.98] border border-white/20 disabled:opacity-50 disabled:scale-100"
             >
-              <span class="relative z-10">{{ isLogin ? $t('auth.login.submit') : $t('auth.register.submit') }}</span>
+              <span class="relative z-10">
+                {{ isLoading ? 'Processing...' : (isLogin ? $t('auth.login.submit') : $t('auth.register.submit')) }}
+              </span>
               <div class="absolute inset-0 -z-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
             </button>
           </form>
 
-          <div class="mt-8 flex items-center justify-center gap-2 text-sm font-bold">
+          <div v-if="!successMessage" class="mt-8 flex items-center justify-center gap-2 text-sm font-bold">
             <span class="text-white/40">
               {{ isLogin ? $t('auth.login.switch') : $t('auth.register.switch') }}
             </span>
             <button 
               class="text-purple-400 hover:text-purple-300 transition-colors"
-              @click="isLogin = !isLogin"
+              @click="isLogin = !isLogin; error = ''"
             >
               {{ isLogin ? $t('auth.login.action') : $t('auth.register.action') }}
-            </button>
-          </div>
-        </div>
-
-        <!-- Social Auth -->
-        <div class="bg-white/[0.03] border-t border-white/10 px-8 py-8">
-          <div class="flex items-center gap-3">
-             <div class="h-px flex-1 bg-white/10" />
-             <span class="text-[10px] font-black uppercase tracking-widest text-white/40">{{ $t('auth.form.social') }}</span>
-             <div class="h-px flex-1 bg-white/10" />
-          </div>
-          <div class="mt-6 grid grid-cols-2 gap-4">
-            <button class="flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 py-3 text-xs font-black text-white hover:bg-white/10 transition-all">
-              <Icon name="logos:google-icon" class="size-4" />
-              Google
-            </button>
-            <button class="flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 py-3 text-xs font-black text-white hover:bg-white/10 transition-all">
-              <Icon name="logos:github-icon" class="size-4" />
-              GitHub
             </button>
           </div>
         </div>
@@ -116,8 +128,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, reactive, watch } from 'vue';
 import { Motion, AnimatePresence } from 'motion-v';
+import { useAuthStore } from '~/stores/auth';
+
+const authStore = useAuthStore();
 
 const props = defineProps<{
   isOpen: boolean;
@@ -129,19 +144,92 @@ const emit = defineEmits<{
 }>();
 
 const isLogin = ref(props.initialMode === 'login');
+const isLoading = ref(false);
+const error = ref('');
+const successMessage = ref('');
+
+const form = reactive({
+  fullName: '',
+  email: '',
+  password: ''
+});
 
 // Sync mode when modal opens if provided
 watch(() => props.isOpen, (val) => {
   if (val && props.initialMode) {
     isLogin.value = props.initialMode === 'login';
   }
+  if (!val) {
+    error.value = '';
+    successMessage.value = '';
+    form.fullName = '';
+    form.email = '';
+    form.password = '';
+  }
 });
 
-const handleSubmit = () => {
-  // Simulate auth delay
-  setTimeout(() => {
-    emit('close');
-    navigateTo('/dashboard');
-  }, 500);
+const handleSubmit = async () => {
+  isLoading.value = true;
+  error.value = '';
+  
+  try {
+    const endpoint = isLogin.value ? '/auth/login' : '/auth/register';
+    const body = isLogin.value 
+      ? new URLSearchParams({ username: form.email, password: form.password })
+      : JSON.stringify({ email: form.email, password: form.password, full_name: form.fullName });
+    
+    const headers: Record<string, string> = {};
+    if (!isLogin.value) {
+      headers['Content-Type'] = 'application/json';
+    } else {
+      headers['Content-Type'] = 'application/x-www-form-urlencoded';
+    }
+
+    const config = useRuntimeConfig();
+    const response = await fetch(`${config.public.apiBase}${endpoint}`, {
+      method: 'POST',
+      headers,
+      body: body
+    });
+
+    let data;
+    try {
+      data = await response.json();
+    } catch (parseError) {
+      error.value = 'Server returned an invalid response. Please try again later.';
+      return;
+    }
+
+    if (!response.ok) {
+      error.value = data.detail || (data.message || 'Authentication failed');
+      return;
+    }
+
+    if (!data.data || !data.data.access_token) {
+      error.value = 'Invalid response format from server';
+      return;
+    }
+
+    // Store tokens
+    const { access_token, refresh_token } = data.data;
+    authStore.setTokens(access_token, refresh_token);
+    await authStore.fetchUser();
+
+    successMessage.value = isLogin.value 
+      ? 'You have successfully logged in!' 
+      : 'Your account has been created successfully!';
+    
+    // Clear form
+    form.fullName = '';
+    form.email = '';
+    form.password = '';
+    
+    isLoading.value = false;
+  } catch (e: any) {
+    console.error('Auth error:', e);
+    error.value = 'Connection error. Is the backend running?';
+  } finally {
+    isLoading.value = false;
+  }
 };
 </script>
