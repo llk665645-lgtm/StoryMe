@@ -69,7 +69,7 @@
             @click="triggerAuth('register')"
             class="mt-10 block w-full rounded-2xl px-6 py-4 text-center text-sm font-black transition-all duration-300"
             :class="tier.mostPopular 
-              ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-900/20 hover:scale-[1.03] hover:shadow-purple-900/40 active:scale-95' 
+              ? 'bg-violet-600 text-white shadow-lg shadow-violet-900/20 hover:scale-[1.03] hover:shadow-violet-900/40 active:scale-95' 
               : 'bg-white/5 text-white border border-white/10 hover:bg-white/10 hover:border-white/30'"
           >
             {{ tier.cta }}

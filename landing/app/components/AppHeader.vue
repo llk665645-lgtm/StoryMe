@@ -7,11 +7,11 @@
       <div class="grid h-20 grid-cols-2 md:grid-cols-[1fr_auto_1fr] items-center">
         <!-- Logo -->
         <div class="flex items-center gap-2">
-          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-[#8B5CF6] to-[#D946EF] text-white border border-white/20">
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-violet-600 text-white border border-white/20">
             <LogoIcon class="w-6 h-6 stroke-white fill-white" />
           </div>
           <span class="text-xl font-bold tracking-tight text-white group cursor-default">
-            Story<span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-200 italic">Me</span>
+            Story<span class="text-white italic">Me</span>
           </span>
         </div>
 
@@ -54,7 +54,7 @@
               {{ $t('header.login') }}
             </button>
             <button 
-              class="rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] px-8 py-3 text-sm font-black text-white transition-all hover:scale-105 active:scale-95 border border-white/20"
+              class="rounded-full bg-violet-600 px-8 py-3 text-sm font-black text-white transition-all hover:scale-105 active:scale-95 border border-white/20 shadow-lg shadow-violet-900/20"
               @click="openAuth('register')"
             >
               {{ $t('header.getStarted') }}
@@ -123,7 +123,7 @@
             {{ $t('header.login') }}
           </button>
           <button 
-            class="w-full rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] py-4 text-center font-black text-white shadow-lg shadow-purple-900/20"
+            class="w-full rounded-2xl bg-violet-600 py-4 text-center font-black text-white shadow-lg shadow-violet-900/20"
             @click="openAuth('register')"
           >
             {{ $t('header.getStarted') }}

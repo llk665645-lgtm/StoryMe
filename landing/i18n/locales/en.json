@@ -22,7 +22,7 @@
         "favPlaceholder": "Cars, cats, ice cream...",
         "themeLabel": "Story Theme",
         "validationHint": "Please write a bit more (minimum 6 characters)",
-        "processBtn": "Create Story for $3",
+        "processBtn": "Create Story",
         "limitReached": "Daily limit of 3 stories reached. Please sign up or come back tomorrow to create more magical worlds!",
         "processing": "AI is writing and drawing...",
         "resultHeader": "Your Personal Story",
@@ -131,10 +131,6 @@
             {
                 "name": "Print-Ready",
                 "description": "Get a file you can print and read before bed like a real physical book."
-            },
-            {
-                "name": "Magic for Just $3",
-                "description": "Affordable price for unique content created specifically for your child."
             }
         ]
     },
@@ -147,7 +143,7 @@
                 "description": "Enter the name, age, and what your child loves most."
             },
             {
-                "title": "Pay $3",
+                "title": "Payment",
                 "description": "Secure payment through Stripe starts the generation process."
             },
             {
@@ -184,7 +180,7 @@
         "tiers": [
             {
                 "name": "Single Magic",
-                "price": "$3",
+                "price": "Affordable",
                 "description": "Perfect for one special evening.",
                 "features": [
                     "1 Personalized Story",
@@ -300,9 +296,9 @@
     },
     "seo": {
         "title": "StoryMe — Personalized AI Bedtime Stories for Kids",
-        "description": "Create a unique story for your child. Hero name personalization, DALL-E 3 illustrations, and kind AI-written plots starting at $3.",
+        "description": "Create a unique story for your child. Hero name personalization, DALL-E 3 illustrations, and kind AI-written plots.",
         "pricing_title": "Pricing & Plans | StoryMe",
-        "pricing_description": "Affordable magical stories. Start from a single story for $3 or subscribe for unlimited monthly magic.",
+        "pricing_description": "Affordable magical stories. Start from a single story or subscribe for unlimited monthly magic.",
         "about_title": "About StoryMe | Our Mission and Values",
         "about_description": "Learn why we started StoryMe and how we are using AI to make every child a hero of their own bedtime story.",
         "blog_title": "Blog | StoryMe Insights & Tips",
