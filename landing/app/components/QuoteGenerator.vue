@@ -58,7 +58,7 @@
                         key === 'ocean' ? 'from-blue-400 to-cyan-600' : '',
                         key === 'dino' ? 'from-orange-400 to-yellow-600' : '',
                         key === 'magic' ? 'from-pink-400 to-rose-600' : '',
-                        key === 'super' ? 'from-red-400 to-orange-600' : ''
+                        key === 'city' ? 'from-slate-400 to-gray-600' : ''
                       ]"></div>
                       <Icon :name="(themeIcons[key] as string)" class="size-8 transition-transform group-hover:scale-110 relative z-10" :class="form.theme === key ? 'text-white' : 'text-white/50'" />
                       <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-center relative z-10" :class="form.theme === key ? 'text-white' : 'text-white/50'">{{ label }}</span>
@@ -230,10 +230,10 @@
     ocean: 'lucide:waves',
     dino: 'lucide:bone',
     magic: 'lucide:sparkles',
-    super: 'lucide:zap'
+    city: 'lucide:building'
   }
 
-  const themeKeys = ['forest', 'space', 'ocean', 'dino', 'magic', 'super']
+  const themeKeys = ['forest', 'space', 'ocean', 'dino', 'magic', 'city']
   const themes = computed(() => {
     const result: Record<string, string> = {}
     themeKeys.forEach(key => {
@@ -249,7 +249,7 @@
     ocean: 'bg-blue-500/20 border-blue-500/30',
     dino: 'bg-orange-500/20 border-orange-500/30',
     magic: 'bg-pink-500/20 border-pink-500/30',
-    super: 'bg-red-500/20 border-red-500/30'
+    city: 'bg-slate-500/20 border-slate-500/30'
   }
 
   const moodKeywords: Record<string, string> = {
@@ -258,7 +258,7 @@
     ocean: 'underwater-kingdom,sea-creatures,magical-ocean,coral-reef-illustration',
     dino: 'friendly-dinosaurs,prehistoric-jungle,ancient-world,dinosaur-watercolor',
     magic: 'fairytale-castle,magic-wand,enchanted-garden,storybook-watercolor',
-    super: 'child-superhero,comic-book-style,heroic-city,superpower-illustration'
+    city: 'futuristic-city,urban-adventure,superhero-city,watercolor-illustration'
   }
 
 
@@ -287,7 +287,11 @@
 
     result.title = t('generator.resultHeader')
     result.storyContent = story
-    result.image = THEME_DEMO_IMAGES[theme] || THEME_DEMO_IMAGES['magic'] || ''
+    
+    const urls = THEME_DEMO_IMAGES[theme] || THEME_DEMO_IMAGES['magic'] || []
+    const idx = (form.name.length + form.age) % urls.length
+    result.image = urls[idx] || ''
+    
     result.is_demo = true
     hasResult.value = true
     

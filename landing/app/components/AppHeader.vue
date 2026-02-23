@@ -40,7 +40,7 @@
               :key="locale"
               @click="setLocale(locale as any)"
               class="px-2 py-1 text-[10px] font-black uppercase transition-all rounded-md"
-              :class="currentLocale === locale ? 'bg-[#8B5CF6] text-white' : 'text-white/60 hover:text-white'"
+              :class="currentLocale === locale ? 'bg-violet-600 text-white' : 'text-white/60 hover:text-white'"
             >
               {{ locale }}
             </button>
@@ -107,7 +107,7 @@
               :key="locale"
               @click="setLocale(locale as any)"
               class="px-3 py-1.5 text-[10px] font-black uppercase transition-all rounded-md"
-              :class="currentLocale === locale ? 'bg-purple-600 text-white' : 'text-white/40'"
+              :class="currentLocale === locale ? 'bg-violet-600 text-white' : 'text-white/40'"
             >
               {{ locale }}
             </button>
