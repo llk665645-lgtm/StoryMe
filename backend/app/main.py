@@ -42,6 +42,9 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+# Rate limit по IP — выполняется первым (лимит из config: RATE_LIMIT, например "100/minute")
+app.add_middleware(RateLimitMiddleware)
+
 # CORS — список origins из конфига (добавляем первым, выполняется после rate limit)
 app.add_middleware(
     CORSMiddleware,
@@ -50,8 +53,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-# Rate limit по IP — выполняется первым (лимит из config: RATE_LIMIT, например "100/minute")
-app.add_middleware(RateLimitMiddleware)
 
 
 # Обработчик неожиданных исключений — структурированный ответ

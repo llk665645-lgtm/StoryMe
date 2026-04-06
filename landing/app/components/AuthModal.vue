@@ -218,6 +218,11 @@ const handleSubmit = async () => {
       ? 'You have successfully logged in!' 
       : 'Your account has been created successfully!';
     
+    // Redirect after a short delay
+    setTimeout(() => {
+      window.location.href = "/dashboard";
+    }, 1500);
+
     // Clear form
     form.fullName = '';
     form.email = '';

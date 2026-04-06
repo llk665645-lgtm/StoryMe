@@ -35,7 +35,7 @@ async function onSubmit(event: Event) {
       headers['Content-Type'] = 'application/json'
     }
 
-    const response = await fetch(`http://127.0.0.1:8000${endpoint}`, {
+    const response = await fetch(`http://localhost:8000${endpoint}`, {
       method: 'POST',
       headers,
       body,
@@ -63,7 +63,8 @@ async function onSubmit(event: Event) {
     localStorage.setItem('access_token', access_token)
     localStorage.setItem('refresh_token', refresh_token)
 
-    navigateTo('/')
+    // Redirect to dashboard
+    window.location.href = "/dashboard"
   } catch (e: any) {
     console.error('Auth error:', e)
     error.value = 'Connection error. Is the backend running?'
